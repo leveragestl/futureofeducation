@@ -1,0 +1,121 @@
+@use '../partials/variables' as *;
+
+.font-market {
+  font-family: "ff-market-web", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: none;
+}
+
+body {
+  font-family: "proxima-nova", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  margin-block: 0 1rem;
+  line-height: 1.2;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+// Paragraphs
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-block: 0 1rem;
+}
+
+.content-block {
+  p {
+    margin-block: 1rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul {
+    margin-left: 1.5rem;
+    padding-left: 1.5rem;
+    list-style-type: disc;
+  }
+}
+
+// Unordered Lists
+ul {
+  margin: 0 0 1rem 0;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+// List Items
+li {
+  margin-block: 0.5rem;
+  line-height: 1.4;
+}
+
+// Modifiers
+.custom-underline {
+  --underline-weight: 0.15em;
+
+  position: relative;
+  display: inline;
+  background-image: linear-gradient(transparent, transparent), linear-gradient(var(--color-tomato), var(--color-tomato));
+  background-size: 100% var(--underline-weight), 100% var(--underline-weight);
+  background-position: 100% 100%, 0 calc(90% - var(--underline-weight));
+  background-repeat: no-repeat;
+
+  // &::before {
+  //   content: '';
+  //   display: inline;
+  //   position: absolute;
+  //   width: 105%;
+  //   height: 100%;
+  //   left: 50%;
+  //   bottom: -0.3125rem;
+  //   translate: -50% 0;
+  //   background-image: linear-gradient(transparent, transparent), linear-gradient(var(--color-tomato), var(--color-tomato));
+  //   // background-size: 100% 0.25em, 0 0.25em;
+  //   background-size: 0 0.125em, 100% 0.125em;
+  //   background-position: 100% 100%, 0 calc(100% - 0.3em);
+  //   background-repeat: no-repeat;
+  //   z-index: -10;
+
+  //   @include media-sm {
+  //     bottom: -10%;
+  //   }
+  // }
+}

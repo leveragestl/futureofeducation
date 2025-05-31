@@ -1,0 +1,102 @@
+@use '../partials/variables' as *;
+
+.siteHeader {
+  &__toggle-input {
+    display: none;
+
+    &:checked {
+      & ~ .siteHeader__navPanel {
+        transform: translateX(0);
+      }
+
+      & ~ .siteHeader__toggle {
+        .siteHeader__toggle-line {
+          transform: rotate(225deg);
+          transition-delay: 0.12s;
+          transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+
+          &::before {
+            top: 0;
+            opacity: 0;
+            transition: top 0.1s ease-out,
+                      opacity 0.1s 0.12s ease-out;
+          }
+
+          &::after {
+            bottom: 0;
+            transform: rotate(-90deg);
+            transition: bottom 0.1s ease-out,
+                      transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+          }
+        }
+      }
+    }
+  }
+
+  &__toggle {
+    grid-column: 3;
+    display: block;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    z-index: 1000;
+    margin-top: 1rem;
+    transition: opacity 0.15s linear, margin-top 0.3s ease-out;
+
+    .siteHeader.is-scrolled & {
+      margin-top: 0;
+    }
+
+    @include media-xl {
+      display: none;
+    }
+
+    &-wrapper {
+      display: inline-block;
+    }
+
+    &-box {
+      width: var(--toggle-icon-width, 2rem);
+      height: 24px;
+      display: inline-block;
+      position: relative;
+    }
+
+    &-line {
+      display: block;
+      top: 50%;
+      margin-top: -1px;
+      transition-duration: 0.22s;
+      transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
+      &, &::before, &::after {
+        width: var(--toggle-icon-width, 2rem);
+        height: var(--toggle-icon-height, 0.125rem);
+        background-color: var(--toggle-icon-color, white);
+        border-radius: calc(var(--toggle-icon-height, 0.125rem) / 2);
+        position: absolute;
+        transition-property: transform;
+        transition-duration: 0.15s;
+        transition-timing-function: ease;
+      }
+
+      &::before, &::after {
+        content: "";
+        display: block;
+      }
+
+      &::before {
+        top: calc(-1 * var(--toggle-icon-gap, 8px));
+        transition: top 0.1s 0.25s ease-in,
+                    opacity 0.1s ease-in;
+      }
+
+      &::after {
+        bottom: calc(-1 * var(--toggle-icon-gap, 8px));
+        transition: bottom 0.1s 0.25s ease-in,
+                    transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+      }
+    }
+  }
+} 

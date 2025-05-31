@@ -1,0 +1,40 @@
+@use '../partials/variables' as *;
+
+.pageOverlay {
+  transition: .15s;
+  opacity: 1;
+}
+
+.ready .pageOverlay {
+  opacity: 0;
+  transition: 1s;
+}
+
+body {
+  background-color: var(--color-indigo, #272B64);
+  color: white;
+}
+
+.wrapper {
+  @include wrapper;
+  width: 100%;
+}
+
+.wrapper-wide {
+  @include wrapper-wide;
+  width: 100%;
+}
+
+.wrapper-narrow {
+  @include wrapper-narrow;
+  width: 100%;
+}
+
+.no-wrapper {
+  @include no-wrapper;
+}
+
+.wrapper-layout {
+  @include wrapper-layout;
+  width: 100%;
+}

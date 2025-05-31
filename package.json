@@ -1,0 +1,38 @@
+{
+  "name": "future2025",
+  "version": "1.0.0",
+  "description": "A custom WordPress theme",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "preview": "mix",
+    "dev": "mix watch",
+    "build": "mix --production",
+    "clean": "rm -rf assets/dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "browser-sync": "^2.29.3",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "cross-env": "^7.0.3",
+    "laravel-mix": "^6.0.49",
+    "postcss": "^8.5.3",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.86.0",
+    "sass-loader": "^12.6.0",
+    "tailwindcss": "^3.4.17",
+    "webpack-cli": "^6.0.1",
+    "webpack-livereload-plugin": "^3.0.2"
+  },
+  "dependencies": {
+    "@fancyapps/ui": "^5.0.36",
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "gsap": "file:gsap-bonus.tgz",
+    "swiper": "^11.2.8"
+  }
+}

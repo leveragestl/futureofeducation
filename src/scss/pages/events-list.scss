@@ -1,0 +1,127 @@
+@use '../partials/variables' as *;
+
+.page-template-page-events-list {
+  main.site-main {
+    padding-bottom: 7.5rem;
+  }
+
+  .hero {
+    align-items: center;
+    padding-top: calc(var(--site-header-height) + 10rem);
+    height: auto;
+    
+    &__inner {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      gap: 2rem;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    &__content {
+      grid-row: 3 / 4;
+    }
+
+    &__content-inner {
+      width: 100%;
+      gap: 2rem;
+      align-items: flex-start;
+      display: flex;
+      flex-direction: column;
+      max-width: 50vw;
+    }
+
+    &__title {
+      font-size: 5rem;
+      line-height: 1;
+      font-weight: 700;
+      color: white;
+    }
+
+    &__view {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-sky);
+    }
+
+    &__filters {
+      width: fit-content;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      &-headline {
+        font-size: 1.25rem;
+        font-weight: 700;
+      }
+  
+      &-filter {
+        width: auto;
+  
+        select {
+          width: 200px;
+          padding: 0.5rem 1.5rem;
+          border: 2px solid white;
+          border-radius: 9999px;
+          background-color: transparent;
+          font-size: 0.875rem;
+          font-weight: 700;
+          color: white;
+          appearance: none;
+          padding-right: 3rem;
+          background-image: url("data:image/svg+xml,%3Csvg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 1L6 6L1 1' stroke='%2300BDF2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+          background-repeat: no-repeat;
+          background-position: right 1rem center;
+        }
+      }
+      
+    }
+  }
+
+  .feed-section {
+    margin-top: 5rem;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    th, td {
+      padding: 2rem 0;
+      text-align: left;
+    }
+
+    tr {
+      border-bottom: 1px solid white;
+    }
+
+    th {
+      font-size: 1.25rem;
+    }
+
+    td {
+      font-size: 1.25rem;
+    }
+
+    td.event-name {
+
+      .post-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+      }
+    }
+
+    td.event-button {
+      text-align: right;
+    }
+
+    .button {
+      padding: 0.5rem 2rem;
+      width: 180px;
+      border-radius: 9999px;
+    }
+  }
+}
+// Add more styles as needed to match the theme 

@@ -1,0 +1,276 @@
+@use '../partials/variables' as *;
+
+.page-template-page-events {
+  main.site-main {
+    padding-bottom: 7.5rem;
+  }
+
+  .hero {
+    align-items: center;
+    padding-top: calc(var(--site-header-height) + 10rem);
+    height: auto;
+    
+    &__inner {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      gap: 2rem;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    &__content {
+      grid-row: 3 / 4;
+    }
+
+    &__content-inner {
+      width: 100%;
+      gap: 2rem;
+      align-items: flex-start;
+      display: flex;
+      flex-direction: column;
+      max-width: 50vw;
+    }
+
+    &__title {
+      font-size: 5rem;
+      line-height: 1;
+      font-weight: 700;
+      color: white;
+    }
+
+    &__view {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-sky);
+    }
+
+    &__filters {
+      width: fit-content;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      &-headline {
+        font-size: 1.25rem;
+        font-weight: 700;
+      }
+  
+      &-filter {
+        width: auto;
+  
+        select {
+          width: 200px;
+          padding: 0.5rem 1.5rem;
+          border: 2px solid white;
+          border-radius: 9999px;
+          background-color: transparent;
+          font-size: 0.875rem;
+          font-weight: 700;
+          color: white;
+          appearance: none;
+          padding-right: 3rem;
+          background-image: url("data:image/svg+xml,%3Csvg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 1L6 6L1 1' stroke='%2300BDF2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+          background-repeat: no-repeat;
+          background-position: right 1rem center;
+        }
+      }
+      
+    }
+  }
+
+  .feed-section {
+    --padding: 2.5rem;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin-top: 5rem;
+
+    .post {
+      position: relative;
+      display: grid;
+      grid-template-rows: 1fr;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      border: 2px solid transparent;
+      border-radius: 20px;
+      background-image: linear-gradient(var(--color-indigo), var(--color-indigo)), linear-gradient(to bottom, var(--color-sky), #26509D);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      overflow: hidden;
+      aspect-ratio: 636 / 412;
+
+      .post-image {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: black;
+          opacity: 0.5;
+          z-index: 1;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: top;
+        }
+      }
+
+      .post-inner {
+        height: 100%;
+        padding: var(--padding);
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+        position: relative;
+        z-index: 1;
+      }
+
+      .post-content {
+        p {
+          font-size: 1.25rem;
+          font-weight: 700;
+          line-height: 1.2;
+        }
+      }
+
+      .post-title {
+        font-size: 3.75rem;
+        line-height: 1;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 2rem;
+        max-width: 30rem;
+
+        a {
+          transition: color 0.3s ease-in-out;
+
+          &:hover {
+            color: var(--color-sky);
+          }
+        }
+      }
+
+      .post-excerpt {
+        display: none;
+      }
+
+      .post-meta {
+        position: absolute;
+        bottom: var(--padding);
+        left: var(--padding);
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        align-items: center;
+        gap: 4rem;
+
+        .post-button {
+          .button {
+            width: 180px;
+            padding-block: 0.5rem;
+            transition: translate 0.3s ease-in-out;
+
+            &:hover {
+              translate: 0 -5px;
+            }
+          }
+        }
+
+        .post-date {
+          width: 100%;
+
+          &__label {
+            font-size: 1.25rem;
+          }
+
+          &__value {
+            font-size: 1.5rem;
+            font-weight: 700;
+          }
+        }
+
+        .post-location {
+          width: 100%;
+
+          &__label {
+            font-size: 1.25rem;
+          }
+
+          &__value {
+            font-size: 1.5rem;
+            font-weight: 700;
+          }
+        }
+      }
+
+      // =======================================================================
+      // First post
+      // =======================================================================
+      &:first-child {
+        grid-column: 1 / 3;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        align-items: flex-start;
+        aspect-ratio: auto;
+
+        .post-image {
+          grid-column: 1 / 2;
+          grid-row: 1 / 2;
+          aspect-ratio: 1308 / 544;
+
+          &::after {
+            opacity: 0.2;
+          }
+        }
+
+        .post-inner {
+          grid-column: 1 / 2;
+          grid-row: 1 / 2;
+          position: relative;
+          z-index: 1;
+        }
+
+        .post-title {
+          max-width: 30rem;
+        }
+
+        .post-excerpt {
+          display: block;
+          max-width: 35rem;
+          padding-right: 10rem;
+          margin-top: 7.5rem;
+
+          p {
+            font-size: 2.25rem;
+            font-weight: 400;
+            line-height: 1.2;
+          }
+        }
+
+        .post-meta {
+          gap: 6rem;
+        }
+
+        .post-button {
+          .button {
+            width: 250px;
+            padding-block: 0.75rem;
+          }
+        }
+      }
+    }
+  }
+}
+// Add more styles as needed to match the theme 

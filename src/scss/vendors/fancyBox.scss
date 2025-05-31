@@ -1,0 +1,245 @@
+@use '../partials/variables' as *;
+
+.fancybox__content.modal >.f-button.is-close-btn {
+  top: 1rem !important;
+  right: 1rem !important;
+  background-color: transparent;
+
+  @include media-md {
+    top: 3.25rem !important;
+    right: 3.25rem !important;
+  }
+}
+
+.fancybox__backdrop {
+  --fancybox-opacity: 0.98;
+  position: relative;
+  background-color: #3D3D3D;
+
+  // &::after {
+  //   content: '';
+  //   display: block;
+  //   position: absolute;
+  //   inset: 0;
+  //   background: url('../../../images/texture-paper-lg.png') no-repeat center !important;
+  //   background-size: cover !important;
+  //   opacity: 0.7;
+  //   background-blend-mode: hard-light;
+  // }
+}
+
+.modal {
+  --fancybox-content-color: black;
+
+  width: 70rem;
+  background-color: transparent;
+  background-color: var(--color-offwhite);
+  margin-block: 2rem !important;
+  padding: 3.5rem 2rem !important;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.95);
+
+  & > * {
+    position: relative;
+    z-index: 10;
+  }
+
+  // &::after {
+  //   content: '';
+  //   display: block;
+  //   position: absolute;
+  //   inset: 0;
+  //   background: url('../../../images/texture-paper-lg.png') no-repeat center;
+  //   background-size: cover;
+  //   opacity: 1;
+  //   mix-blend-mode: hard-light;
+  //   z-index: 0;
+  // }
+
+  @include media-md {
+    margin: 3.75rem 0 5rem !important;
+    padding: 5rem 3.75rem !important;
+  }
+
+  &__inner {
+    width: 100%;
+    max-width: 1280px;
+    margin: 2rem auto 0;
+
+    @include media-sm {
+      margin: 5rem auto 0;
+    }
+  }
+
+  &__header {
+    text-align: center;
+  }
+
+  &__kicker {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.33em;
+    color: var(--color-tomato);
+
+    @include media-sm {
+      font-size: 1.875rem;
+    }
+  }
+
+  &__headline {
+    font-size: 2.25rem;
+    text-transform: uppercase;
+
+    @include media-sm {
+      font-size: 3.75rem;
+    }
+  }
+
+  &__main {
+    width: 100%;
+    column-gap: 2.25rem;
+    margin-top: 5rem;
+    text-align: left;
+
+    @include media-sm {
+      display: grid;
+      grid-template-columns: 1fr 2fr;  
+    }
+  }
+
+  &__headshot {
+    position: relative;
+    margin-bottom: -4rem;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: calc(100% - 4rem);
+      bottom: 0;
+      left: 0;
+      translate: 0 -4rem;
+      background-color: var(--color-tomato);
+    }
+
+    img {
+      display: block;
+      position: relative;
+      z-index: 10;
+      translate: 0 -4rem;
+      max-width: 100%;
+    }
+  }
+
+  &__logo {
+    aspect-ratio: 393/421;
+    background-color: var(--color-cream);
+    display: flex;
+    align-items: center;
+    padding-inline: 3.5rem;
+    margin-top: -2rem;
+
+    @include media-sm {
+      margin-top: 0;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &__name {
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 0.07em;
+    margin-block: 1rem 0;
+
+    @include media-sm {
+      margin-block: 1.75rem 0;
+    }
+  }
+
+  &__title {
+    // @include font-airborne;
+    text-transform: uppercase;
+    font-size: 1.125rem;
+    letter-spacing: 0.07em;
+    color: var(--color-lightgray);
+  }
+
+  &__content {
+  }
+
+  &__body p {
+    line-height: 1.75rem;
+  }
+
+  &__salutation {
+    display: block;
+    margin-top: 3rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+
+  &__signature {
+    margin-bottom: 2.5rem;
+  }
+
+  &__salutationName {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  &__salutationTitle {
+    // @include font-airborne;
+    font-size: 1rem;
+    letter-spacing: 0;
+  }
+
+  &__footer {
+    margin-top: 5rem;
+
+    @include media-sm {
+      margin-top: 10rem;
+    }
+  }
+
+  &__next {
+    display: flex;
+
+    .button--next {
+      text-align: left;
+
+      .prefix {
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        color: var(--color-tomato);
+
+        @include media-sm {
+          font-size: 1.25rem;
+        }
+      }
+
+      .label {
+        // @include font-airborne;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        display: flex;
+        align-items: center;
+        column-gap: 1rem;
+
+        @include media-sm {
+          font-size: 2.5rem;
+        }
+      }
+    }
+
+    @include media-sm {
+      justify-content: flex-end;
+    }
+  }
+}

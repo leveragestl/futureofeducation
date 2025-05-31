@@ -1,0 +1,177 @@
+@use '../partials/variables' as *;
+@use '../components/menuToggle' as *;
+
+:root {
+  --site-header-height: 75px;
+  @include media-xl {
+    --site-header-height: 100px;
+  }
+}
+
+.siteHeader {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  width: 100%;
+  height: var(--site-header-height);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding-inline: var(--layout-margin);
+  background-color: var(--color-indigo, #272B64);
+  transition: height 0.3s ease-out;
+
+  @include media-xl {
+    grid-template-columns: 1fr 3fr 1fr;
+
+    .siteHeader.is-scrolled & {
+      --site-header-height: 90px;
+    }
+  }
+
+  // Branding
+  &__branding {
+    height: var(--site-header-height);
+    transition: translate 0.3s ease-out;
+
+    .siteHeader.is-scrolled & {
+      translate: 0 -5px;
+    }
+  }
+
+  // Logo
+  &__logo {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  // Title
+  &__title {
+    margin-bottom: 0;
+    text-indent: -9999px;
+    width: 171px;
+    height: 100%;
+    background: url('../../public/futureofeducation-logo.png') no-repeat center;
+    background-size: contain;
+  }
+
+  // Navigation Panel
+  &__navPanel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 350px;
+    height: 100%;
+    padding: 2rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    transform: translateX(100%);
+    transition: transform 0.5s cubic-bezier(0.17, 0.67, 0.12, 1.02);
+    backdrop-filter: blur(8px);
+    background-color: rgba(49, 49, 133, 0.8);
+
+    @include media-xl {
+      display: contents;
+      transform: none;
+      backdrop-filter: none;
+    }
+  }
+
+  // Navigation
+  &__nav {
+    grid-column: 2 / -1;
+
+    @include media-xl {
+      gap: 2.5rem;
+      grid-row-start: 1;
+      grid-column: 2 / 3;
+      justify-content: center;
+      margin-top: 1rem;
+      transition: margin-top 0.3s ease-out;
+
+      .siteHeader.is-scrolled & {
+        margin-top: 0;
+      }
+    }
+  }
+
+  // Menu
+  &__menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-direction: column;
+    width: 100%;
+    display: flex;
+
+    @include media-xl {
+      flex-direction: row;
+      gap: 2.5rem;
+      justify-content: center;
+    }
+
+    li {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      transition: color 300ms ease-out;
+      
+      &:hover {
+        color: var(--color-sky, #00BDF2);
+      }
+    }
+
+    @include media-xl {
+      width: auto;
+      
+      ul {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      li {
+        margin: 0;
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  // Button
+  &__button {
+    margin-top: 2rem;
+    transition: margin-top 0.3s ease-out;
+
+    .button {
+      text-align: center;
+      width: 100%;
+    }
+
+    @include media-xl {
+      display: flex;
+      width: 100%;
+      justify-content: end;  
+      margin-top: 1rem;
+      grid-column-start: 3;
+      grid-row-start: 1;
+
+      .button {
+        width: auto;
+      }
+    }
+
+    .siteHeader.is-scrolled & {
+      margin-top: 0;
+    }
+  }
+}

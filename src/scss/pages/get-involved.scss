@@ -1,0 +1,206 @@
+@use '../partials/variables' as *;
+
+.page-template-page-get-involved {
+  .hero {
+    height: auto;
+    min-height: 100vh;
+
+    &__container {
+    }
+
+    &__content {
+      background-color: white;
+      color: var(--color-indigo-dark);
+      border-radius: 20px;
+      overflow: clip;
+      height: 100%;
+      padding-top: 8rem;
+    }
+
+    &__headline {
+      font-size: 3.75rem;
+      line-height: 1;
+      font-weight: 700;
+      margin-bottom: 4rem;
+      color: var(--color-indigo-bright);
+    }
+
+    &__content-inner {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: min(8rem, 5vw);
+    }
+
+    &__content-image {
+      aspect-ratio: 460/670;
+      width: 460px;
+      border-radius: 20px;
+      overflow: clip;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &__content-letter {
+      max-width: 80ch;
+      
+      p {
+        font-size: 1.25rem;
+        line-height: 1.5;
+        margin-bottom: 3rem;
+      }
+    }
+  }
+
+  .act-section {
+    padding-block: 6rem;
+
+    &__headline {
+      font-size: 3.75rem;
+      line-height: 1;
+      font-weight: 700;
+      max-width: 15.5ch;
+    }
+
+    &__images {
+      display: grid;
+      grid-template-columns: 1fr 0.1fr 0.1fr 1fr;
+      grid-template-rows: repeat(3, 1fr);
+      height: 100%;
+    }
+
+    &__image {
+      aspect-ratio: 606/412;
+      width: 100%;
+      border-radius: 20px;
+      overflow: clip;
+      box-shadow: 40px 40px 65px 0 rgba(0, 0, 0, 0.25);
+      grid-row: 1 / span 2;
+
+      &:first-child {
+        grid-row: 2 / 4;
+        grid-column: 1 / 4;
+      }
+
+      &:last-child {
+        grid-row: 1 / 3;
+        grid-column: 2 / 5;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .forms-section {
+    padding-block: 6rem;
+    padding-inline: 1rem;
+
+    &__inner {
+      max-width: 1024px;
+      margin-inline: auto;
+      background-color: #F7F7F7;
+      padding: 3rem 4rem 6rem;
+      border-radius: 20px;
+      border: 2px solid transparent;
+      background-image: linear-gradient(#F7F7F7, #F7F7F7), linear-gradient(to bottom, var(--color-sky), #26509D);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      overflow: hidden;  
+    }
+
+    &__instructions {
+      text-align: center;
+      max-width: 70ch;
+      margin: 5rem auto;
+
+      p {
+        font-size: 1.625rem;
+        line-height: 1.2;
+        font-weight: 600;
+        color: var(--color-sky);
+      }
+    }
+
+    &__letter {
+      margin-bottom: 3rem;
+
+      p, ul {
+        font-size: 1.125rem;
+        font-weight: 600;
+        line-height: 1.5;
+        color: var(--color-indigo-dark);
+      }
+    }
+
+    &__tabs {
+      // background-color: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      position: relative;
+
+      // Hide radio buttons but keep them accessible
+      input[type="radio"] {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+
+    .tab-link {
+      width: calc(50% - 2.055px);
+      translate: 0 20px;
+      display: inline-block;
+      padding: 1.5rem 1.5rem 40px;
+      font-size: 2.25rem;
+      text-align: center;
+      color: white;
+      font-weight: 600;
+      line-height: 1;
+      position: relative;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      border-radius: 20px 20px 0 0;
+
+      &:hover {
+        color: var(--color-sky);
+      }
+    }
+
+    &__tab-content {
+      padding: 3rem;
+      background-color: white;
+      border-radius: 20px;
+
+      .tab-panel {
+        display: none;
+      }
+    }
+
+    input[type="radio"]:checked + .tab-link {
+      background-color: white;
+      color: var(--color-sky);
+      font-weight: 700;
+    }
+
+    // Tab switching logic
+    #tab1:checked {
+      ~ .forms-section__tab-content #legislator-form {
+        display: block;
+      }
+    }
+
+    #tab2:checked {
+      ~ .forms-section__tab-content #administrator-form {
+        display: block;
+      }
+    }
+  }
+} 

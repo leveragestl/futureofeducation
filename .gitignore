@@ -1,0 +1,20 @@
+assets/images/**
+
+# ignore node dependency directories
+node_modules
+
+# ignore log files and databases
+*.log
+*.sql
+*.sqlite
+
+## Ignore Mac OS Stuff
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*

@@ -1,0 +1,87 @@
+@use '../partials/variables' as *;
+
+button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+}
+
+.button {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-indigo-bright, #313185);
+  color: white;
+  overflow: hidden;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 0.625rem 1.25rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  
+  &:hover, &:focus {
+    background-color: var(--color-sky, #00BDF2);
+  }
+
+  span {
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    column-gap: 2rem;
+  }
+
+  i {
+    background-color: white;
+  }
+
+  &--large {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-inline: 2.5rem;
+
+    @screen md {
+      font-size: 1.875rem;
+    }
+
+    @screen xl {
+      font-size: 2.75rem;
+      padding: 0.5rem 2rem;
+    }
+  }
+
+  &--gradient {
+    background: var(--gradient-sky-indigo);
+  }
+
+  &--ghost {
+    background: #E2E2E22B;
+    border: 2px solid white;
+    color: white;
+    padding: 1.25rem 2.75rem;
+    line-height: 1;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    backdrop-filter: blur(5px);
+    transition: background-color 0.3s ease;
+
+    span {
+      color: white;
+      background-color: transparent;
+    }
+
+    &:hover {
+      background: white;
+      color: var(--color-indigo);
+
+      span {
+        color: var(--color-indigo);
+      }
+    }
+  }
+}

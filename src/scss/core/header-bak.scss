@@ -1,0 +1,221 @@
+@use '../partials/variables' as *;
+
+:root {
+  --site-header-height: 75px;
+  @include media-xl {
+    --site-header-height: 100px;
+  }
+}
+
+.siteHeader {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  width: 100%;
+  height: var(--site-header-height);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding-inline: var(--container-margin);
+  background-color: var(--color-indigo, #272B64);
+
+  @include media-xl {
+    grid-template-columns: 1fr 3fr 1fr;
+  }
+
+  // Branding
+  &__branding {
+    height: var(--site-header-height);
+  }
+
+  // Logo
+  &__logo {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  // Title
+  &__title {
+    margin-bottom: 0;
+    text-indent: -9999px;
+    width: 171px;
+    height: 100%;
+    background: url('../../../public/futureofeducation-logo.png') no-repeat center;
+    background-size: contain;
+  }
+
+  // Toggle Button
+  &__toggle {
+    --toggle-icon-width: 2rem;
+    --toggle-icon-height: 0.125rem;
+    --toggle-icon-gap: 8px;
+    --toggle-icon-color: white;
+
+    &-icon {
+      display: block;
+      width: var(--toggle-icon-width);
+      height: var(--toggle-icon-height);
+      background-color: var(--toggle-icon-color);
+      position: relative;
+      transition: background-color 0.3s;
+      transition-delay: 0.3s;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: var(--toggle-icon-height);
+        background-color: var(--toggle-icon-color);
+        transition: all 0.3s;
+        transition-delay: 0.3s;
+        left: 0;
+      }
+
+      &::before {
+        top: calc(-1 * var(--toggle-icon-gap));
+      }
+
+      &::after {
+        bottom: calc(-1 * var(--toggle-icon-gap));
+      }
+    }
+
+    grid-column: 3;
+    display: block;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    z-index: 1000;
+    margin-top: 1rem;
+
+    @include media-xl {
+      display: none;
+    }
+
+    &[aria-expanded="true"] {
+      --toggle-icon-color: var(--color-indigo, #272B64);
+
+      .siteHeader__toggle-icon {
+        background-color: transparent;
+        transition-delay: 0s;
+
+        &::before {
+          transform: translateY(var(--toggle-icon-gap)) rotate(45deg);
+          transition-delay: 0s;
+        }
+
+        &::after {
+          transform: translateY(calc(-1 * var(--toggle-icon-gap))) rotate(-45deg);
+          transition-delay: 0s;
+        }
+      }
+
+      & + .siteHeader__navPanel {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  // Navigation
+  &__navPanel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    background-color: white;
+    padding: 2rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    transform: translateX(100%);
+    // visibility: hidden;
+    transition: transform 0.3s ease-in-out, visibility 0s linear 0.3s;
+
+    .siteHeader__toggle[aria-expanded="true"] + & {
+      transition: transform 0.3s ease-in-out, visibility 0s linear 0s;
+    }
+
+    @include media-xl {
+      display: contents;
+    }
+  }
+
+  &__nav {
+    grid-column: 2 / -1;
+    display: flex;
+    align-items: center;
+
+    @include media-xl {
+      gap: 2.5rem;
+      grid-row-start: 1;
+      grid-column: 2 / 3;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+  }
+
+  // Menu
+  &__menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+
+    @include media-xl {
+      width: auto;
+      
+      ul {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      li {
+        margin: 0;
+      }
+    }
+
+    li {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      transition: color 300ms ease-out;
+      
+      &:hover {
+        color: var(--color-sky, #00BDF2);
+      }
+    }
+  }
+
+  // Button
+  &__button {
+    margin-top: 2rem;
+
+    .button {
+      // width: 100%;
+      text-align: center;
+    }
+
+    @include media-xl {
+      display: flex;
+      width: 100%;
+      justify-content: end;  
+      margin-top: 1rem;
+      grid-column-start: 3;
+      grid-row-start: 1;
+    }
+  }
+}
