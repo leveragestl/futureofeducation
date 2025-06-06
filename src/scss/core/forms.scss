@@ -5,14 +5,23 @@
   --form-gap: 1.25rem;
 
   &__fieldset {
-    display: flex;
+    display: block;
     gap: var(--form-gap);
-    margin-bottom: var(--form-gap);
+
+    @screen xl {
+      display: flex;
+      margin-bottom: var(--form-gap);
+    }
   }
 
   &__field {
     flex: 1 1 auto;
     width: auto;
+    margin-bottom: var(--form-gap);
+
+    @screen xl {
+      margin-bottom: 0;
+    }
 
     &--short {
       flex: 0 0 150px;

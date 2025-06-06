@@ -16,7 +16,7 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
-    <section class="hero">
+    <header class="hero">
 			<div class="hero__container">
         <div class="hero__image">
           <img src="<?php echo home_url() . '/wp-content/uploads/2025/05/news-hero.jpg'; ?>" alt="" />
@@ -26,26 +26,26 @@ get_header();
 			<div class="hero__content">
 				<div class="hero__content-inner">
           <h3 class="hero__headline">We Owe It To Our Kids To Change Course.</h3>
-          <h4 class="hero__subheadline">Future Of Education In The News:</h4>
+          <h4 class="hero__subheadline">Hear what others are saying/talking about:</h4>
 				</div>
 			</div>
-		</section>
+		</header>
     
-    <section class="filter-section wrapper-layout">
-      <div class="filter-section__filters">
-        <h2 class="filter-section__filters-headline">Filter</h2>
+    <section class="filter wrapper-layout">
+      <div class="filter__filters">
+        <h2 class="filter__filters-headline">Filter</h2>
 
-        <div class="filter-section__filter">
+        <div class="filter__filter">
           <button name="filter" id="filter"><span>Education</span></button>
         </div>
 
-        <div class="filter-section__filter">
+        <div class="filter__filter">
           <input type="search" placeholder="Search" />
         </div>
       </div>
     </section>
 
-		<section class="feed-section wrapper-layout">
+		<section class="feed wrapper-layout">
 			<?php if ( have_posts() ) : ?>
 				<?php while ( have_posts() ) : the_post(); ?>
           <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -74,12 +74,12 @@ get_header();
 		</section>
 
     <div class="load-more-button">
-      <button class="button bg-sky">Load More</button>
+      <button class="button bg-sky hover:bg-indigo-bright">Load More</button>
     </div>
 
     <div class="wrapper-wide">
       <div class="next">
-        <a href="#" class="next__link">
+        <a href="<?php echo home_url('/events'); ?>" class="next__link">
           <span class="next__label">Next</span>
           <span class="next__title">Events</span>
         </a>

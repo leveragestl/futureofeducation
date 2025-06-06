@@ -6,17 +6,31 @@
   }
 
   .hero {
+    --hero-padding-top: 5rem;
+    
+    display: block;
     align-items: center;
-    padding-top: calc(var(--site-header-height) + 10rem);
+    padding-top: calc(var(--site-header-height) + var(--hero-padding-top));
     height: auto;
+
+    @screen xl {
+      --hero-padding-top: 10rem;
+      
+      padding-top: calc(var(--site-header-height) + 10rem);
+    }
     
     &__inner {
-      display: grid;
-      grid-template-columns: repeat(2, auto);
+      display: flex;
+      flex-direction: column;
       gap: 2rem;
-      align-items: center;
-      justify-content: space-between;
       width: 100%;
+
+      @screen xl {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        align-items: center;
+        justify-content: space-between;  
+      }
     }
 
     &__content {
@@ -33,10 +47,18 @@
     }
 
     &__title {
-      font-size: 5rem;
+      font-size: 2.5rem;
       line-height: 1;
       font-weight: 700;
       color: white;
+
+      @screen md {
+        font-size: 3.75rem;
+      }
+
+      @screen xl {
+        font-size: 5rem;
+      }
     }
 
     &__view {
@@ -46,10 +68,17 @@
     }
 
     &__filters {
-      width: fit-content;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       gap: 1rem;
+
+      @screen md {
+        width: fit-content;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+      }
 
       &-headline {
         font-size: 1.25rem;
@@ -79,13 +108,20 @@
     }
   }
 
-  .feed-section {
-    --padding: 2.5rem;
+  .feed {
+    --padding: 1.5rem;
 
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
+    gap: 1rem;
     margin-top: 5rem;
+
+    @screen md {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @screen xl {
+      gap: 2.5rem;
+    }
 
     .post {
       position: relative;
@@ -99,7 +135,13 @@
       background-origin: border-box;
       background-clip: padding-box, border-box;
       overflow: hidden;
-      aspect-ratio: 636 / 412;
+      margin-bottom: 2rem;
+      height: 100%;
+
+      @screen xl {
+        margin-bottom: 0;
+        aspect-ratio: 636 / 412;
+      }
 
       .post-image {
         position: relative;
@@ -135,6 +177,10 @@
         grid-column: 1 / 2;
         position: relative;
         z-index: 1;
+
+        @screen xl {
+          --padding: 2.5rem;
+        }
       }
 
       .post-content {
@@ -146,12 +192,20 @@
       }
 
       .post-title {
-        font-size: 3.75rem;
+        font-size: 1.75rem;
         line-height: 1;
         font-weight: 700;
         color: white;
         margin-bottom: 2rem;
         max-width: 30rem;
+
+        @screen md {
+          font-size: 2rem;
+        }
+
+        @screen xl {
+          font-size: 3.75rem;
+        }
 
         a {
           transition: color 0.3s ease-in-out;
@@ -167,23 +221,30 @@
       }
 
       .post-meta {
-        position: absolute;
-        bottom: var(--padding);
-        left: var(--padding);
-        display: grid;
-        grid-template-columns: repeat(3, auto);
-        align-items: center;
-        gap: 4rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        @screen xl {
+          display: grid;
+          grid-template-columns: repeat(3, auto);
+          align-items: center;
+          gap: 4rem;
+          position: absolute;
+          bottom: var(--padding);
+          left: var(--padding);
+        }
 
         .post-button {
+          display: none;
+
+          @screen xl {
+            display: block;
+          }
+
           .button {
             width: 180px;
             padding-block: 0.5rem;
-            transition: translate 0.3s ease-in-out;
-
-            &:hover {
-              translate: 0 -5px;
-            }
           }
         }
 
@@ -217,56 +278,70 @@
       // =======================================================================
       // First post
       // =======================================================================
-      &:first-child {
-        grid-column: 1 / 3;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
-        align-items: flex-start;
-        aspect-ratio: auto;
+      @screen md {
+        &:first-child {
+          grid-column: 1 / 3;
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr;
+          align-items: flex-start;
+          aspect-ratio: auto;
 
-        .post-image {
-          grid-column: 1 / 2;
-          grid-row: 1 / 2;
-          aspect-ratio: 1308 / 544;
+          .post-image {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+            aspect-ratio: 1308 / 544;
 
-          &::after {
-            opacity: 0.2;
+            &::after {
+              opacity: 0.2;
+            }
           }
-        }
 
-        .post-inner {
-          grid-column: 1 / 2;
-          grid-row: 1 / 2;
-          position: relative;
-          z-index: 1;
-        }
-
-        .post-title {
-          max-width: 30rem;
-        }
-
-        .post-excerpt {
-          display: block;
-          max-width: 35rem;
-          padding-right: 10rem;
-          margin-top: 7.5rem;
-
-          p {
-            font-size: 2.25rem;
-            font-weight: 400;
-            line-height: 1.2;
+          .post-content {
+            margin-bottom: 4rem;
           }
-        }
 
-        .post-meta {
-          gap: 6rem;
-        }
+          .post-inner {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+            position: relative;
+            z-index: 1;
+          }
 
-        .post-button {
-          .button {
-            width: 250px;
-            padding-block: 0.75rem;
+          .post-title {
+            max-width: 30rem;
+          }
+
+          .post-excerpt {
+            display: block;
+            max-width: 35rem;
+            padding-right: 10rem;
+            margin-top: 2rem;
+
+            @screen xl {
+              margin-top: 7.5rem;
+            }
+
+            p {
+              font-size: 2.25rem;
+              font-weight: 400;
+              line-height: 1.2;
+            }
+          }
+
+          .post-meta {
+            gap: 1rem;
+
+            @screen xl {
+              gap: 6rem;
+            }
+          }
+
+          .post-button {
+            .button {
+              width: 250px;
+              padding-block: 0.75rem;
+            }
           }
         }
       }

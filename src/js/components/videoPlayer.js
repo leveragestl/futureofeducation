@@ -1,21 +1,6 @@
 export function videoPlayer() {
 
   // ===========================================================================
-  // Functions
-  // ===========================================================================
-
-  // Full-screen button handler
-  function toggleFullscreen(target) {
-    const targetContainer = target.closest('.video-container')
-
-    if (!document.fullscreenElement) {
-      targetContainer.querySelector('video').requestFullscreen()
-    } else {
-      document.exitFullscreen();
-    }
-  }
-
-  // ===========================================================================
   // Target
   // ===========================================================================
   const videos = document.querySelectorAll('.video-container')
@@ -23,11 +8,11 @@ export function videoPlayer() {
   for (const video of videos) {
     const videoContainer = video
     const videoElem = video.querySelector('video')
-    const playButton = video.querySelector('button[data-video-play]')
+    const playButton = video.querySelector('.play-button')
+    const muteButton = video.querySelector('.mute-button')
 
     // ~~~~~~~~~~~~~~ Play/Pause ~~~~~~~~~~~~~ //
     video.addEventListener('click', (e) => {
-
       function playPause() {
         if (videoContainer.getAttribute('data-video') !== 'is-playing') {
           videoElem.play()
@@ -39,13 +24,33 @@ export function videoPlayer() {
           playButton.style.cssText = ''
         }
       }
-
-      if (e.target === videoContainer || e.target.closest('.video-container')) {
-        playPause()
-      } else if (e.target === playButton || e.target.closest('button[data-video-play]') ) {
-        playPause()
-      }
-
     })
+
+    if(video.classList.contains('video-autoplays')) {
+      video.addEventListener('click', (e) => {
+        if (e.target === playButton || e.target === playButton.querySelector('button')) {
+          videoElem.pause()
+          videoElem.muted = true;
+          videoContainer.classList.remove('is-unmuted')
+          muteButton.querySelector('i').classList.remove('volume')
+          muteButton.querySelector('i').classList.add('mute')
+        }
+      })
+  
+      muteButton.addEventListener('click', () => {
+        if (videoElem.muted) {
+          videoElem.play()
+          videoElem.muted = false;
+          videoContainer.classList.add('is-unmuted')
+          muteButton.querySelector('i').classList.remove('mute')
+          muteButton.querySelector('i').classList.add('volume')
+        } else {
+          videoElem.muted = true;
+          videoContainer.classList.remove('is-unmuted')
+          muteButton.querySelector('i').classList.remove('volume')
+          muteButton.querySelector('i').classList.add('mute')
+        }
+      }); 
+    }
   }
 }

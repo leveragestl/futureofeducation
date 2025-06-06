@@ -25,7 +25,7 @@ get_header();
     <div class="entry-content wrapper-layout">
       <div class="entry-content__inner">
         <div class="entry-content__body">
-          <img class="w-32 mb-8" src="<?php echo get_theme_file_uri('public/icon-wp.svg'); ?>" alt="" />
+          <img class="w-16 md:w-24 xl:w-32 mb-8" src="<?php echo get_theme_file_uri('public/icon-wp.svg'); ?>" alt="" />
 
           <h1 class="entry-title">Title of Post Goes Here With Additional Text to Show Multiple Lines of Copy</h1>
           <div class="entry-meta">
@@ -59,9 +59,9 @@ get_header();
 
             <div class="social-share">
               <h4 class="social-share__title">Share:</h4>
-              <a href="#" class="social-share__item"><i class="twitter"></i></a>
-              <a href="#" class="social-share__item"><i class="facebook"></i></a>
-              <a href="#" class="social-share__item"><i class="mail"></i></a>
+              <a href="https://twitter.com/intent/tweet?url=<?php echo get_the_permalink(); ?>&text=<?php echo get_the_title(); ?>" class="social-share__item"><i class="twitter"></i></a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_the_permalink(); ?>" class="social-share__item"><i class="facebook"></i></a>
+              <a href="mailto:?subject=<?php echo get_the_title(); ?>&body=<?php echo get_the_permalink(); ?>" class="social-share__item"><i class="mail"></i></a>
             </div>
           </div>
         </div>
@@ -122,7 +122,7 @@ get_header();
 
     <div class="wrapper-wide">
       <div class="next">
-        <a href="#" class="next__link">
+        <a href="<?php echo home_url('/events'); ?>" class="next__link">
           <span class="next__label">Next</span>
           <span class="next__title">Events</span>
         </a>

@@ -18,7 +18,7 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<?php wp_head(); ?>
   <style>
-		.pageOverlay {
+		/* .pageOverlay {
 			width: 100vw;
 			height: 100vh;
 			background: #FFFFF9;
@@ -27,7 +27,7 @@
 			left: 0;
 			z-index: 999999;
 			pointer-events: none;
-		}
+		} */
 	</style>
 </head>
 

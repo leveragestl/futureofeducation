@@ -55,7 +55,14 @@ button {
   }
 
   &--gradient {
-    background: var(--gradient-sky-indigo);
+    background: linear-gradient(135deg, var(--color-sky), var(--color-indigo-bright) 40%, var(--color-sky));
+    background-size: 300% 100%;
+    transition: background-position 500ms cubic-bezier(0.08,0.82,0.17,1);
+
+    &:hover {
+      background-position: 100% 100%;
+      transition: background-position 640ms cubic-bezier(0.19,1,0.22,1);
+    }
   }
 
   &--ghost {
@@ -73,6 +80,11 @@ button {
     span {
       color: white;
       background-color: transparent;
+      transition: color 0.3s ease;
+    }
+
+    i {
+      transition: background-color 0.3s ease;
     }
 
     &:hover {
@@ -81,6 +93,10 @@ button {
 
       span {
         color: var(--color-indigo);
+      }
+
+      i {
+        background-color: var(--color-indigo);
       }
     }
   }

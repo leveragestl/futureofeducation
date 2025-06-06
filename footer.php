@@ -64,13 +64,17 @@
           <div class="siteFooter__sitemap-inner">
             <div class="siteFooter__sitemap-column">
               <h3 class="siteFooter__sitemap-title">Site Map</h3>
-              <ul>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Get Involved</a></li>
-                <li><a href="#">News</a></li>
-                <li><a href="#">Events</a></li>
-                <li><a href="#">Podcast</a></li>
-              </ul>
+              <?php
+                wp_nav_menu( array(
+                  'theme_location'	=> 'nav-primary',
+                  'container'				=> '',
+                  'menu_id'					=> 'primary-menu',
+                  'menu_class'			=> 'siteFooter__menu',
+                  'link_class'			=> 'no-link-style',
+                  'link_before'			=> '<span class="label">',
+                  'link_after'			=> '</span>',
+                ));
+              ?>
             </div>
             <div class="siteFooter__sitemap-column">
               <h3 class="siteFooter__sitemap-title">Follow Us</h3>

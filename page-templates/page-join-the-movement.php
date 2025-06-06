@@ -12,7 +12,7 @@ get_header();
 
 <main id="primary" class="site-main">
 		<?php while ( have_posts() ) : the_post(); ?>
-		<section class="hero">
+		<header class="hero">
 			<div class="hero__container">
         <div class="hero__image">
           <img src="<?php echo home_url() . '/wp-content/uploads/2025/05/join-feature.jpg'; ?>" alt="" />
@@ -24,21 +24,21 @@ get_header();
           <h3 class="hero__headline">This isn't just a crisis—it's a call to action</h3>
 				</div>
 			</div>
-		</section>
+		</header>
 
     <section class="intro wrapper">
       <div class="intro__inner">
         <div class="intro__content">
           <h3 class="intro__headline">Join the Movement</h3>
-          <h4 class="intro__subheadline">Your voice matters in reshaping education.</h4>
+          <h4 class="intro__subheadline">You can transform your child’s future.</h4>
 
           <div class="intro__list">
             <h4 class="intro__list-headline">Together, we can:</h4>
             <ul class="intro__list-items">
-              <li>Influence education policy for meaningful change</li>
+              <li>Create opportunities for every student</li>
               <li>Share proven solutions that work</li>
               <li>Form strong school-community partnerships</li>
-              <li>Create opportunities for every student</li>
+              <li>Influence education policy for meaningful change</li>
             </ul>
           </div>
         </div>
@@ -77,10 +77,10 @@ get_header();
 
     </section>
 
-    <section class="cta-section wrapper">
-      <div class="cta-section__inner">
+    <section class="cta wrapper">
+      <div class="cta__inner">
 
-        <div class="cta-section__subheadline">
+        <div class="cta__subheadline">
           <h3>The future of education starts with <span class="font-market text-[50px] text-sky underline-curve">you</span></h3>
         </div>
 
@@ -116,7 +116,7 @@ get_header();
       </div>
 
       <div class="next">
-        <a href="#" class="next__link">
+        <a href="<?php echo home_url(); ?>" class="next__link">
           <span class="next__label">Next</span>
           <span class="next__title">Home</span>
         </a>

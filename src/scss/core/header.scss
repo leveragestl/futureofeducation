@@ -116,6 +116,13 @@
       font-size: 1.5rem;
       font-weight: 600;
       margin-bottom: 1rem;
+      cursor: pointer;
+
+      &.current-menu-item {
+        a {
+          color: var(--color-sky, #00BDF2);
+        }
+      }
     }
 
     a {
@@ -168,10 +175,10 @@
       .button {
         width: auto;
       }
-    }
 
-    .siteHeader.is-scrolled & {
-      margin-top: 0;
+      .siteHeader.is-scrolled & {
+        margin-top: 0;
+      }
     }
   }
 }

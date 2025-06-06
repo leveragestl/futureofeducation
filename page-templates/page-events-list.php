@@ -14,7 +14,7 @@ get_header();
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
-    <section class="hero">
+    <header class="hero">
       <div class="hero__inner wrapper-layout">
         <h1 class="hero__title"><?php the_title(); ?></h1>
 
@@ -35,9 +35,9 @@ get_header();
 
       </div>
       
-    </section>
+    </header>
 
-    <section class="feed-section wrapper-layout">
+    <section class="feed wrapper-layout">
 
       <?php
       $upcoming_events = eo_get_events(array(
@@ -82,7 +82,7 @@ get_header();
 
     <div class="wrapper-wide">
       <div class="next">
-        <a href="#" class="next__link">
+        <a href="<?php echo home_url('/join-the-movement'); ?>" class="next__link">
           <span class="next__label">Next</span>
           <span class="next__title">Join the Movement</span>
         </a>

@@ -12,7 +12,7 @@ get_header();
 
 	<main id="primary" class="site-main">
 		<?php while ( have_posts() ) : the_post(); ?>
-		<section class="hero">
+		<header class="hero !hidden">
 
 			<div class="hero__container">
         <div class="hero__content">
@@ -29,26 +29,26 @@ get_header();
           </div>
         </div>
       </div>
-		</section>
+		</header>
 
-    <section class="act-section wrapper">
-      <div class="act-section__inner">
-        <h2 class="act-section__headline">It's time to act. America's education system needs student centered solutions.</h2>
+    <header class="hero wrapper">
+      <div class="hero__inner">
+        <h2 class="hero__headline">It's time to act. America's education system needs student centered solutions.</h2>
 
-        <div class="act-section__images">
-          <div class="act-section__image">
+        <div class="hero__images">
+          <div class="hero__image">
             <img src="<?php echo home_url(); ?>/wp-content/uploads/2025/05/meeting.jpg" alt="" />
           </div>
-          <div class="act-section__image">
+          <div class="hero__image">
             <img src="<?php echo home_url(); ?>/wp-content/uploads/2025/05/smile.jpg" alt="" />
           </div>
         </div>
       </div>
-    </section>
+    </header>
 
-    <section class="forms-section">
+    <section class="forms">
         
-      <div class="forms-section__tabs">
+      <div class="forms__tabs">
 
         <input type="radio" name="tabs" id="tab1" checked>
         <label for="tab1" class="tab-link">Email Your Legislator</label>
@@ -56,15 +56,15 @@ get_header();
         <input type="radio" name="tabs" id="tab2">
         <label for="tab2" class="tab-link">Email Your School Administrator</label>
 
-        <div class="forms-section__tab-content">
+        <div class="forms__tab-content">
           <div class="tab-panel" id="legislator-form">
 
-            <div class="forms-section__instructions">
+            <div class="forms__instructions">
               <p>Use this form to contact your legislator and share our collective vision for the future of education!</p>
             </div>
 
-            <div class="forms-section__inner">
-              <div class="forms-section__letter content-block">
+            <div class="forms__inner">
+              <div class="forms__letter content-block">
                 <p>Dear [Representative's Name],</p>
                 <p>Today I am reaching out to you as a constituent and concerned [parent/community member/educator] regarding the future of education in our state. It is shocking that only one in three students nationally reads at grade level. If we don't embrace innovative solutions now that can dramatically improve academic outcomes while preparing students for real-world success, we risk losing an entire generation of students to mediocrity.</p>
                 <p>Our current education system is based largely on a century-old model that is outdated and simply isn't delivering the results our children need. Modern technology and innovative teaching approaches give us unprecedented opportunities to transform academic achievement while developing crucial life skills.</p>
@@ -88,7 +88,7 @@ get_header();
                 <p>Sincerely,</p>
                 <p>[Name]</p>
               </div>
-              <form class="form">
+              <form class="form" data-form-type="email-template">
 
                 <fieldset class="form__fieldset">
                   <div class="form__field form__field--short">
@@ -109,6 +109,10 @@ get_header();
                   <div class="form__field form__field--large">
                     <label for="legislator-last-name">Last Name</label>
                     <input type="text" id="legislator-last-name" name="legislator-last-name" required placeholder="Last Name">
+                  </div>
+                  <div class="form__field form__field--large">
+                    <label for="recipient-email-legislator">Recipient's Email</label>
+                    <input type="email" id="recipient-email-legislator" name="recipient-email" required placeholder="Recipient's Email Address">
                   </div>
                 </fieldset>
                 <fieldset class="form__fieldset">
@@ -138,12 +142,12 @@ get_header();
 
           <div class="tab-panel" id="administrator-form">
 
-            <div class="forms-section__instructions">
+            <div class="forms__instructions">
               <p>Use this form to contact your school administrator and share our collective vision for the future of education!</p>
             </div>
 
-            <div class="forms-section__inner">
-              <div class="forms-section__letter content-block">
+            <div class="forms__inner">
+              <div class="forms__letter content-block">
                 <p>Dear [School Administrator's Name],</p>
                 <p>Today I am reaching out to you as a constituent and concerned [parent/community member/educator] regarding the future of education in our state. It is shocking that only one in three students nationally reads at grade level. If we don't embrace innovative solutions now that can dramatically improve academic outcomes while preparing students for real-world success, we risk losing an entire generation of students to mediocrity.</p>
                 <p>Our current education system is based largely on a century-old model that is outdated and simply isn't delivering the results our children need. Modern technology and innovative teaching approaches give us unprecedented opportunities to transform academic achievement while developing crucial life skills.</p>
@@ -167,12 +171,12 @@ get_header();
                 <p>Sincerely,</p>
                 <p>[Name]</p>
               </div>
-              <form class="form">
+              <form class="form" data-form-type="email-template">
 
                 <fieldset class="form__fieldset">
                   <div class="form__field form__field--short">
-                    <label for="legislator-prefix">Prefix</label>
-                    <select id="legislator-prefix" name="legislator-prefix" required>
+                    <label for="administrator-prefix">Prefix</label>
+                    <select id="administrator-prefix" name="administrator-prefix" required>
                       <option value="" disabled selected>Prefix</option>
                       <option value="Mr.">Mr.</option>
                       <option value="Mrs.">Mrs.</option>
@@ -182,45 +186,49 @@ get_header();
                     </select>
                   </div>
                   <div class="form__field">
-                    <label for="legislator-first-name">First Name</label>
-                    <input type="text" id="legislator-first-name" name="legislator-first-name" required placeholder="First Name">
+                    <label for="administrator-first-name">First Name</label>
+                    <input type="text" id="administrator-first-name" name="administrator-first-name" required placeholder="First Name">
                   </div>
                   <div class="form__field form__field--large">
-                    <label for="legislator-last-name">Last Name</label>
-                    <input type="text" id="legislator-last-name" name="legislator-last-name" required placeholder="Last Name">
+                    <label for="administrator-last-name">Last Name</label>
+                    <input type="text" id="administrator-last-name" name="administrator-last-name" required placeholder="Last Name">
+                  </div>
+                  <div class="form__field form__field--large">
+                    <label for="recipient-email-admin">Recipient's Email</label>
+                    <input type="email" id="recipient-email-admin" name="recipient-email" required placeholder="Recipient's Email Address">
                   </div>
                 </fieldset>
                 <fieldset class="form__fieldset">
                   <div class="form__field form__field--large">
-                    <label for="legislator-email">Email Address</label>
-                    <input type="email" id="legislator-email" name="legislator-email" required placeholder="Email Address">
+                    <label for="administrator-email">Email Address</label>
+                    <input type="email" id="administrator-email" name="administrator-email" required placeholder="Email Address">
                   </div>
                   <div class="form__field">
-                    <label for="legislator-phone">Phone Number</label>
-                    <input type="tel" id="legislator-phone" name="legislator-phone" placeholder="Phone Number">
+                    <label for="administrator-phone">Phone Number</label>
+                    <input type="tel" id="administrator-phone" name="administrator-phone" placeholder="Phone Number">
                   </div>
                 </fieldset>
                 <fieldset class="form__fieldset">
                   <div class="form__field form__field--large">
-                    <label for="legislator-address">Address</label>
-                    <input type="text" id="legislator-address" name="legislator-address" required placeholder="Address">
+                    <label for="administrator-address">Address</label>
+                    <input type="text" id="administrator-address" name="administrator-address" required placeholder="Address">
                   </div>
                   <div class="form__field form__field--short">
-                    <label for="legislator-zip">Zip Code</label>
-                    <input type="text" id="legislator-zip" name="legislator-zip" required placeholder="Zip Code">
+                    <label for="administrator-zip">Zip Code</label>
+                    <input type="text" id="administrator-zip" name="administrator-zip" required placeholder="Zip Code">
                   </div>
                 </fieldset>
                 <button type="submit" class="button button--gradient">Send</button>
               </form>
             </div>
           </div>
+        </div><!-- .forms__tab-content -->
 
-        </div><!-- .forms-section__tab-content -->
-      </div><!-- .forms-section__tabs -->
+      </div><!-- .forms__tabs -->
 
       <div class="wrapper-wide">
         <div class="next">
-          <a href="#" class="next__link">
+          <a href="<?php echo home_url('/news'); ?>" class="next__link">
             <span class="next__label">Next</span>
             <span class="next__title">News</span>
           </a>

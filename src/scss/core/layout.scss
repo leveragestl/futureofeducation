@@ -1,14 +1,14 @@
 @use '../partials/variables' as *;
 
-.pageOverlay {
-  transition: .15s;
-  opacity: 1;
-}
+// .pageOverlay {
+//   transition: .15s;
+//   opacity: 1;
+// }
 
-.ready .pageOverlay {
-  opacity: 0;
-  transition: 1s;
-}
+// .ready .pageOverlay {
+//   opacity: 0;
+//   transition: 1s;
+// }
 
 body {
   background-color: var(--color-indigo, #272B64);

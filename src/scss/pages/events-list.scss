@@ -6,17 +6,31 @@
   }
 
   .hero {
+    --hero-padding-top: 5rem;
+    
+    display: block;
     align-items: center;
-    padding-top: calc(var(--site-header-height) + 10rem);
+    padding-top: calc(var(--site-header-height) + var(--hero-padding-top));
     height: auto;
+
+    @screen xl {
+      --hero-padding-top: 10rem;
+      
+      padding-top: calc(var(--site-header-height) + 10rem);
+    }
     
     &__inner {
-      display: grid;
-      grid-template-columns: repeat(2, auto);
+      display: flex;
+      flex-direction: column;
       gap: 2rem;
-      align-items: center;
-      justify-content: space-between;
       width: 100%;
+
+      @screen xl {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        align-items: center;
+        justify-content: space-between;  
+      }
     }
 
     &__content {
@@ -33,10 +47,18 @@
     }
 
     &__title {
-      font-size: 5rem;
+      font-size: 2.5rem;
       line-height: 1;
       font-weight: 700;
       color: white;
+
+      @screen md {
+        font-size: 3.75rem;
+      }
+
+      @screen xl {
+        font-size: 5rem;
+      }
     }
 
     &__view {
@@ -46,10 +68,17 @@
     }
 
     &__filters {
-      width: fit-content;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       gap: 1rem;
+
+      @screen md {
+        width: fit-content;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+      }
 
       &-headline {
         font-size: 1.25rem;
@@ -79,18 +108,42 @@
     }
   }
 
-  .feed-section {
-    margin-top: 5rem;
+  .feed {
+    margin-top: 2rem;
+
+    @screen xl {
+      margin-top: 5rem;
+    }
 
     table {
+      display: block;
       width: 100%;
       border-collapse: collapse;
       border-spacing: 0;
+      overflow-x: auto;
+      white-space: nowrap;
+
+      @screen md {
+        display: table;
+        overflow-x: clip;
+      }
     }
 
     th, td {
-      padding: 2rem 0;
+      padding: 1rem;
       text-align: left;
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+
+      @screen md {
+        padding: 2rem 0;
+      }
     }
 
     tr {
@@ -108,8 +161,13 @@
     td.event-name {
 
       .post-title {
-        font-size: 2.5rem;
+        font-size: 1.25rem;
         font-weight: 700;
+
+        @screen xl {
+          font-size: 2.5rem;
+          line-height: 1;
+        }
       }
     }
 

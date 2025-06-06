@@ -1,6 +1,7 @@
 @use '../partials/variables' as *;
 
 .page-template-page-get-involved {
+  /*
   .hero {
     height: auto;
     min-height: 100vh;
@@ -54,22 +55,45 @@
       }
     }
   }
+  */
+  .hero {
+    --padding-block: 2rem;
 
-  .act-section {
-    padding-block: 6rem;
+    display: block;
+    height: auto;
+    padding-block: calc(var(--site-header-height) + var(--padding-block)) var(--padding-block);
+
+    @screen md {
+      --padding-block: 4rem;
+    }
+
+    @screen xl {
+      --padding-block: 6rem;
+    }
 
     &__headline {
-      font-size: 3.75rem;
+      font-size: 2.5rem;
       line-height: 1;
       font-weight: 700;
       max-width: 15.5ch;
+
+      @screen xl {
+        font-size: 3.75rem;
+      }
     }
 
     &__images {
       display: grid;
-      grid-template-columns: 1fr 0.1fr 0.1fr 1fr;
-      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: 1fr 0.5fr 0.5fr 1fr;
+      grid-template-rows: 1fr 0.2fr 1fr;
       height: 100%;
+      margin-top: 2rem;
+
+      @screen md {
+        grid-template-columns: 1fr 0.1fr 0.1fr 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        margin-top: 0;
+      }
     }
 
     &__image {
@@ -98,33 +122,53 @@
     }
   }
 
-  .forms-section {
-    padding-block: 6rem;
+  .forms {
+    padding-block: 2rem;
     padding-inline: 1rem;
+
+    @screen xl {
+      padding-block: 6rem;
+    }
 
     &__inner {
       max-width: 1024px;
       margin-inline: auto;
       background-color: #F7F7F7;
-      padding: 3rem 4rem 6rem;
+      padding: 2rem 2rem 4rem;
       border-radius: 20px;
       border: 2px solid transparent;
       background-image: linear-gradient(#F7F7F7, #F7F7F7), linear-gradient(to bottom, var(--color-sky), #26509D);
       background-origin: border-box;
       background-clip: padding-box, border-box;
-      overflow: hidden;  
+      overflow: hidden;
+
+      @screen md {
+        padding: 3rem 4rem 6rem;
+      }
     }
 
     &__instructions {
       text-align: center;
       max-width: 70ch;
-      margin: 5rem auto;
+      margin: 2rem auto;
+
+      @screen xl {
+        margin: 5rem auto;
+      }
 
       p {
-        font-size: 1.625rem;
+        font-size: 1.25rem;
         line-height: 1.2;
         font-weight: 600;
         color: var(--color-sky);
+
+        @screen md {
+          font-size: 1.375rem;
+        }
+
+        @screen xl {
+          font-size: 1.625rem;
+        }
       }
     }
 
@@ -158,8 +202,7 @@
       width: calc(50% - 2.055px);
       translate: 0 20px;
       display: inline-block;
-      padding: 1.5rem 1.5rem 40px;
-      font-size: 2.25rem;
+      padding: 1.25rem 1rem 40px;
       text-align: center;
       color: white;
       font-weight: 600;
@@ -169,15 +212,28 @@
       transition: color 0.3s ease;
       border-radius: 20px 20px 0 0;
 
+      @screen md {
+        font-size: 1.5rem;
+        padding: 1.5rem 1.5rem 40px;
+      }
+
+      @screen xl {
+        font-size: 2.25rem;
+      }
+
       &:hover {
         color: var(--color-sky);
       }
     }
 
     &__tab-content {
-      padding: 3rem;
+      padding: 1.5rem;
       background-color: white;
       border-radius: 20px;
+
+      @screen md {
+        padding: 3rem;
+      }
 
       .tab-panel {
         display: none;
@@ -192,13 +248,13 @@
 
     // Tab switching logic
     #tab1:checked {
-      ~ .forms-section__tab-content #legislator-form {
+      ~ .forms__tab-content #legislator-form {
         display: block;
       }
     }
 
     #tab2:checked {
-      ~ .forms-section__tab-content #administrator-form {
+      ~ .forms__tab-content #administrator-form {
         display: block;
       }
     }

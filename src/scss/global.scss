@@ -62,6 +62,7 @@
 // =============================================================================
 
 .underline-curve {
+  display: inline-block;
   position: relative;
 
   &::before {
@@ -71,7 +72,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    translate: 10% -15%;
+    translate: 10% -5%;
     mask-size: 46px 6px;
     mask-repeat: no-repeat;
     mask-position: center bottom;
