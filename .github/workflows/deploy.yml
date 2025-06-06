@@ -1,0 +1,21 @@
+name: Deployment Workflow
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  pull:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: testing ssh connection
+      uses: appleboy/ssh-action@master
+      with:
+        host: 35.215.98.227
+        username: u356-daufs9qwozjc
+        key: ${{ secrets.DEPLOY_KEY }}
+        port: 18765
+        script: |
+          cd www/futureofeducation.leverage.gallery/public_html/wp-content/themes/future2025
+          git pull origin main
+          git status
