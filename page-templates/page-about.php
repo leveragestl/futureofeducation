@@ -87,13 +87,9 @@ get_header();
 		<section class="feature">
 			<div class="feature__inner">
 
-        <div class="feature__video-container video-container video-autoplays" data-magnetic>
-          <video src="<?php echo home_url() . '/wp-content/uploads/2025/06/IMG_2212-optimized-720.mp4'; ?>" poster="<?php echo home_url() . '/wp-content/uploads/2025/05/video-thumbnail-2.jpg'; ?>" autoplay muted loop playsinline></video>
-          <div data-fancybox data-src="<?php echo home_url() . '/wp-content/uploads/2025/06/IMG_2212-optimized-720.mp4'; ?>" class="feature__video-button play-button"><button class="button button--ghost">Watch Video</button></div>
-          <button class="mute-button">
-            <i class="mute"></i>
-            <span class="screen-reader-text">Mute</span>
-          </button>
+        <div class="feature__video-container video-container" data-magnetic>
+          <img src="<?php echo home_url() . '/wp-content/uploads/2025/05/yt-thumbnail-2.jpg'; ?>" alt="" />
+          <div data-fancybox data-src="https://www.youtube.com/watch?v=wJsnlSiyH3Y" class="feature__video-button play-button"><button class="button button--ghost">Watch Video</button></div>
         </div>
 
         <div class="feature__content wrapper-wide">

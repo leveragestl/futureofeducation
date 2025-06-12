@@ -235,7 +235,7 @@
           }
 
           .post-author {
-            display: none;
+            // display: none;
           }
         }
       }
@@ -286,6 +286,7 @@
           justify-content: center;
           background-color: var(--color-sky);
           box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.55);
+          z-index: 10;
 
           img {
             width: 75%;
@@ -424,10 +425,10 @@
 
       .post-author {
         // font-size: 1.25rem;
-        font-weight: 600;
+        font-weight: 700;
         color: white;
         margin-top: 1rem;
-        display: none;
+        // display: none;
       }
 
       .post-link {

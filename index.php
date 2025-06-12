@@ -67,7 +67,7 @@ get_header();
         // 'container_type' => 'div',
         // 'css_classes' => 'feed__inner',
         'post_type' => 'post',
-        'posts_per_page' => '7',
+        'posts_per_page' => '11',
         'transition' => 'fade',
         'button_label' => 'Load More',
         'button_loading_label' => 'Loading...',
