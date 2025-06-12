@@ -8,8 +8,9 @@
   overflow: hidden;
   aspect-ratio: 16 / 9;
   background-color: var(--color-indigo);
+  cursor: pointer;
 
-  video {
+  video, img {
     grid-column: 1 / none;
     grid-row: 1 / none;
     width: 100%;
@@ -37,6 +38,10 @@
         span {
           color: var(--color-indigo);
         }
+
+        i {
+          background-color: var(--color-indigo);
+        }
       }
     }
   }
@@ -59,6 +64,13 @@
     .play-button {
       opacity: 0;
       visibility: hidden;
+    }
+
+    section.links & {
+      .mute-button {
+        opacity: 1;
+        visibility: visible;
+      }
     }
   }
 

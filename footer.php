@@ -47,9 +47,9 @@
       ?>
       
       <div class="siteFooter__social">
-        <a href="#" class="siteFooter__social-icon">
+        <!-- <a href="#" class="siteFooter__social-icon">
           <i class="instagram"></i>
-        </a>
+        </a> -->
         <div class="siteFooter__social-images">
           <?php foreach ($social_links as $link) : ?>
             <a href="<?php echo $link['url']; ?>" class="siteFooter__social-link">
@@ -94,7 +94,6 @@
             </div>
           </div>
         </div>
-
 
         <div class="siteFooter__mailing-list">
           <div class="siteFooter__mailing-list-inner">

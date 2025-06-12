@@ -1,12 +1,89 @@
 @use '../partials/variables' as *;
 
-.font-market {
-  font-family: "ff-market-web", sans-serif;
-  font-weight: 400;
+@font-face {
+  font-family: 'Neoneon';
+  src: url('../../fonts/Neoneon.woff2') format('woff2'),
+       url('../../fonts/Neoneon.woff') format('woff');
+  font-weight: normal;
   font-style: normal;
-  -webkit-font-smoothing: none;
-  -moz-osx-font-smoothing: none;
+  font-display: swap;
 }
+
+.font-neoneon {
+  font-family: 'Neoneon', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  // -webkit-font-smoothing: antialiased;
+  // -moz-osx-font-smoothing: grayscale;
+  text-transform: uppercase;
+  text-shadow: 0 0 20px rgba(0, 189, 242, 0.1);
+  letter-spacing: 0.01em;
+}
+
+@keyframes glowPulse {
+  0% {
+    filter: drop-shadow(0 0 10px rgba(0, 189, 242, 0.7));
+  }
+  45% {
+    filter: drop-shadow(0 0 20px rgba(0, 189, 242, 1));
+  }
+  47% {
+    filter: drop-shadow(0 0 20px rgba(0, 189, 242, 0.8));
+  }
+  49% {
+    filter: drop-shadow(0 0 20px rgba(0, 189, 242, 1));
+  }
+  51% {
+    filter: drop-shadow(0 0 20px rgba(0, 189, 242, 0.8));
+  }
+  53% {
+    filter: drop-shadow(0 0 20px rgba(0, 189, 242, 1));
+  }
+  55% {
+    filter: drop-shadow(0 0 20px rgba(0, 189, 242, 0.8));
+  }
+  60% {
+    filter: drop-shadow(0 0 20px rgba(0, 189, 242, 1));
+  }
+  100% {
+    filter: drop-shadow(0 0 10px rgba(0, 189, 242, 0.7));
+  }
+}
+
+.glow-text {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: 'text';
+
+  &__text {
+    grid-area: text;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-fill-color: white;
+    -webkit-text-fill-color: white;
+    filter: drop-shadow(0 0 10px rgba(0, 189, 242, 1));
+    animation: glowPulse 4s ease-in-out infinite;
+  }
+
+  &__outline {
+    position: relative;
+    grid-area: text;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--color-sky);
+    -webkit-text-fill-color: transparent;
+    z-index: 1;
+    filter: drop-shadow(0 0 20px rgba(0, 189, 242, 1));
+    animation: glowPulse 4s ease-in-out infinite;
+  }
+}
+
+// .font-market {
+//   font-family: "ff-market-web", sans-serif;
+//   font-weight: 400;
+//   font-style: normal;
+//   -webkit-font-smoothing: none;
+//   -moz-osx-font-smoothing: none;
+// }
 
 body {
   font-family: "proxima-nova", sans-serif;

@@ -267,14 +267,14 @@
       background-image: linear-gradient(var(--color-indigo-dark, #172032), var(--color-indigo-dark, #172032)), linear-gradient(to bottom, var(--color-sky), #26509D);
       background-origin: border-box;
       background-clip: padding-box, border-box;  
-      transition: translate 0.3s ease;
+      transition: margin-top 0.3s ease;
 
       @screen md {
         height: 350px;
       }
 
       &:hover {
-        translate: 0 -6px;
+        margin-top: -6px;
       }
 
       &__content {

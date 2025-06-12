@@ -92,7 +92,7 @@
       @screen md {
         grid-template-columns: 1fr 0.1fr 0.1fr 1fr;
         grid-template-rows: repeat(3, 1fr);
-        margin-top: 0;
+        margin-top: -2rem;
       }
     }
 
@@ -107,6 +107,7 @@
       &:first-child {
         grid-row: 2 / 4;
         grid-column: 1 / 4;
+        margin-top: -5rem;
       }
 
       &:last-child {
@@ -118,6 +119,39 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+
+      &:nth-child(1) {
+        img {
+          object-position: right;
+        }
+      }
+
+      &:nth-child(2) {
+        img {
+          object-position: 50% 25%;
+        }
+      }
+    }
+
+    &__paragraph {
+      margin-top: 2rem;
+
+      @screen md {
+        width: 100%;
+        margin-top: -4rem;
+        display: flex;
+        justify-content: flex-end;
+
+        &-inner {
+          max-width: var(--breakpoint-ml);
+        }
+      }
+      
+      p {
+        font-size: 1.5rem;
+        line-height: 1.5;
+        font-weight: 600;
       }
     }
   }
@@ -149,11 +183,21 @@
 
     &__instructions {
       text-align: center;
-      max-width: 70ch;
+      max-width: 80ch;
       margin: 2rem auto;
 
       @screen xl {
         margin: 5rem auto;
+      }
+
+      &-headline {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        line-height: 1;
+        font-weight: 700;
+        color: var(--color-indigo);
+        margin-bottom: 1rem;
       }
 
       p {
@@ -166,9 +210,9 @@
           font-size: 1.375rem;
         }
 
-        @screen xl {
-          font-size: 1.625rem;
-        }
+        // @screen xl {
+        //   font-size: 1.625rem;
+        // }
       }
     }
 

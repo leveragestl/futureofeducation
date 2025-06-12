@@ -13,8 +13,8 @@ get_header();
 <main id="primary" class="site-main">
 		<?php while ( have_posts() ) : the_post(); ?>
 		<header class="hero">
-			<div class="hero__container">
-        <div class="hero__image">
+			<div class="hero__container parallax-container">
+        <div class="hero__image parallax-image">
           <img src="<?php echo home_url() . '/wp-content/uploads/2025/05/join-feature.jpg'; ?>" alt="" />
         </div>
 			</div>
@@ -32,27 +32,27 @@ get_header();
           <h3 class="intro__headline">Join the Movement</h3>
           <h4 class="intro__subheadline">You can transform your child’s future.</h4>
 
-          <div class="intro__list">
+          <div class="intro__list" data-animate-group data-animate-stagger>
             <h4 class="intro__list-headline">Together, we can:</h4>
             <ul class="intro__list-items">
-              <li>Create opportunities for every student</li>
-              <li>Share proven solutions that work</li>
-              <li>Form strong school-community partnerships</li>
-              <li>Influence education policy for meaningful change</li>
+              <li data-animate>Create opportunities for every student</li>
+              <li data-animate>Share proven solutions that work</li>
+              <li data-animate>Form strong school-community partnerships</li>
+              <li data-animate>Influence education policy for meaningful change</li>
             </ul>
           </div>
         </div>
 
         <div class="intro__form">
-          <form class="form" action="">
-            <fieldset class="form__fieldset">
+          <form class="form" action="" data-animate-group data-animate-stagger>
+            <fieldset class="form__fieldset" data-animate>
               <div class="form__field form__field--full">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required placeholder="Name" />
               </div>
             </fieldset>
 
-            <fieldset class="form__fieldset">
+            <fieldset class="form__fieldset" data-animate>
               <div class="form__field">
                 <label for="phone">Phone</label>
                 <input type="tel" id="phone" name="phone" required placeholder="Phone" />
@@ -63,14 +63,14 @@ get_header();
               </div>
             </fieldset>
 
-            <fieldset class="form__fieldset">
+            <fieldset class="form__fieldset" data-animate>
               <div class="form__field">
                 <label for="email">Email Address</label>
                 <input type="email" id="email" name="email" required placeholder="Email Address" />
               </div>
             </fieldset>
 
-            <button type="submit" class="button button--gradient">Join</button>
+            <button type="submit" class="button button--gradient" data-animate>Join</button>
           </form>
         </div>
       </div>
@@ -81,7 +81,7 @@ get_header();
       <div class="cta__inner">
 
         <div class="cta__subheadline">
-          <h3>The future of education starts with <span class="font-market text-[50px] text-sky underline-curve">you</span></h3>
+          <h3>The future of education starts with <span class="text-sky underline-curve">you</span></h3>
         </div>
 
         <?php $teasers = [
@@ -100,9 +100,9 @@ get_header();
           ],
         ] ?>
 
-        <div class="teasers-list">
+        <div class="teasers-list" data-animate-group data-animate-stagger>
           <?php foreach ($teasers as $teaser) : ?>
-            <a href="#" class="teaser">
+            <a href="#" class="teaser" data-animate>
               <div class="teaser__content">
                 <h3 class="teaser__title"><?php echo $teaser['title']; ?></h3>
               </div>

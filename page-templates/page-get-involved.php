@@ -32,15 +32,22 @@ get_header();
 		</header>
 
     <header class="hero wrapper">
-      <div class="hero__inner">
+      <div class="hero__inner parallax-container">
         <h2 class="hero__headline">It's time to act. America's education system needs student centered solutions.</h2>
 
         <div class="hero__images">
-          <div class="hero__image">
+          <div class="hero__image parallax-image" data-parallax-speed="-0.1">
             <img src="<?php echo home_url(); ?>/wp-content/uploads/2025/05/meeting.jpg" alt="" />
           </div>
-          <div class="hero__image">
-            <img src="<?php echo home_url(); ?>/wp-content/uploads/2025/05/smile.jpg" alt="" />
+          <div class="hero__image parallax-image" data-parallax-speed="-0.3">
+            <img src="<?php echo home_url(); ?>/wp-content/uploads/2025/06/get-involved-hero-2.jpg" alt="" />
+          </div>
+        </div>
+
+        <div class="hero__paragraph content-block parallax-image" data-parallax-speed="-0.2">
+          <div class="hero__paragraph-inner">
+            <p>You have more power than you realize. Parents across America are discovering they don't have to wait for someone else to fix education. You can support your child's learning at home, advocate for innovative approaches that combine rigorous academics with real-world skills, and join thousands of parents, educators, and community leaders who are creating lasting change.</p>
+            <p>When we unite around practical solutions and make our voices heard, we can create an education system that truly serves every student.</p>
           </div>
         </div>
       </div>
@@ -60,7 +67,8 @@ get_header();
           <div class="tab-panel" id="legislator-form">
 
             <div class="forms__instructions">
-              <p>Use this form to contact your legislator and share our collective vision for the future of education!</p>
+              <h3 class="forms__instructions-headline">Be A Champion for Change</h3>
+              <p>Your elected officials want to hear from parents in their district. When you share your perspective on education, you're helping your representatives understand what families in your community need. Use our simple tool to tell your story and advocate for the changes that will help every student succeed</p>
             </div>
 
             <div class="forms__inner">
@@ -143,7 +151,8 @@ get_header();
           <div class="tab-panel" id="administrator-form">
 
             <div class="forms__instructions">
-              <p>Use this form to contact your school administrator and share our collective vision for the future of education!</p>
+              <h3 class="forms__instructions-headline">Be A Champion for Change</h3>
+              <p>Your school administrators want to hear from parents in their district. When you share your perspective on education, you're helping your representatives understand what families in your community need. Use our simple tool to tell your story and advocate for the changes that will help every student succeed</p>
             </div>
 
             <div class="forms__inner">

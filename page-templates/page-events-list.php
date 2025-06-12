@@ -16,22 +16,22 @@ get_header();
 
     <header class="hero">
       <div class="hero__inner wrapper-layout">
-        <h1 class="hero__title"><?php the_title(); ?></h1>
+        <h1 class="hero__title" data-animate><?php the_title(); ?></h1>
 
-        <div class="hero__filters">
-          <h2 class="hero__filters-headline">Filter</h2>
-          <div class="hero__filters-filter">
+        <div class="hero__filters" data-animate-group data-animate-stagger data-animate-delay="0.5">
+          <h2 class="hero__filters-headline" data-animate>Filter</h2>
+          <div class="hero__filters-filter" data-animate>
             <select name="filter" id="date">
               <option value="">Date</option>
             </select>
           </div>
-          <div class="hero__filters-filter">
+          <div class="hero__filters-filter" data-animate>
             <select name="filter" id="location">
               <option value="">Location</option>
             </select>
           </div>
         </div>
-        <a href="<?php echo home_url('/events'); ?>" class="hero__view">View All</a>
+        <a href="<?php echo home_url('/events'); ?>" class="hero__view" data-animate data-animate-delay="0.25">View All</a>
 
       </div>
       
@@ -48,7 +48,7 @@ get_header();
       ?>
 
       <?php if($upcoming_events): ?>
-        <table>
+        <table data-animate data-animate-delay="0.75">
           <thead>
             <tr>
               <th>Event</th>

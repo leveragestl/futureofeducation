@@ -34,6 +34,7 @@
     "@fortawesome/fontawesome-free": "^6.7.2",
     "fancybox": "^3.0.1",
     "gsap": "file:gsap-bonus.tgz",
+    "jquery": "^3.7.1",
     "swiper": "^11.2.8"
   }
 }

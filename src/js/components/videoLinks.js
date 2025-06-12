@@ -3,12 +3,31 @@ import gsap from 'gsap';
 export function initVideoLinks() {
   const links = document.querySelectorAll('.links-list li span');
   const video = document.querySelector('#mainVideo');
+  const videoContainer = document.querySelector('.video-container');
   const videoWrapper = document.querySelector('.video-wrapper');
+  const muteButton = document.querySelector('.video-wrapper .mute-button');
   
   if (!links.length || !video) return;
 
-  let isMuted = true;
   let currentVideoSrc = video.src;
+
+  // Handle mute button click
+  if (muteButton) {
+    muteButton.addEventListener('click', () => {
+      if (video.muted) {
+        video.play();
+        video.muted = false;
+        videoContainer.classList.add('is-unmuted');
+        muteButton.querySelector('i').classList.remove('mute');
+        muteButton.querySelector('i').classList.add('volume');
+      } else {
+        video.muted = true;
+        videoContainer.classList.remove('is-unmuted');
+        muteButton.querySelector('i').classList.remove('volume');
+        muteButton.querySelector('i').classList.add('mute');
+      }
+    });
+  }
 
   links.forEach(link => {
     link.addEventListener('mouseenter', () => {
@@ -17,10 +36,12 @@ export function initVideoLinks() {
         const newSrc = videoSrc;
         
         // Reset muted state
-        isMuted = true;
         video.muted = true;
-        videoWrapper.classList.add('is-muted');
-        videoWrapper.classList.remove('is-unmuted');
+        videoContainer.classList.remove('is-unmuted');
+        if (muteButton) {
+          muteButton.querySelector('i').classList.remove('volume');
+          muteButton.querySelector('i').classList.add('mute');
+        }
         
         // Fade out current video
         gsap.to(videoWrapper, {
@@ -45,10 +66,23 @@ export function initVideoLinks() {
     });
 
     link.addEventListener('click', (e) => {
-      isMuted = !isMuted;
-      video.muted = isMuted;
-      videoWrapper.classList.toggle('is-muted', isMuted);
-      videoWrapper.classList.toggle('is-unmuted', !isMuted);
+      // Toggle mute state
+      if (video.muted) {
+        video.play();
+        video.muted = false;
+        videoContainer.classList.add('is-unmuted');
+        if (muteButton) {
+          muteButton.querySelector('i').classList.remove('mute');
+          muteButton.querySelector('i').classList.add('volume');
+        }
+      } else {
+        video.muted = true;
+        videoContainer.classList.remove('is-unmuted');
+        if (muteButton) {
+          muteButton.querySelector('i').classList.remove('volume');
+          muteButton.querySelector('i').classList.add('mute');
+        }
+      }
 
       links.forEach(link => {
         link.parentElement.classList.remove('active');
@@ -57,6 +91,4 @@ export function initVideoLinks() {
       link.parentElement.classList.add('active');
     });
   });
-
-  videoWrapper.classList.add('is-muted');
 }

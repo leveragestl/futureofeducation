@@ -15,8 +15,8 @@ get_header();
 		<?php while ( have_posts() ) : the_post(); ?>
 
     <section class="hero">
-      <div class="hero__container">
-        <div class="hero__image">
+      <div class="hero__container parallax-container">
+        <div class="hero__image parallax-image">
           <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" />
         </div>
       </div>
@@ -25,44 +25,28 @@ get_header();
     <div class="entry-content wrapper-layout">
       <div class="entry-content__inner">
         <div class="entry-content__body">
-          <img class="w-16 md:w-24 xl:w-32 mb-8" src="<?php echo get_theme_file_uri('public/icon-wp.svg'); ?>" alt="" />
-
-          <h1 class="entry-title">Title of Post Goes Here With Additional Text to Show Multiple Lines of Copy</h1>
+          <?php if(get_field('icon')): ?>
+            <img class="w-16 mb-8 md:w-24 xl:w-32" src="<?php echo get_field('icon')['url']; ?>" alt="" />
+          <?php else: ?>
+            <img class="w-16 mb-8 md:w-24 xl:w-44" src="<?php echo get_theme_file_uri('public/icon-apple.png'); ?>" alt="" />
+          <?php endif; ?>
+          <h1 class="entry-title"><?php the_title(); ?></h1>
           <div class="entry-meta">
-            <span class="entry-meta__author">By: Author Name</span>
-            <span class="entry-meta__date">Date: Xx / Xx / Xx</span>
+            <?php if(get_field('author')): ?>
+              <span class="entry-meta__author">By: <?php echo get_field('author'); ?></span> &nbsp;&nbsp;|&nbsp;&nbsp; 
+            <?php endif; ?>
+            <span class="entry-meta__date">Date: <?php the_date(); ?></span>
           </div>
 
-          <div class="entry-content__body-inner content-block">
-            <p>Olut ipsa ipsam eos accum ad eicillit aut voloruptium voluptis dolupid undentia volorenimus aut voluptium si sum reptae duciis eos eum fugia sit quia doluptatat. Xerfero quos expe niendant officipicil id moluptatem inihicim quam es que doluptas duciminihil in enti aut hitis iur sinti blacit et fugitatiam re accus ate molo ea que ipsunt quae cuscian tibusci lictusdae nonseribusam.</p>
+          <div class="entry-content__body-inner">
+            <?php echo get_field('content'); ?>
+          </div>
 
-            <div class="video-container mb-12">
-              <video src="<?php echo home_url() . '/wp-content/uploads/2025/05/single-post-video.mp4'; ?>" poster="<?php echo home_url() . '/wp-content/uploads/2025/05/post-video-poster.jpg'; ?>" autoplay muted loop playsinline></video>
-              <div class="play-button">
-                <button class="button button--ghost">Play Video</button>
-              </div>
-            </div>
-
-            <p>Et magnat aut odit et quundem sed ut voluptatur? Quia sit fugiae consequi illacearum doluptatur? Olut ipsa ipsam eos accum ad eicillit aut voloruptium voluptis dolupid undentia volorenimus aut voluptium si sum reptae duciis.</p>
-
-            <blockquote>
-              <p>"Lift Quote Text goes Here (32pt Bold)—just stacks full-width under/over body copy. IF not needed can just omit."</p>
-            </blockquote>
-
-            <img class="aspect-video mb-12" src="<?php echo home_url() . '/wp-content/uploads/2025/05/post-image.jpg'; ?>" alt="" />
-            
-            <p>Olut ipsa ipsam eos accum ad eicillit aut voloruptium voluptis dolupid undentia volorenimus aut voluptium si sum reptae duciis eos eum fugia sit quia doluptatat.</p>
-
-            <p>Xerfero quos expe niendant officipicil id moluptatem inihicim quam es que doluptas duciminihil in enti aut hitis iur sinti blacit et fugitatiam re accus ate molo ea que ipsunt quae cuscian tibusci lictusdae nonseribusam.</p>
-
-            <a href="#" class="button bg-sky px-8 hover:bg-indigo-bright mt-12"><span class="label text-white">Download PDF</span></a>
-
-            <div class="social-share">
-              <h4 class="social-share__title">Share:</h4>
-              <a href="https://twitter.com/intent/tweet?url=<?php echo get_the_permalink(); ?>&text=<?php echo get_the_title(); ?>" class="social-share__item"><i class="twitter"></i></a>
-              <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_the_permalink(); ?>" class="social-share__item"><i class="facebook"></i></a>
-              <a href="mailto:?subject=<?php echo get_the_title(); ?>&body=<?php echo get_the_permalink(); ?>" class="social-share__item"><i class="mail"></i></a>
-            </div>
+          <div class="social-share">
+            <h4 class="social-share__title">Share:</h4>
+            <a href="https://twitter.com/intent/tweet?url=<?php echo get_the_permalink(); ?>&text=<?php echo get_the_title(); ?>" class="social-share__item"><i class="twitter"></i></a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo get_the_permalink(); ?>" class="social-share__item"><i class="facebook"></i></a>
+            <a href="mailto:?subject=<?php echo get_the_title(); ?>&body=<?php echo get_the_permalink(); ?>" class="social-share__item"><i class="mail"></i></a>
           </div>
         </div>
 

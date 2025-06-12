@@ -17,8 +17,8 @@ get_header();
 
 	<main id="primary" class="site-main">
     <header class="hero">
-			<div class="hero__container">
-        <div class="hero__image">
+			<div class="hero__container parallax-container">
+        <div class="hero__image parallax-image">
           <img src="<?php echo home_url() . '/wp-content/uploads/2025/05/news-hero.jpg'; ?>" alt="" />
         </div>
 			</div>
@@ -31,33 +31,21 @@ get_header();
 			</div>
 		</header>
     
-    <section class="filter wrapper-layout">
-      <div class="filter__filters">
+    <section id="alm-filters" class="filter wrapper-layout">
+      <div class="filter__filters" data-animate>
         <h2 class="filter__filters-headline">Filter</h2>
-
-        <div class="filter__filter">
-          <button name="filter" id="filter"><span>Education</span></button>
-        </div>
-
-        <div class="filter__filter">
-          <input type="search" placeholder="Search" />
-        </div>
+        <?php echo do_shortcode('[ajax_load_more_filters id="news_filter" target="news"]'); ?>
       </div>
     </section>
 
 		<section class="feed wrapper-layout">
-			<?php if ( have_posts() ) : ?>
-				<?php while ( have_posts() ) : the_post(); ?>
-          <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-						<a href="<?php the_permalink(); ?>" class="post-image">
-							<img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" />
+      <!-- <?php if ( have_posts() ) : ?>
+        <?php while ( have_posts() ) : the_post(); ?>
+          <article id="post-<?php the_ID(); ?>" <?php post_class('featured-post'); ?>>
+            <a href="<?php the_permalink(); ?>" class="post-image">
+              <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" />
               <button class="button button--ghost">Watch Video</button>
-						</a>
-
-            <!-- <div class="post-icon">
-              <img src="<?php echo get_theme_file_uri('public/icon-wp.svg'); ?>" alt="News" />
-            </div> -->
-
+            </a>
             <div class="post-inner">
               <div class="post-content">
                 <h2 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -66,16 +54,42 @@ get_header();
                 <a href="<?php the_permalink(); ?>" class="post-link">Read</a>
               </div>
             </div>
-					</article>
-				<?php endwhile; ?>
+          </article>
+        <?php break; ?>
+        <?php endwhile; ?>
+        <?php // the_posts_navigation(); ?>
+      <?php endif; ?> -->
 
-				<?php the_posts_navigation(); ?>
-			<?php endif; ?>
+      <?php 
+      $args = array(
+        'id' => 'news',
+        'target' => 'news_filter',
+        // 'container_type' => 'div',
+        // 'css_classes' => 'feed__inner',
+        'post_type' => 'post',
+        'posts_per_page' => '7',
+        'transition' => 'fade',
+        'button_label' => 'Load More',
+        'button_loading_label' => 'Loading...',
+        'scroll' => 'false',
+        'theme_repeater' => 'posts.php',
+        // 'offset' => '1',
+        'filters'				=> 'true',
+        'filters_url'			=> 'true',
+        'filters_paging'		=> 'true',
+        // 'paging'				=> 'true',
+        // 'paging_show_at_most'	=> '3',
+        // 'paging_scroll'			=> 'true:200',
+        // 'paging_controls'		=> 'true',
+        // 'paging_previous_label'	=> 'Prev',
+        // 'paging_next_label'		=> 'Next',
+      );
+      
+      if(function_exists('alm_render')){
+        alm_render($args);
+      }
+      ?>
 		</section>
-
-    <div class="load-more-button">
-      <button class="button bg-sky hover:bg-indigo-bright">Load More</button>
-    </div>
 
     <div class="wrapper-wide">
       <div class="next">

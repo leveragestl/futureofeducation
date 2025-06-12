@@ -16,22 +16,22 @@ get_header();
 
     <header class="hero">
       <div class="hero__inner wrapper-layout">
-        <h1 class="hero__title"><?php the_title(); ?></h1>
+        <h1 class="hero__title" data-animate><?php the_title(); ?></h1>
 
-        <div class="hero__filters">
-          <h2 class="hero__filters-headline">Filter</h2>
-          <div class="hero__filters-filter">
+        <div class="hero__filters" data-animate-group data-animate-stagger data-animate-delay="0.5">
+          <h2 class="hero__filters-headline" data-animate>Filter</h2>
+          <div class="hero__filters-filter" data-animate>
             <select name="filter" id="date">
               <option value="">Date</option>
             </select>
           </div>
-          <div class="hero__filters-filter">
+          <div class="hero__filters-filter" data-animate>
             <select name="filter" id="location">
               <option value="">Location</option>
             </select>
           </div>
         </div>
-        <a href="<?php echo home_url('/events-list'); ?>" class="hero__view">View as Calendar</a>
+        <a href="<?php echo home_url('/events-list'); ?>" class="hero__view" data-animate data-animate-delay="0.25">View as Calendar</a>
 
       </div>
       
@@ -52,7 +52,7 @@ get_header();
       
           <?php $format = ( eo_is_all_day($event->ID) ? get_option('date_format') : get_option('date_format').' '.get_option('time_format') ); ?>
 
-          <article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
+          <article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?> data-animate data-animate-delay="0.5">
             <div class="post-image"><img src="<?php echo get_the_post_thumbnail_url($event->ID); ?>" alt="<?php the_title(); ?>" /></div>
 
             <div class="post-inner">
