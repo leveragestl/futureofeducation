@@ -81,3 +81,13 @@
     mask-image: url("data:image/svg+xml,%3Csvg width='46' height='6' viewBox='0 0 46 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4.50041C1 4.50041 19 -1.82512 45.5 4.5' stroke='%23313185' stroke-width='3'/%3E%3C/svg%3E%0A");
   }
 }
+
+.parallax-image {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+[data-animate] {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}

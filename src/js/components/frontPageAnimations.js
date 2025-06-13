@@ -51,9 +51,12 @@ export function initFrontPageAnimations() {
   // Build timeline
   tl
     // Fade in hero image
-    .from(heroImage, {
-      opacity: 0,
-      duration: 1.2
+    .set(headline, {
+      opacity: 1,
+    })
+    .to(heroImage, {
+      opacity: 1,
+      duration: 2.0
     })
     // Animate headline words with flicker
     .to(headlineText?.children || [], {
@@ -79,7 +82,7 @@ export function initFrontPageAnimations() {
         }
       },
       ease: 'power1.in'
-    })
+    }, '-=1')
     .to(headlineOutline?.children || [], {
       opacity: 1,
       duration: 0.1,
@@ -103,17 +106,25 @@ export function initFrontPageAnimations() {
         }
       },
       ease: 'power1.in'
-    }, '-=0.5') // Start slightly before the previous animation ends
+    }, '-=1') // Start slightly before the previous animation ends
     // Fade in and up tagline
-    .from(tagline, {
+    .fromTo(tagline, {
       opacity: 0,
       y: 30,
       duration: 0.8
+    }, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8
     }, '-=0.5')
     // Fade in and up video container
-    .from(videoContainer, {
+    .fromTo(videoContainer, {
       opacity: 0,
       y: 30,
+      duration: 0.8
+    }, {
+      opacity: 1,
+      y: 0,
       duration: 0.8
     }, '-=0.25');
 } 

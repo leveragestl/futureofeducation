@@ -92,6 +92,18 @@
         }
       }
     }
+
+    &__image,
+    &__headline,
+    &__content li {
+      opacity: 0;
+    }
+
+    .js-disabled &__image,
+    .js-disabled &__headline,
+    .js-disabled &__content li {
+      opacity: 1;
+    }
   }
 
   .works {

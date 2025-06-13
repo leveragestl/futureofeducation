@@ -19,6 +19,7 @@ import { initGetInvolvedAnimations } from './components/getInvolvedAnimations';
 import { initNewsPageAnimations } from './components/newsPageAnimations';
 import { initJoinMovementAnimations } from './components/joinMovementAnimations';
 import { initMagnetic } from './components/magneticEffect';
+import { loadNeoneonFont } from './utils/fontLoader';
 
 // Initialize page fade
 // initPageFade();
@@ -27,13 +28,15 @@ import { initMagnetic } from './components/magneticEffect';
 initHeaderScroll();
 
 // Initialize parallax effect
-initParallax();
+if (document.querySelector('.parallax-image')) {
+  initParallax();
+}
 
 // Initialize scroll animations
 initScrollAnimations();
 
 // Initialize front page animations
-if (document.querySelector('.hero')) {
+if (document.querySelector('.home')) {
   initFrontPageAnimations();
 }
 
@@ -81,11 +84,9 @@ if (document.querySelector('.page-template-page-join-the-movement')) {
 }
 
 // Initialize magnetic effect
-initMagnetic();
-
-// =============================================================================
-// Vendors
-// =============================================================================
+if (document.querySelector('[data-magnetic]')) {
+  initMagnetic();
+}
 
 // fancyBox
 import { fancyBox } from "./vendors/fancyBox";
@@ -102,4 +103,8 @@ if (document.querySelector('.video-container')) {
 if (document.querySelector('.comments-feature')) {
   initCommentClose();
   initCommentsSwiper();
+}
+
+if (document.querySelector('.font-neoneon')) {
+  loadNeoneonFont();
 }

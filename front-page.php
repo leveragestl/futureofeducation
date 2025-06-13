@@ -20,8 +20,8 @@ get_header();
       <div class="hero__headline-container">
         <!-- <img src="<?php echo get_theme_file_uri('public/our-kids-deserve-better.png'); ?>" alt="" /> -->
         <h1 class="hero__headline font-neoneon glow-text">
-          <span class="glow-text__text">Our kids deserve better</span>
-          <span class="glow-text__outline" aria-hidden="true">Our kids deserve better</span>
+          <span class="glow-text__text"><span class="line">Our kids</span> <span class="line">deserve</span> <span class="line">better</span></span>
+          <span class="glow-text__outline" aria-hidden="true"><span class="line">Our kids</span> <span class="">deserve</span> <span class="line">better</span></span>
         </h1>
       </div>
 

@@ -5,27 +5,32 @@ export function initAboutPageAnimations() {
   const tl = gsap.timeline();
 
   // Hero section animation
-  tl.from('.hero', {
-    opacity: 0,
+  tl.to('.hero__image', {
+    opacity: 1,
     duration: 1,
     ease: 'power2.out'
   });
 
   // Content sections animation
-  tl.from('.hero__headline', {
+  tl.fromTo('.hero__headline', {
     opacity: 0,
     y: 30,
     duration: 0.8,
-    stagger: 0.2,
     ease: 'power2.out'
+  }, {
+    opacity: 1,
+    y: 0,
   });
 
   // List items animation
-  tl.from('.hero__content li', {
+  tl.fromTo('.hero__content li', {
     opacity: 0,
     y: 20,
+    ease: 'power2.out'
+  }, {
+    opacity: 1,
+    y: 0,
     duration: 0.6,
     stagger: 0.1,
-    ease: 'power2.out'
   }, '-=0.4');
 } 
