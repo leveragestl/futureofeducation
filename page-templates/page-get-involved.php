@@ -16,7 +16,7 @@ get_header();
 
 			<div class="hero__container">
         <div class="hero__content">
-          <h3 class="hero__headline">A Letter From Mackenzie</h3>
+          <h3 class="hero__headline">A Letter From MacKenzie</h3>
           <div class="hero__content-inner">
             <div class="hero__content-image">
               <img src="<?php echo get_theme_file_uri('public/event-2.jpg'); ?>" alt="" />

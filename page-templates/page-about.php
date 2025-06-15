@@ -61,7 +61,7 @@ get_header();
 
 			<div class="letter__container">
         <div class="letter__content">
-          <h3 class="letter__headline">A Letter From Mackenzie</h3>
+          <h3 class="letter__headline">A Letter From MacKenzie</h3>
           <div class="letter__content-inner">
             <figure class="letter__content-image" data-animate>
               <img src="<?php echo get_theme_file_uri('public/event-2.jpg'); ?>" alt="" />
@@ -140,7 +140,7 @@ get_header();
         <blockquote class="bio__quote" data-animate>
           <p>I believe in America's potential to once again be a global leader in education"</p>
           <cite>
-            <img src="<?php echo get_theme_file_uri('public/signature.svg'); ?>" alt="Mackenzie Price Signature" />
+            <img src="<?php echo get_theme_file_uri('public/signature.svg'); ?>" alt="MacKenzie Price Signature" />
           </cite>
         </blockquote>
       </div>
@@ -233,7 +233,7 @@ get_header();
 
     <section class="cta wrapper">
       <div class="cta__inner">
-        <h2 class="cta__headline">Stay Educated With Mackenzie</h2>
+        <h2 class="cta__headline">Stay Educated With MacKenzie</h2>
         <p class="cta__content">Be inspired to ask the right questions! You have the power to support your child's learning journey and create positive change in your community.</p>
         <form action="" data-animate>
           <input type="text" placeholder="First Name" />
