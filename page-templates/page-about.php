@@ -112,7 +112,7 @@ get_header();
             <div class="feature__logo-grid-item">
               <img data-animate src="<?php echo get_theme_file_uri('public/logo-business-insider.png'); ?>" alt="">
             </div>
-            <div class="feature__logo-grid-item scale-50 xl:scale-90">
+            <div class="feature__logo-grid-item scale-75 md:scale-90">
               <img data-animate src="<?php echo get_theme_file_uri('public/logo-nw.png'); ?>" alt="">
             </div>
             <div class="feature__logo-grid-item scale-50 xl:scale-75">

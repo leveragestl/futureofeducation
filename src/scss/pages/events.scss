@@ -5,6 +5,9 @@
     padding-bottom: 7.5rem;
   }
 
+  // ===========================================================================
+  // Hero
+  // ===========================================================================
   .hero {
     --hero-padding-top: 5rem;
     
@@ -12,6 +15,7 @@
     align-items: center;
     padding-top: calc(var(--site-header-height) + var(--hero-padding-top));
     height: auto;
+    min-height: 0;
 
     @screen xl {
       --hero-padding-top: 10rem;
@@ -108,11 +112,14 @@
     }
   }
 
+  // ===========================================================================
+  // Feed
+  // ===========================================================================
   .feed {
     --padding: 1.5rem;
 
     gap: 1rem;
-    margin-top: 5rem;
+    margin-top: 2rem;
 
     @screen md {
       display: grid;
@@ -121,6 +128,7 @@
 
     @screen xl {
       gap: 2.5rem;
+      margin-top: 5rem;
     }
 
     .post {

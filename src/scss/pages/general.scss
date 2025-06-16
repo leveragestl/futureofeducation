@@ -4,9 +4,14 @@
   grid-template-rows: var(--site-header-height) 1fr;
   height: 75vh;
   width: 100%;
+  min-height: 640px;
 
   @screen xl {
-    height: max(960px, 100vh);
+    min-height: 100vh;
+  }
+
+  @media (min-height: 960px) {
+    height: 100vh;
   }
 
   &__container {

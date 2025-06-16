@@ -107,7 +107,10 @@
       &:first-child {
         grid-row: 2 / 4;
         grid-column: 1 / 4;
-        margin-top: -5rem;
+
+        @screen xl {
+          margin-top: -5rem;
+        }
       }
 
       &:last-child {
@@ -135,13 +138,17 @@
     }
 
     &__paragraph {
-      margin-top: 2rem;
+      margin-top: 4rem;
 
       @screen md {
         width: 100%;
-        margin-top: -4rem;
         display: flex;
         justify-content: flex-end;
+        margin-top: 6rem;
+
+        @screen xl {
+          margin-top: -4rem;
+        }
 
         &-inner {
           max-width: var(--breakpoint-ml);

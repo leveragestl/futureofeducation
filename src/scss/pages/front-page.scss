@@ -10,12 +10,13 @@
     grid-template-rows: var(--site-header-height) 1fr auto;
     z-index: 110;
     height: auto;
+    min-height: 640px;
 
     @screen xl {
       min-height: 100vh;
     }
 
-    @media (min-height: 768px) {
+    @media (min-height: 960px) {
       height: 100vh;
     }
 
@@ -62,6 +63,12 @@
         &:nth-child(2) {
           display: inline;
         }
+      }
+    }
+
+    @screen sm {
+      &__headline {
+        font-size: 6rem;
       }
     }
 
