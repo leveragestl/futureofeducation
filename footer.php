@@ -79,17 +79,17 @@
             <div class="siteFooter__sitemap-column">
               <h3 class="siteFooter__sitemap-title">Follow Us</h3>
               <ul>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">X</a></li>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">YouTube</a></li>
+                <li><a href="https://www.facebook.com/people/Future-of-education/61564869954739/">Facebook</a></li>
+                <li><a href="https://x.com/mackenzieprice">X</a></li>
+                <li><a href="https://www.instagram.com/futureof_education">Instagram</a></li>
+                <li><a href="https://www.youtube.com/@future_of_education">YouTube</a></li>
               </ul>
             </div>
             <div class="siteFooter__sitemap-column">
               <h3 class="siteFooter__sitemap-title">Legal</h3>
               <ul>
-                <li><a href="#">Terms and Conditions</a></li>
-                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="<?php echo home_url('/terms-and-conditions'); ?>">Terms and Conditions</a></li>
+                <li><a href="<?php echo get_privacy_policy_url(); ?>">Privacy Policy</a></li>
               </ul>
             </div>
           </div>
@@ -98,7 +98,7 @@
         <div class="siteFooter__mailing-list">
           <div class="siteFooter__mailing-list-inner">
             <h3 class="siteFooter__mailing-list-title">Join Our Mailing List</h3>
-            <p class="siteFooter__mailing-list-description">Be the first to know about exclusive events, news and updates about the Future of Education!</p>
+            <p class="siteFooter__mailing-list-description">Be the first to know about exclusive events, news and updates</p>
             <form action="#" class="siteFooter__mailing-list-form">
               <input type="email" placeholder="Email Address" />
               <button class="siteFooter__mailing-list-button button button--gradient" type="submit">Submit</button>

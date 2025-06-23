@@ -15,13 +15,13 @@ if (get_field('type') == 'video') {
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
-  <?php if(get_field('type') == 'video'): ?>
-    <div class="post-header__icon"><i class="play !bg-white scale-125"></i></div>
-  <?php elseif(get_field('icon')): ?>
-    <div class="post-header__icon"><img src="<?php echo get_field('icon')['url']; ?>" alt="" /></div>
-  <?php else: ?>
-    <div class="post-header__icon"><img src="<?php echo get_theme_file_uri('public/icon-apple.png'); ?>" alt="" /></div>
-  <?php endif; ?>
+    <?php if(get_field('type') == 'video'): ?>
+      <div class="post-header__icon"><i class="play !bg-white scale-125"></i></div>
+    <?php elseif(get_field('icon')): ?>
+      <div class="post-header__icon"><img src="<?php echo get_field('icon')['url']; ?>" alt="" /></div>
+    <?php else: ?>
+      <div class="post-header__icon"><img src="<?php echo get_theme_file_uri('public/icon-apple.png'); ?>" alt="" /></div>
+    <?php endif; ?>
 
   <a class="post-header" href="<?php echo $href; ?>" <?php echo (get_field('type') == 'link') ? 'target="_blank"' : ''; ?> <?php echo (get_field('type') == 'video') ? 'data-fancybox' : ''; ?>>
     <img class="post-header__image" src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" />

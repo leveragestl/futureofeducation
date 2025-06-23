@@ -221,19 +221,23 @@
     }
 
     &__subheadline {
-      font-size: 2rem;
-      font-weight: 700;
       text-align: center;
-      margin-block: 3rem;
+      margin-block: 6rem 3rem;
       max-width: 20ch;
       margin-inline: auto;
 
       & > * {
         line-height: 1;
+        font-size: 2rem;
+        font-weight: 700;  
+
+        @screen md {
+          font-size: 2.625rem;
+        }
       }
 
       @screen md {
-        font-size: 2.625rem;
+        margin-block: 8rem 4rem;
       }
 
       @screen xl {

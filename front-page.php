@@ -28,7 +28,7 @@ get_header();
 			<div class="hero__content">
 				<div class="hero__content-inner">
           <div class="hero__tagline">
-            <h2>As parents, we have the power to transform education</h2>
+            <h2>Old tools. New world. It’s time for a different kind of learning</h2>
           </div>
 
 					<!-- <div class="hero__button">
@@ -85,14 +85,16 @@ get_header();
           <div class="future__stat-illo">
             <img src="<?php echo get_theme_file_uri('public/illo-pages.png'); ?>" alt="" />
           </div>
-          <h4 class="future__stat-text">The average high school senior scores no better on nationwide tests than the best 3rd grader</h4>
+          <h4 class="future__stat-text">They’ll Earn, Spend, and Borrow — But Will They Understand It?</h4>
+          <p class="future__stat-footnote">*Source: <a href="https://gflec.org/initiatives/personal-finance-index/">Global Financial Literacy Center Personal Finance Index</a></p>
         </div>
 
         <div class="future__stat" data-animate>
           <div class="future__stat-illo">
             <img src="<?php echo get_theme_file_uri('public/illo-faces.png'); ?>" alt="" />
           </div>
-          <h4 class="future__stat-text">Students' happiness steadily decreases each year</h4>
+          <h4 class="future__stat-text">The world has changed, but what we teach hasn’t. Kids need to learn critical thinking, collaboration, and digital skills – not just facts.</h4>
+          <p class="future__stat-footnote">*Source: <a href="https://www3.weforum.org/docs/WEF_Defining_Education_4.0_2023.pdf">World Economic Forum: Defining Education 4.0 - A Taxonomy for the Future of Learning</a></p>
         </div>
       </div>
 
@@ -135,7 +137,7 @@ get_header();
         </div>
         <div class="cta__content-right">
           <div class="cta__description content-block">
-            <p>Real change happens when parents, educators, and communities unite around forging a path for the future. Whether you're supporting learning at home, innovating in the classroom, or advocating in your community, you have the power to transform education for your child.</p>
+            <p>Real change happens when parents, educators, and communities unite around forging a path for the future. Whether you're supporting learning at home, innovating in the classroom, or advocating in your community, you have the power to reimagine education.</p>
             <p class="large">Get practical resources, connect with like-minded parents and advocates, and join a growing movement that's creating lasting change for America's students.</p>
           </div>
         </div>

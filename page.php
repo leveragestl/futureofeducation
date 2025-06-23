@@ -22,7 +22,14 @@ get_header();
           <h1 class="hero__title"><?php the_title(); ?></h1>
         </div>
       </section>
-			<?php // get_template_part( 'template-parts/content', 'page' ); ?>
+
+      <section class="content">
+        <div class="wrapper-layout">
+          <div class="content__inner content-block">
+            <?php the_content(); ?>
+          </div>
+        </div>
+      </section>
 		<?php endwhile; ?>
 	</main><!-- #main -->
 

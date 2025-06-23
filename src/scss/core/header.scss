@@ -72,7 +72,7 @@
     backdrop-filter: blur(8px);
     background-color: rgba(49, 49, 133, 0.8);
 
-    @include media-xl {
+    @include media-lgr {
       display: contents;
       transform: none;
       backdrop-filter: none;
@@ -83,7 +83,7 @@
   &__nav {
     grid-column: 2 / -1;
 
-    @include media-xl {
+    @include media-lgr {
       gap: 2.5rem;
       grid-row-start: 1;
       grid-column: 2 / 3;
@@ -106,7 +106,7 @@
     width: 100%;
     display: flex;
 
-    @include media-xl {
+    @include media-lgr {
       flex-direction: row;
       gap: 2.5rem;
       justify-content: center;
@@ -135,7 +135,7 @@
       }
     }
 
-    @include media-xl {
+    @include media-lgr {
       width: auto;
       
       ul {
@@ -164,7 +164,7 @@
       width: 100%;
     }
 
-    @include media-xl {
+    @include media-lgr {
       display: flex;
       width: 100%;
       justify-content: end;  

@@ -33,7 +33,7 @@ get_header();
 
     <header class="hero wrapper">
       <div class="hero__inner parallax-container">
-        <h2 class="hero__headline">It's time to act. America's education system needs student centered solutions.</h2>
+        <h2 class="hero__headline">It's time to act. America's education system needs student-centered solutions.</h2>
 
         <div class="hero__images">
           <div class="hero__image parallax-image" data-parallax-speed="-0.1">
@@ -46,7 +46,7 @@ get_header();
 
         <div class="hero__paragraph content-block parallax-image" data-parallax-speed="-0.2">
           <div class="hero__paragraph-inner">
-            <p>You have more power than you realize. Parents across America are discovering they don't have to wait for someone else to fix education. You can support your child's learning at home, advocate for innovative approaches that combine rigorous academics with real-world skills, and join thousands of parents, educators, and community leaders who are creating lasting change.</p>
+            <p>We have more power than we realize. Parents across America are discovering they don't have to wait for someone else to fix their child’s education. Everyone can advocate for innovative approaches that combine rigorous academics with real-world skills, and join thousands of parents, educators, and community leaders who are creating lasting change.</p>
             <p>When we unite around practical solutions and make our voices heard, we can create an education system that truly serves every student.</p>
           </div>
         </div>
@@ -54,6 +54,10 @@ get_header();
     </header>
 
     <section class="forms">
+      
+      <div class="forms__headline-container">
+        <h3 class="forms__headline">Take a moment to speak up for kids everywhere...</h3>
+      </div>
         
       <div class="forms__tabs">
 

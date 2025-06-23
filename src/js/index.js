@@ -20,6 +20,7 @@ import { initNewsPageAnimations } from './components/newsPageAnimations';
 import { initJoinMovementAnimations } from './components/joinMovementAnimations';
 import { initMagnetic } from './components/magneticEffect';
 import { loadNeoneonFont } from './utils/fontLoader';
+import { linksHandler } from './components/linksHandler';
 
 // Initialize page fade
 // initPageFade();
@@ -49,7 +50,7 @@ if (document.querySelector('.testimonials__slider')) {
 initNavPanel();
 
 // Initialize post filters
-if (document.querySelector('.alm-filters')) {
+if (document.querySelector('#ajax-load-more')) {
   initPostFilters();
 }
 
@@ -108,3 +109,6 @@ if (document.querySelector('.comments-feature')) {
 if (document.querySelector('.font-neoneon')) {
   loadNeoneonFont();
 }
+
+// Initialize links handler
+linksHandler();

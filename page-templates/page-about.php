@@ -15,7 +15,7 @@ get_header();
 		<header class="hero">
 			<div class="hero__container parallax-container">
         <div class="hero__image parallax-image">
-          <img src="<?php echo home_url() . '/wp-content/uploads/2025/06/about-hero-2.jpg'; ?>" alt="" />
+          <img src="<?php echo home_url() . '/wp-content/uploads/2025/06/about-hero-3.jpg'; ?>" alt="" />
         </div>
 			</div>
 
@@ -61,22 +61,21 @@ get_header();
 
 			<div class="letter__container">
         <div class="letter__content">
-          <h3 class="letter__headline">A Letter From MacKenzie</h3>
+          <h3 class="letter__headline">Hi! I’m MacKenzie Price, founder of Future of Education.</h3>
           <div class="letter__content-inner">
             <figure class="letter__content-image" data-animate>
               <img src="<?php echo get_theme_file_uri('public/event-2.jpg'); ?>" alt="" />
               <blockquote class="letter__content-quote">
-                <p>Kids are limitless.</p>
+                <p>We believe children are limitless, and it’s our job to help unlock that potential.</p>
                 <cite>MacKenzie Price</cite>
               </blockquote>
             </figure>
             <div class="letter__content-letter content-block">
-              <p>Hi! I'm MacKenzie Price, Founder of Future of Education. Just like you, I am a parent who wanted the best for my child's education. When my daughters came home from school saying "Mom, school is so boring," I couldn't believe it! My girls loved to learn. School had failed them—and they weren't the only ones.</p>
-              <p>Two out of three kids in America cannot read or do math at grade level. The reality we face is stark: millions of kids (yours included!) need and deserve better.</p>
-              <p>So I set out to discover what learning could look like when it's personalized for each student, encourages critical thinking and creativity, and prioritizes real-world skills. The results convinced me that transformational change IS possible.</p>
-              <p>From this work, Future of Education was born. Here, you'll find resources, community forums, and science-backed insights about what works. Our mission is simple: we're building a nationwide coalition of parents and educators to transform America's education system. Progress happens when we focus on practical solutions that prepare students for tomorrow's world.</p>
-              <p>At Future of Education, everything we do stems from a fundamental belief: children are limitless. Our job is to help them unleash their potential.</p>
-              <p>I hope you'll join me on this journey. Here's to building tomorrow together.</p>
+              <p>Just like you, I’m a parent who wants the best for my kids. When my daughters came home from school saying "Mom, school is so boring," I couldn't believe it - they loved learning.</p>
+              <p>But the system was failing them. The traditional classroom isn’t keeping up with the rapidly changing world around us.</p>
+              <p>Like so many parents, I found myself asking: What do kids really need to know these days? And the more I searched, the clearer it became — our children need more than test prep and memorization. They need learning that’s engaging, relevant, and grounded in real-life skills.</p>
+              <p>I set out to explore what education could look like if we prioritized creativity, critical thinking, and personalized growth. That journey led me here. Future of Education is a place for practical tools, research-backed insights, and a growing community of parents and educators who know we can do better.</p>
+              <p>I believe <strong>kids are limitless</strong>. Let’s help them thrive — and build the future they deserve.</p>
               <img data-animate src="<?php echo get_theme_file_uri('public/signature.svg'); ?>" alt="" class="letter__content-signature" />
             </div>
           </div>
@@ -128,7 +127,7 @@ get_header();
     <section class="bio wrapper">
       <div class="bio__inner">
         <div class="bio__content">
-          <p><span class="font-bold uppercase">MacKenzie Price, founder of Future of Education and Alpha Schools, is revolutionizing K-12 education by harnessing the power of AI to reimagine the school day</span>, enabling students to tackle real-world challenges, build life skills, and become self-driven learners. A Stanford graduate and host of the top-rated Future of Education podcast, Price is a member of the Forbes Technology Council and serves on the advisory board of the Center for Education and Public Service at the University of Austin</p>
+          <p><span class="font-bold uppercase">MacKenzie Price, founder of Future of Education and Alpha Schools, is revolutionizing K-12 education by harnessing the power of AI to reimagine the school day</span>, enabling students to tackle real-world challenges, build life skills, and become self-driven learners. A concerned mom of two, she started her own school in 2014 and has grown it into a network of 8 schools across three states with more growth on the horizon. Host of the top-rated Future of Education podcast, Price is a member of the Forbes Technology Council and serves on the advisory board of the Center for Education and Public Service at the University of Austin.</p>
         </div>
       </div>
 
@@ -179,7 +178,7 @@ get_header();
       ],
     ] ?>
 
-    <section class="testimonials">
+    <section class="testimonials !hidden">
       <div class="testimonials__inner">
 
         <div class="testimonials__slider swiper" data-animate data-animate-position="50%">
@@ -216,7 +215,7 @@ get_header();
       </div>
     </section>
 
-    <section class="video">
+    <section class="video !hidden">
       <div class="video__inner">
 
         <div class="video__video-container video-container video-autoplays">
@@ -234,7 +233,7 @@ get_header();
     <section class="cta wrapper">
       <div class="cta__inner">
         <h2 class="cta__headline">Stay Educated With MacKenzie</h2>
-        <p class="cta__content">Be inspired to ask the right questions! You have the power to support your child's learning journey and create positive change in your community.</p>
+        <p class="cta__content">Be inspired to ask the right questions! You have the power to support transformational change in education and be a champion for your community.</p>
         <form action="" data-animate>
           <input type="text" placeholder="First Name" />
           <input type="email" placeholder="Email Address" />

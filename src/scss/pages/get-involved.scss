@@ -62,6 +62,7 @@
     display: block;
     height: auto;
     padding-block: calc(var(--site-header-height) + var(--padding-block)) var(--padding-block);
+    max-height: none;
 
     @screen md {
       --padding-block: 4rem;
@@ -69,6 +70,7 @@
 
     @screen xl {
       --padding-block: 6rem;
+      margin-bottom: -8rem;
     }
 
     &__headline {
@@ -169,6 +171,25 @@
 
     @screen xl {
       padding-block: 6rem;
+    }
+
+    &__headline-container {
+      margin-bottom: 2rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+
+      @screen md {
+        margin-bottom: 4rem;
+      }
+    }
+
+    &__headline {
+      font-size: 1.75rem;
+      line-height: 1;
+      font-weight: 700;
+      border-bottom: 2px solid var(--color-sky);
+      max-width: 70ch;
     }
 
     &__inner {

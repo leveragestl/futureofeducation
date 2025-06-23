@@ -31,10 +31,10 @@ get_header();
 			</div>
 		</header>
     
-    <section id="alm-filters" class="filter wrapper-layout">
+    <section id="alm-filters" class="filter wrapper-layout !hidden">
       <div class="filter__filters" data-animate>
         <h2 class="filter__filters-headline">Filter</h2>
-        <?php echo do_shortcode('[ajax_load_more_filters id="news_filter" target="news"]'); ?>
+        <?php // echo do_shortcode('[ajax_load_more_filters id="news_filter" target="news"]'); ?>
       </div>
     </section>
 
@@ -64,8 +64,8 @@ get_header();
       $args = array(
         'id' => 'news',
         'target' => 'news_filter',
-        // 'container_type' => 'div',
-        // 'css_classes' => 'feed__inner',
+        'orderby' => 'menu_order',
+        'order' => 'ASC',
         'post_type' => 'post',
         'posts_per_page' => '11',
         'transition' => 'fade',
@@ -73,16 +73,9 @@ get_header();
         'button_loading_label' => 'Loading...',
         'scroll' => 'false',
         'theme_repeater' => 'posts.php',
-        // 'offset' => '1',
-        'filters'				=> 'true',
-        'filters_url'			=> 'true',
-        'filters_paging'		=> 'true',
-        // 'paging'				=> 'true',
-        // 'paging_show_at_most'	=> '3',
-        // 'paging_scroll'			=> 'true:200',
-        // 'paging_controls'		=> 'true',
-        // 'paging_previous_label'	=> 'Prev',
-        // 'paging_next_label'		=> 'Next',
+        // 'filters'				=> 'true',
+        // 'filters_url'			=> 'true',
+        // 'filters_paging'		=> 'true',
       );
       
       if(function_exists('alm_render')){
