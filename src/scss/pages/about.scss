@@ -113,9 +113,9 @@
   }
 
   // ===========================================================================
-  // Works
+  // Intro
   // ===========================================================================
-  .works {
+  .intro {
     position: relative;
     color: white;
     padding-block: 4rem;
@@ -218,11 +218,11 @@
       }
     }
 
-    a.works__step:hover {
+    a.intro__step:hover {
       background-color: var(--color-sky);
       translate: 0 -6px;
 
-      .works__step-action {
+      .intro__step-action {
         &::after {
           border-color: white;
         }
@@ -399,8 +399,16 @@
       }
 
       cite {
-        align-self: flex-end;
-        margin-right: 5rem;
+        // align-self: flex-end;
+        // margin-right: 5rem;
+        position: relative;
+
+        &::before {
+          content: '—';
+          font-weight: 700;
+          color: var(--color-sky);
+          margin-right: 0.5rem;
+        }
       }
 
       &::before {
@@ -513,7 +521,7 @@
 
       @screen xl {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(71px, 1fr));
         grid-auto-flow: column;
         column-gap: 4rem;
         align-items: normal;
@@ -831,6 +839,8 @@
       }
   
       &__quote {
+        margin-left: 0
+        ;
         p {
           margin-bottom: 1.5rem;
           color: var(--color-indigo-dark);
@@ -863,6 +873,7 @@
       }
   
       &__content {
+        display: block;
         margin-left: -25px;
 
         @screen md {
@@ -926,18 +937,24 @@
     }
 
     &__content {
-      font-size: 1.25rem;
-      font-weight: 600;
-      line-height: 1.5;
       max-width: 56rem;
       margin-inline: auto;
       text-align: center;
       margin-bottom: 3rem;
       color: var(--color-sky);
 
+      p {
+        font-size: 1.25rem;
+        font-weight: 600;
+        line-height: 1.5;          
+      }
+
       @screen md {
-        font-size: 1.625rem;
         margin-bottom: 4rem;
+
+        p {
+          font-size: 1.625rem;
+        }
       }
     }
 

@@ -1,7 +1,7 @@
 import gsap from 'gsap';
 
 export function initVideoLinks() {
-  const links = document.querySelectorAll('.links-list li span');
+  const links = document.querySelectorAll('.videos-list li span');
   const video = document.querySelector('#mainVideo');
   const videoContainer = document.querySelector('.video-container');
   const videoWrapper = document.querySelector('.video-wrapper');

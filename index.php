@@ -16,21 +16,24 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
+
+    <?php if (have_rows('hero', get_option('page_for_posts'))) : while (have_rows('hero', get_option('page_for_posts'))) : the_row(); ?>
     <header class="hero">
 			<div class="hero__container parallax-container">
         <div class="hero__image parallax-image">
-          <img src="<?php echo home_url() . '/wp-content/uploads/2025/05/news-hero.jpg'; ?>" alt="" />
+          <img src="<?php echo get_sub_field('background_image')['url']; ?>" alt="<?php echo get_sub_field('background_image')['alt']; ?>" />
         </div>
 			</div>
 
 			<div class="hero__content">
 				<div class="hero__content-inner">
-          <h3 class="hero__headline">We Owe It To Our Kids To Change Course.</h3>
-          <h4 class="hero__subheadline">Hear what others are saying/talking about:</h4>
+          <?php echo (get_sub_field('headline')) ? '<h3 class="hero__headline">' . get_sub_field('headline') . '</h3>' : ''; ?>
+          <?php echo (get_sub_field('subheadline')) ? '<h4 class="hero__subheadline">' . get_sub_field('subheadline') . '</h4>' : ''; ?>
 				</div>
 			</div>
 		</header>
-    
+    <?php endwhile; endif; ?>
+
     <section id="alm-filters" class="filter wrapper-layout !hidden">
       <div class="filter__filters" data-animate>
         <h2 class="filter__filters-headline">Filter</h2>
@@ -67,7 +70,7 @@ get_header();
         'orderby' => 'menu_order',
         'order' => 'ASC',
         'post_type' => 'post',
-        'posts_per_page' => '11',
+        'posts_per_page' => '7',
         'transition' => 'fade',
         'button_label' => 'Load More',
         'button_loading_label' => 'Loading...',

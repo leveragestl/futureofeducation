@@ -12,48 +12,33 @@ get_header();
 
 	<main id="primary" class="site-main">
 		<?php while ( have_posts() ) : the_post(); ?>
+
+    <!-- Hero -->
+    <?php if (have_rows('hero')) : while (have_rows('hero')) : the_row(); ?>
 		<header class="hero">
 			<div class="hero__container parallax-container">
-				<img class="hero__image parallax-image" src="<?php echo home_url() . '/wp-content/uploads/2025/05/hero.jpg'; ?>" alt="" />
+				<img class="hero__image parallax-image" src="<?php echo get_sub_field('background_image')['url']; ?>" alt="<?php echo get_sub_field('background_image')['alt']; ?>" />
 			</div>
 
       <div class="hero__headline-container">
         <!-- <img src="<?php echo get_theme_file_uri('public/our-kids-deserve-better.png'); ?>" alt="" /> -->
         <h1 class="hero__headline font-neoneon glow-text">
-          <span class="glow-text__text"><span class="line">Our kids</span> <span class="line">deserve</span> <span class="line">better</span></span>
-          <span class="glow-text__outline" aria-hidden="true"><span class="line">Our kids</span> <span class="">deserve</span> <span class="line">better</span></span>
+          <span class="glow-text__text"><?php echo get_sub_field('headline'); ?></span>
+          <span class="glow-text__outline" aria-hidden="true"><?php echo get_sub_field('headline'); ?></span>
         </h1>
       </div>
 
 			<div class="hero__content">
 				<div class="hero__content-inner">
           <div class="hero__tagline">
-            <h2>Old tools. New world. It’s time for a different kind of learning</h2>
+            <h2><?php echo get_sub_field('tagline'); ?></h2>
           </div>
 
-					<!-- <div class="hero__button">
-						<button data-fancybox data-src="<?php echo home_url() . '/wp-content/uploads/2025/06/welcome-video-1440.mp4'; ?>" class="button button--ghost" aria-label="Play video">
-							<span class="label">Hear from MacKenzie <i class="play"></i></span>
-						</button>
-					</div> -->
-
 					<div class="hero__video-container">
-            <!-- <a data-fancybox href="<?php echo home_url() . '/wp-content/uploads/2025/06/welcome-video-1440.mp4'; ?>" class="video-container">
-              <img
-                class="hero__video-thumbnail"
-                src="<?php echo home_url() . '/wp-content/uploads/2025/05/video-thumbnail.jpg'; ?>"
-                alt=""
-              >
-              <div class="play-button">
-                <button class="button button--ghost">
-                  <span class="label">Hear from MacKenzie <i class="play"></i></span>
-                </button>
-              </div>
-            </a> -->
 
             <div class="video-container video-autoplays" data-magnetic>
-              <video src="<?php echo home_url() . '/wp-content/uploads/2025/06/welcome-video-1440.mp4'; ?>" poster="<?php echo home_url() . '/wp-content/uploads/2025/05/video-thumbnail.jpg'; ?>" autoplay muted loop playsinline></video>
-              <div data-fancybox data-src="<?php echo home_url() . '/wp-content/uploads/2025/06/welcome-video-1440.mp4'; ?>" class="play-button"><button class="button button--ghost"><span class="label">Hear from MacKenzie <i class="play"></span></i></button></div>
+              <video src="<?php echo get_sub_field('video')['url']; ?>" <?php echo (get_sub_field('video')['poster']) ? 'poster="' . get_sub_field('video')['poster'] . '"' : ''; ?> autoplay muted loop playsinline></video>
+              <div data-fancybox data-src="<?php echo get_sub_field('video')['url']; ?>" class="play-button"><button class="button button--ghost"><span class="label">Hear from MacKenzie <i class="play"></span></i></button></div>
               <button class="mute-button">
                 <i class="mute"></i>
                 <span class="screen-reader-text">Mute</span>
@@ -63,58 +48,50 @@ get_header();
 				</div>
 			</div>
 		</header>
+    <?php endwhile; endif; ?>
 
-    <section class="future wrapper-layout">
-      <div class="future__inner">
-        <div class="future__content">
-          <h2 class="future__headline">The stakes have never been higher</h2>
-          <p class="future__description">The world is changing at a rapid pace, but education is stuck in the past. The gap between what students learn and the skills they need continues to widen.</p>
+    <!-- Intro -->
+    <?php if (have_rows('intro')) : while (have_rows('intro')) : the_row(); ?>
+    <section class="intro wrapper-layout">
+      <div class="intro__inner">
+        <div class="intro__content">
+          <?php echo (get_sub_field('headline')) ? '<h2 class="intro__headline">' . get_sub_field('headline') . '</h2>' : ''; ?>
+          <?php echo (get_sub_field('description')) ? '<div class="intro__description">' . get_sub_field('description') . '</div>' : ''; ?>
         </div>
       </div>
 
-      <div class="future__stats" data-animate-group data-animate-stagger data-animate-delay="0.5">
-        <div class="future__stat" data-animate>
-          <div class="future__stat-illo">
-            <img src="<?php echo get_theme_file_uri('public/illo-book.png'); ?>" alt="" />
+      <?php if (have_rows('stats')) : ?>
+      <div class="intro__stats" data-animate-group data-animate-stagger data-animate-delay="0.5">
+        <?php while (have_rows('stats')) : the_row(); ?>
+        <div class="intro__stat" data-animate>
+          <div class="intro__stat-illo">
+            <img src="<?php echo get_sub_field('icon')['url']; ?>" alt="<?php echo get_sub_field('icon')['alt']; ?>" />
           </div>
-          <h4 class="future__stat-text">2 out of 3 students in the US can't read or do math at grade level*</h4>
-          <p class="future__stat-footnote">*Source: <a href="https://www.nationsreportcard.gov">National Assessment of Educational Progress (NAEP)</a></p>
+          <h4 class="intro__stat-text"><?php echo get_sub_field('text'); ?></h4>
+          <p class="intro__stat-footnote">Source: <a class="link" href="<?php echo get_sub_field('source')['source_url']; ?>"><?php echo get_sub_field('source')['source_text']; ?></a></p>
         </div>
-
-        <div class="future__stat" data-animate>
-          <div class="future__stat-illo">
-            <img src="<?php echo get_theme_file_uri('public/illo-pages.png'); ?>" alt="" />
-          </div>
-          <h4 class="future__stat-text">They’ll Earn, Spend, and Borrow — But Will They Understand It?</h4>
-          <p class="future__stat-footnote">*Source: <a href="https://gflec.org/initiatives/personal-finance-index/">Global Financial Literacy Center Personal Finance Index</a></p>
-        </div>
-
-        <div class="future__stat" data-animate>
-          <div class="future__stat-illo">
-            <img src="<?php echo get_theme_file_uri('public/illo-faces.png'); ?>" alt="" />
-          </div>
-          <h4 class="future__stat-text">The world has changed, but what we teach hasn’t. Kids need to learn critical thinking, collaboration, and digital skills – not just facts.</h4>
-          <p class="future__stat-footnote">*Source: <a href="https://www3.weforum.org/docs/WEF_Defining_Education_4.0_2023.pdf">World Economic Forum: Defining Education 4.0 - A Taxonomy for the Future of Learning</a></p>
-        </div>
+        <?php endwhile; ?>
       </div>
-
+      <?php endif; ?>
     </section>
+    <?php endwhile; endif; ?>
 
-		<section class="links wrapper">
-			<div class="links__inner">
-				<div class="links-list">
+    <!-- Videos -->
+    <?php if (have_rows('videos')) : while (have_rows('videos')) : the_row(); ?>
+		<section class="videos wrapper">
+			<div class="videos__inner">
+        <?php if (have_rows('videos_list')) : ?>
+				<div class="videos-list">
 					<ul>
-            <li class="active" data-video="<?php echo home_url(); ?>/wp-content/uploads/2025/06/personalized-learning-720.mp4"><span>Personalized Learning</span></li>
-            <li data-video="<?php echo home_url(); ?>/wp-content/uploads/2025/06/mastery-based-learning-720.mp4"><span>Academic Mastery</span></li>
-            <li data-video="<?php echo home_url(); ?>/wp-content/uploads/2025/06/life-skills-720.mp4"><span>Future-ready Life Skills</span></li>
-            <li data-video="<?php echo home_url(); ?>/wp-content/uploads/2025/06/empowering-parents-720.mp4"><span>Empowering Parents</span></li>
-            <li data-video="<?php echo home_url(); ?>/wp-content/uploads/2025/06/supporting-teachers-720.mp4"><span>Supporting Teachers</span></li>
+            <?php while (have_rows('videos_list')) : the_row(); ?>
+            <li class="active" data-video="<?php echo get_sub_field('video')['url']; ?>"><span><?php echo get_sub_field('label'); ?></span></li>
+            <?php endwhile; ?>
           </ul>
 				</div>
-
+        <?php endif; ?>
 				<div class="video-wrapper" data-animate data-animate-position="50%">
           <div class="video-container">
-            <video id="mainVideo" src="<?php echo home_url(); ?>/wp-content/uploads/2025/06/personalized-learning-720.mp4" autoplay loop muted playsinline></video>
+            <video id="mainVideo" src="<?php echo get_sub_field('videos_list')[0]['video']['url']; ?>" autoplay loop muted playsinline></video>
             <button class="mute-button">
               <i class="mute"></i>
               <span class="screen-reader-text">Mute</span>
@@ -123,72 +100,88 @@ get_header();
         </div>
 			</div>
 		</section>
+    <?php endwhile; endif; ?>
 
+    <!-- CTA -->
+    <?php if (have_rows('call_to_action')) : while (have_rows('call_to_action')) : the_row(); ?>
     <section class="cta wrapper-layout">
       <div class="cta__container parallax-container">
-        <img class="cta__image parallax-image" src="<?php echo get_theme_file_uri('public/cta-bg.jpg'); ?>" alt="" />
+        <img class="cta__image parallax-image" src="<?php echo get_sub_field('background_image')['url']; ?>" alt="<?php echo get_sub_field('background_image')['alt']; ?>" />
       </div>
       <div class="cta__inner">
         <div class="cta__content-left">
-          <h2 class="cta__headline">Transforming Education Together</h2>
+          <?php echo (get_sub_field('headline')) ? '<h2 class="cta__headline">' . get_sub_field('headline') . '</h2>' : ''; ?>
           <div class="cta__button" data-animate>
-            <a data-magnetic href="<?php echo home_url('/join-the-movement'); ?>" class="button button--large">Access Free Resources</a>
+            <?php if (get_sub_field('button')) : ?>
+              <a data-magnetic href="<?php echo get_sub_field('button')['url']; ?>" class="button button--large"><?php echo get_sub_field('button')['title']; ?></a>
+            <?php endif; ?>
           </div>
         </div>
         <div class="cta__content-right">
           <div class="cta__description content-block">
-            <p>Real change happens when parents, educators, and communities unite around forging a path for the future. Whether you're supporting learning at home, innovating in the classroom, or advocating in your community, you have the power to reimagine education.</p>
-            <p class="large">Get practical resources, connect with like-minded parents and advocates, and join a growing movement that's creating lasting change for America's students.</p>
+            <?php echo (get_sub_field('description')) ? '<div class="cta__description-inner">' . get_sub_field('description') . '</div>' : ''; ?>
           </div>
         </div>
       </div>
     </section>
+    <?php endwhile; endif; ?>
 
-    <?php $events = [
-      [
-        'title' => 'Event Number One',
-        'date' => 'April 15',
-        'img' => get_theme_file_uri('public/event-1.jpg'),
-      ],
-      [
-        'title' => 'Event Number Two',
-        'date' => 'April 15',
-        'img' => get_theme_file_uri('public/event-2.jpg'),
-      ],
-      [
-        'title' => 'Event Number Three',
-        'date' => 'April 15',
-        'img' => get_theme_file_uri('public/event-3.jpg'),
-      ],
-      [
-        'title' => 'Event Number Four',
-        'date' => 'April 15',
-        'img' => get_theme_file_uri('public/event-4.jpg'),
-      ],
-      [
-        'title' => 'Event Number Five',
-        'date' => 'April 15',
-        'img' => get_theme_file_uri('public/event-5.jpg'),
-      ]
-    ]; ?>
-
+    <!-- Events -->
     <section class="events wrapper-layout">
+
+      <?php
+        $upcoming_events = eo_get_events(array(
+          'numberposts' => 5,
+          'event_end_after' => 'today',
+          'showpastevents' => true,
+        ));
+        ?>
+
+      <?php $events = [
+        [
+          'title' => 'Event Number One',
+          'date' => 'April 15',
+          'img' => get_theme_file_uri('public/event-1.jpg'),
+        ],
+        [
+          'title' => 'Event Number Two',
+          'date' => 'April 15',
+          'img' => get_theme_file_uri('public/event-2.jpg'),
+        ],
+        [
+          'title' => 'Event Number Three',
+          'date' => 'April 15',
+          'img' => get_theme_file_uri('public/event-3.jpg'),
+        ],
+        [
+          'title' => 'Event Number Four',
+          'date' => 'April 15',
+          'img' => get_theme_file_uri('public/event-4.jpg'),
+        ],
+        [
+          'title' => 'Event Number Five',
+          'date' => 'April 15',
+          'img' => get_theme_file_uri('public/event-5.jpg'),
+        ]
+      ]; ?>
+
       <div class="events__inner">
         <h2 class="events__headline">Upcoming Events</h2>
 
         <div class="events-list" data-animate-group data-animate-stagger data-animate-delay="0.5">
-          <?php foreach ($events as $event) : ?>
-            <a href="#" class="event" data-animate>
+          <?php foreach ($upcoming_events as $event) : ?>
+            <?php // $format = ( eo_is_all_day($event->ID) ? get_option('date_format') : get_option('date_format').' '.get_option('time_format') ); ?>
+            <a href="<?php echo get_the_permalink($event->ID); ?>" class="event" data-animate>
               <div class="event__content">
-                <p class="event__date"><?php echo $event['date']; ?></p>
+                <p class="event__date"><?php echo eo_get_the_start('M d Y', $event->ID,null,$event->occurrence_id); ?></p>
                 <div class="event__title-container">
-                  <h3 class="event__title"><?php echo $event['title']; ?></h3>
+                  <h3 class="event__title"><?php echo get_the_title($event->ID); ?></h3>
                   <span class="event__button">Learn more</span>
                 </div>
               </div>
 
               <div class="event__image">
-                <img src="<?php echo $event['img']; ?>" alt="<?php echo $event['title']; ?>">
+                <img src="<?php echo get_the_post_thumbnail_url($event->ID); ?>" alt="<?php echo get_the_title($event->ID); ?>">
               </div>
             </a>
           <?php endforeach; ?>
@@ -206,6 +199,8 @@ get_header();
 		<?php endwhile; ?>
 	</main><!-- #main -->
 
+  <!-- Comments Feature -->
+  <?php if (have_rows('comments')) : ?>
   <div class="comments-feature">
     <button class="comments-feature-close">
       <span class="screen-reader-text">Hide</span>
@@ -456,19 +451,22 @@ get_header();
             "name" => "Cheri | Homeschooling & Raising Kids"
           ],
         ];
-        foreach ($comments as $comment): ?>
+        ?>
+
+        <?php while (have_rows('comments')) : the_row(); ?>
           <div class="swiper-slide">
-            <img src="<?php echo $comment['thumbnail']; ?>" alt="" />
+            <img src="<?php echo get_sub_field('photo')['url']; ?>" alt="<?php echo get_sub_field('photo')['alt']; ?>" />
             <div class="future__comment-content">
-              <p><?php echo $comment['text']; ?></p>
+              <?php echo get_sub_field('comment'); ?>
               <!-- <div class="future__comment-footer">
                 <span class="future__comment-name"><?php echo $comment['name']; ?></span> • <a href="https://instagram.com/<?php echo '@' . $comment['handle']; ?>" target="_blank" class="future__comment-handle"><?php echo '@' . $comment['handle']; ?></a>
               </div> -->
             </div>
           </div>
-        <?php endforeach; ?>
+        <?php endwhile; ?>
       </div>
     </div>
   </div>
+  <?php endif; ?>
 <?php
 get_footer();

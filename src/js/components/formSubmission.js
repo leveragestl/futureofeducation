@@ -4,14 +4,14 @@ export function initEmailTemplateFormSubmissions() {
     form.addEventListener('submit', function(event) {
       event.preventDefault();  // Prevent default form submission
       const formData = new FormData(form);
-      const recipientEmail = formData.get('recipient-email');  // Get recipient's email
-      const prefix = formData.get('legislator-prefix') || formData.get('administrator-prefix') || '';  // Get prefix if exists
-      const firstName = formData.get('legislator-first-name') || formData.get('administrator-first-name') || '';
-      const lastName = formData.get('legislator-last-name') || formData.get('administrator-last-name') || '';
-      const email = formData.get('legislator-email') || formData.get('administrator-email') || '';
-      const phone = formData.get('legislator-phone') || formData.get('administrator-phone') || '';
-      const address = formData.get('legislator-address') || formData.get('administrator-address') || '';
-      const zip = formData.get('legislator-zip') || formData.get('administrator-zip') || '';
+      const recipientEmail = formData.get('form-1-recipient-email') || formData.get('form-2-recipient-email') || '';  // Get recipient's email
+      const prefix = formData.get('form-1-prefix') || formData.get('form-2-prefix') || '';  // Get prefix if exists
+      const firstName = formData.get('form-1-first-name') || formData.get('form-2-first-name') || '';
+      const lastName = formData.get('form-1-last-name') || formData.get('form-2-last-name') || '';
+      const email = formData.get('form-1-email') || formData.get('form-2-email') || '';
+      const phone = formData.get('form-1-phone') || formData.get('form-2-phone') || '';
+      const address = formData.get('form-1-address') || formData.get('form-2-address') || '';
+      const zip = formData.get('form-1-zip') || formData.get('form-2-zip') || '';
       
       // Get the letter content (assuming it's in the same page, e.g., from .forms__letter)
       const letterElement = form.closest('.tab-panel').querySelector('.forms__letter');

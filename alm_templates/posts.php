@@ -15,7 +15,7 @@ if (get_field('type') == 'video') {
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
-    <?php if(get_field('type') == 'video'): ?>
+    <?php if(get_field('type') == 'video' && !get_field('icon')): ?>
       <div class="post-header__icon"><i class="play !bg-white scale-125"></i></div>
     <?php elseif(get_field('icon')): ?>
       <div class="post-header__icon"><img src="<?php echo get_field('icon')['url']; ?>" alt="" /></div>

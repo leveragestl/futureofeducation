@@ -60,7 +60,7 @@ if (document.querySelector('[data-form-type="email-template"]')) {
 }
 
 // Initialize video links if the element exists
-if (document.querySelector('.links-list')) {
+if (document.querySelector('.videos-list')) {
   initVideoLinks();
 }
 
