@@ -31,7 +31,7 @@ get_header();
         <?php endif; ?>
 
         <?php if (get_sub_field('paragraph')) : ?>
-        <div class="hero__paragraph content-block">0
+        <div class="hero__paragraph content-block">
           <div class="hero__paragraph-inner">
             <?php echo (get_sub_field('paragraph')) ? get_sub_field('paragraph') : ''; ?>
           </div>
