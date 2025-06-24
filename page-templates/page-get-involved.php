@@ -143,6 +143,16 @@ get_header();
               </form>
             </div>
           </div>
+          <?php break; ?>
+          <?php endwhile; ?>
+
+          <?php while (have_rows('forms')) : the_row(); ?>
+          <div class="tab-panel" id="tab-<?php echo get_row_index(); ?>">
+            <div class="coming-soon">
+              <h3 class="font-bold text-center text-indigo">Coming Soon</h3>
+            </div>
+          </div>
+          <?php break; ?>
           <?php endwhile; ?>
 
         </div><!-- .forms__tab-content -->
