@@ -258,8 +258,11 @@
     }
   
     &__stat-illo {
-      width: 10rem;
-      height: 10rem;
+      width: 12rem;
+      height: 12rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   
     &__stat-text {
@@ -268,7 +271,7 @@
   }
   
   // ===========================================================================
-  // Links
+  // Videos
   // ===========================================================================
   .videos {
     background-color: white;
