@@ -1202,6 +1202,7 @@
 
       @screen xl {
         grid-template-columns: repeat(3, 1fr);
+        padding-block: 7rem;
       }
     }
 
