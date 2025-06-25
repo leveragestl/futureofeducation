@@ -57,12 +57,14 @@ export function initCommentsSwiper() {
 
   document.addEventListener('scroll', () => {
     const commentsFeature = document.querySelector('.comments-feature');
-    if (commentsFeature) {
-      const rect = commentsFeature.getBoundingClientRect();
+    const videosSection = document.querySelector('.videos');
+    
+    if (commentsFeature && videosSection) {
+      const videosRect = videosSection.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      const triggerPoint = windowHeight - rect.height;
-
-      if (window.scrollY >= triggerPoint * 0.75) {
+      
+      // Trigger when videos section is in view (when its top reaches the bottom of the viewport)
+      if (videosRect.top <= windowHeight / 2) {
         commentsFeature.classList.add('reveal');
       } else {
         commentsFeature.classList.remove('reveal');
