@@ -71,8 +71,8 @@ get_header();
       <div class="blocks__block">
         <div class="blocks__block-video">
           <div class="video-container">
-            <video src="<?php echo home_url() . '/wp-content/uploads/2025/06/empowering-parents-720.mp4'; ?>" poster="" muted loop playsinline></video>
-            <div class="play-button" data-fancybox data-src="<?php echo home_url() . '/wp-content/uploads/2025/06/empowering-parents-720.mp4'; ?>"><button class="button button--ghost">Watch Video</button></div>
+            <video src="<?php echo home_url() . '/wp-content/uploads/2025/06/about-ig-post.mp4'; ?>" poster="" muted loop playsinline></video>
+            <div class="play-button" data-fancybox data-src="<?php echo home_url() . '/wp-content/uploads/2025/06/about-ig-post.mp4'; ?>"><button class="button button--ghost">Watch Video</button></div>
             <button class="mute-button">
               <i class="mute"></i>
               <span class="screen-reader-text">Mute</span>
@@ -90,12 +90,8 @@ get_header();
       <div class="blocks__block">
         <div class="blocks__block-video">
           <div class="video-container">
-            <video src="<?php echo home_url() . '/wp-content/uploads/2025/06/IMG_2216-optimized-720.mp4'; ?>" poster="" muted loop playsinline></video>
-            <div class="play-button" data-fancybox data-src="<?php echo home_url() . '/wp-content/uploads/2025/06/IMG_2216-optimized-720.mp4'; ?>"><button class="button button--ghost">Watch Video</button></div>
-            <button class="mute-button">
-              <i class="mute"></i>
-              <span class="screen-reader-text">Mute</span>
-            </button>
+            <img src="<?php echo home_url() . '/wp-content/uploads/2025/06/about-yt-thumbnail.jpg'; ?>" alt="" />
+            <div class="play-button" data-fancybox data-src="https://www.youtube.com/watch?v=sUSkDVhWfvE"><button class="button button--ghost">Watch Video</button></div>
           </div>
         </div>
         <div class="blocks__block-content">
@@ -356,7 +352,7 @@ get_header();
         <?php if (have_rows('teasers')) : ?>
         <div class="teasers-list" data-animate-group>
           <?php while (have_rows('teasers')) : the_row(); ?>
-            <a href="<?php echo get_sub_field('link')['url']; ?>" class="teaser" data-animate>
+            <a href="<?php echo get_sub_field('link')['url']; ?>" target="<?php echo get_sub_field('link')['target']; ?>" class="teaser" data-animate>
               <!-- <div class="teaser__content">
                 <h3 class="teaser__title"><?php echo get_sub_field('link')['title']; ?></h3>
               </div> -->

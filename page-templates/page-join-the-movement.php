@@ -115,7 +115,7 @@ get_header();
         <?php if (have_rows('teasers')) : ?>
           <div class="teasers-list" data-animate-group>
             <?php while (have_rows('teasers')) : the_row(); ?>
-              <a href="<?php echo get_sub_field('link')['url']; ?>" class="teaser" data-animate>
+              <a href="<?php echo get_sub_field('link')['url']; ?>" target="<?php echo get_sub_field('link')['target']; ?>" class="teaser" data-animate>
                 <!-- <div class="teaser__content">
                   <h3 class="teaser__title"><?php echo get_sub_field('link')['title']; ?></h3>
                 </div> -->
