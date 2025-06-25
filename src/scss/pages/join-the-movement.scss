@@ -262,20 +262,20 @@
 
     .teaser {
       position: relative;
-      background-color: var(--color-sky);
+      // background-color: var(--color-sky);
       border-radius: 1.25rem;
-      padding: 1rem 1rem 2rem;
+      // padding: 1rem 1rem 2rem;
       overflow: hidden;
-      height: 300px;
+      // height: 300px;
       border: 2px solid transparent;
-      background-image: linear-gradient(var(--color-indigo-dark, #172032), var(--color-indigo-dark, #172032)), linear-gradient(to bottom, var(--color-sky), #26509D);
-      background-origin: border-box;
-      background-clip: padding-box, border-box;  
+      // background-image: linear-gradient(var(--color-indigo-dark, #172032), var(--color-indigo-dark, #172032)), linear-gradient(to bottom, var(--color-sky), #26509D);
+      // background-origin: border-box;
+      // background-clip: padding-box, border-box;  
       transition: margin-top 0.3s ease;
 
-      @screen md {
-        height: 350px;
-      }
+      // @screen md {
+      //   height: 350px;
+      // }
 
       &:hover {
         margin-top: -6px;

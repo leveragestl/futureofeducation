@@ -113,19 +113,20 @@ get_header();
         ] ?>
 
         <?php if (have_rows('teasers')) : ?>
-        <div class="teasers-list" data-animate-group>
-          <?php while (have_rows('teasers')) : the_row(); ?>
-            <a href="<?php echo get_sub_field('link')['url']; ?>" class="teaser" data-animate>
-              <div class="teaser__content">
-                <h3 class="teaser__title"><?php echo get_sub_field('link')['title']; ?></h3>
-              </div>
+          <div class="teasers-list" data-animate-group>
+            <?php while (have_rows('teasers')) : the_row(); ?>
+              <a href="<?php echo get_sub_field('link')['url']; ?>" class="teaser" data-animate>
+                <!-- <div class="teaser__content">
+                  <h3 class="teaser__title"><?php echo get_sub_field('link')['title']; ?></h3>
+                </div> -->
 
-              <div class="teaser__image">
-                <img src="<?php echo get_sub_field('background_image')['url']; ?>" alt="<?php echo get_sub_field('background_image')['alt']; ?>">
-              </div>
-            </a>
-          <?php endwhile; ?>
-        </div>
+                <!-- <div class="teaser__image">
+                  <img src="<?php echo get_sub_field('background_image')['url']; ?>" alt="<?php echo get_sub_field('background_image')['alt']; ?>">
+                </div> -->
+                <img src="<?php echo get_sub_field('background_image')['url']; ?>" alt="<?php echo get_sub_field('background_image')['alt']; ?>" />
+              </a>
+            <?php endwhile; ?>
+          </div>
         <?php endif; ?>
       </div>
 

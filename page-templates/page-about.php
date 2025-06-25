@@ -13,6 +13,7 @@ get_header();
 	<main id="primary" class="site-main">
 		<?php while ( have_posts() ) : the_post(); ?>
 
+    <!-- Hero -->
     <?php if (have_rows('hero')) : while (have_rows('hero')) : the_row(); ?>
 		<header class="hero">
 			<div class="hero__container parallax-container">
@@ -36,38 +37,11 @@ get_header();
 		</header>
     <?php endwhile; endif; ?>
 
-    <?php if (have_rows('intro')) : while (have_rows('intro')) : the_row(); ?>
-    <section class="intro wrapper">
-      <div class="intro__container parallax-container">
-        <img src="<?php echo get_sub_field('background_image')['url']; ?>" alt="<?php echo get_sub_field('background_image')['alt']; ?>" class="intro__image parallax-image" />
-      </div>
-      <div class="intro__inner">
-        <?php echo (get_sub_field('headline')) ? '<h2 class="intro__headline">' . get_sub_field('headline') . '</h2>' : ''; ?>
-        <div class="intro__content">
-          <div class="intro__steps" data-animate-group>
-
-            <div class="intro__step" data-animate>
-              <div class="intro__step-description content-block">
-                <?php echo (get_sub_field('description')) ? '<p>' . get_sub_field('description') . '</p>' : ''; ?>
-              </div>
-            </div>
-
-            <?php if (get_sub_field('button')) : ?>
-              <a href="<?php echo get_sub_field('button')['url']; ?>" class="intro__step" data-animate>
-                <h4 class="intro__step-headline"><?php echo get_sub_field('button')['title']; ?></h4>
-              </a>
-            <?php endif; ?>
-
-          </div>
-        </div>
-      </div>
-    </section>
-    <?php endwhile; endif; ?>
-
+    <!-- Letter -->
     <?php if (have_rows('letter')) : while (have_rows('letter')) : the_row(); ?>
-    <section class="letter wrapper">
+    <section class="letter">
 
-			<div class="letter__container">
+			<div class="letter__container wrapper-wide">
         <div class="letter__content">
           <?php echo (get_sub_field('headline')) ? '<h3 class="letter__headline">' . get_sub_field('headline') . '</h3>' : ''; ?>
           <div class="letter__content-inner">
@@ -81,7 +55,7 @@ get_header();
               <?php endwhile; endif; ?>
             </figure>
             <div class="letter__content-letter content-block">
-              <?php echo (get_sub_field('content')) ? '<p>' . get_sub_field('content') . '</p>' : ''; ?>
+              <?php echo (get_sub_field('content')) ? get_sub_field('content') : ''; ?>
               <?php if (get_sub_field('signature')) : ?>
                 <img data-animate src="<?php echo get_sub_field('signature')['url']; ?>" alt="<?php echo get_sub_field('signature')['alt']; ?>" class="letter__content-signature" />
               <?php endif; ?>
@@ -92,7 +66,124 @@ get_header();
 		</section>
     <?php endwhile; endif; ?>
 
+    <!-- Blocks -->
+    <section class="blocks wrapper-wide">
+      <div class="blocks__block">
+        <div class="blocks__block-video">
+          <div class="video-container">
+            <video src="<?php echo home_url() . '/wp-content/uploads/2025/06/empowering-parents-720.mp4'; ?>" poster="" muted loop playsinline></video>
+            <div class="play-button" data-fancybox data-src="<?php echo home_url() . '/wp-content/uploads/2025/06/empowering-parents-720.mp4'; ?>"><button class="button button--ghost">Watch Video</button></div>
+            <button class="mute-button">
+              <i class="mute"></i>
+              <span class="screen-reader-text">Mute</span>
+            </button>
+          </div>
+        </div>
+        <div class="blocks__block-content">
+          <h3 class="blocks__headline">The world is changing fast — but our classrooms aren’t.</h3>
+          <div class="blocks__paragraph content-block">
+            <p>The old model of memorization and teaching to the test is just not enough. Kids need more meaningful experiences that prepare them to think creatively, solve problems, and grow with confidence in an age defined by rapid change. We believe technology — including AI — should supercharge and personalize learning, not shortcut it. When used well, it helps kids master the basics faster, freeing time for deeper, more human learning: building, exploring, collaborating and solving real problems.</p>
+          </div>
+        </div>
+      </div>
 
+      <div class="blocks__block">
+        <div class="blocks__block-video">
+          <div class="video-container">
+            <video src="<?php echo home_url() . '/wp-content/uploads/2025/06/IMG_2216-optimized-720.mp4'; ?>" poster="" muted loop playsinline></video>
+            <div class="play-button" data-fancybox data-src="<?php echo home_url() . '/wp-content/uploads/2025/06/IMG_2216-optimized-720.mp4'; ?>"><button class="button button--ghost">Watch Video</button></div>
+            <button class="mute-button">
+              <i class="mute"></i>
+              <span class="screen-reader-text">Mute</span>
+            </button>
+          </div>
+        </div>
+        <div class="blocks__block-content">
+          <h3 class="blocks__headline">Kids shouldn’t just use AI — they should create with it.</h3>
+          <div class="blocks__paragraph content-block">
+            <p>When used the right way, AI isn’t a crutch, it’s a superpower.</p>
+            <p>Kids can use it to brainstorm story ideas, design prototypes, test hypotheses, build interactive games, generate music, or map out business plans. These tools spark curiosity, accelerate iteration, and turn vague ideas into tangible projects. They help students move from “I have an idea” to “I made this.”</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="blocks__block">
+        <div class="blocks__block-video">
+          <div class="video-container">
+            <video src="<?php echo home_url() . '/wp-content/uploads/2025/06/empowering-parents-720.mp4'; ?>" poster="" muted loop playsinline></video>
+            <div class="play-button" data-fancybox data-src="<?php echo home_url() . '/wp-content/uploads/2025/06/empowering-parents-720.mp4'; ?>"><button class="button button--ghost">Watch Video</button></div>
+            <button class="mute-button">
+              <i class="mute"></i>
+              <span class="screen-reader-text">Mute</span>
+            </button>
+          </div>
+        </div>
+        <div class="blocks__block-content">
+          <h3 class="blocks__headline">The future will be built by kids who ask better questions — and know how to bring their ideas to life.</h3>
+          <div class="blocks__paragraph content-block">
+            <p>We’re creating a future of education where efficiency fuels imagination, and students learn how to harness AI with purpose, ethics, and skill. Education should evolve — and empower.</p>
+            <p style="margin-bottom: 0;"><strong>We are...</strong></p>
+            <ul>
+              <li>Focused on practical solutions</li>
+              <li>Centered on student needs</li>
+              <li>Building future-ready skills</li>
+              <li>Supercharging student growth</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resources -->
+    <section class="resources wrapper">
+      <div class="resources__container parallax-container">
+        <img src="<?php echo home_url() . '/wp-content/uploads/2025/06/about-resources.jpg'; ?>" alt="" class="resources__image parallax-image" />
+      </div>
+      <div class="resources__inner">
+        <?php echo (get_sub_field('headline')) ? '<h2 class="resources__headline">' . get_sub_field('headline') . '</h2>' : ''; ?>
+        <div class="resources__content">
+          <div class="resources__boxes" data-animate-group>
+
+            <div class="resources__box" data-animate>
+              <h4 class="resources__box-headline">And we’re sharing tools and resources with you - absolutely free!</h4>
+              <h4 class="resources__box-subheadline">Ready to learn more?</h4>
+            </div>
+
+            <a href="" class="resources__box resources__button" data-animate>
+              <h4 class="resources__box-headline">Free At-home Resources</h4>
+              <span class="resources__button-text">Download <i class="caret-right !bg-white !w-4 !h-4"></i></span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bio -->
+    <?php if (have_rows('bio')) : while (have_rows('bio')) : the_row(); ?>
+    <section class="bio wrapper">
+      <div class="bio__inner">
+        <div class="bio__content">
+          <?php echo (get_sub_field('biography')) ? get_sub_field('biography') : ''; ?>
+        </div>
+      </div>
+
+      <div class="bio__image-quote">
+        <div class="bio__image" data-animate data-animate-delay="0.5">
+          <img src="<?php echo get_sub_field('photo')['url']; ?>" alt="<?php echo get_sub_field('photo')['alt']; ?>" />
+        </div>
+
+        <blockquote class="bio__quote" data-animate>
+          <?php echo (get_sub_field('quote')) ? '<p>' . get_sub_field('quote') . '</p>' : ''; ?>
+          <cite>
+            <img src="<?php echo get_sub_field('signature')['url']; ?>" alt="<?php echo get_sub_field('signature')['alt']; ?>" />
+          </cite>
+        </blockquote>
+      </div>
+    </section>
+    <?php endwhile; endif; ?>
+
+    <!-- Feature -->
     <?php if (have_rows('feature')) : while (have_rows('feature')) : the_row(); ?>
 		<section class="feature">
 			<div class="feature__inner">
@@ -141,29 +232,7 @@ get_header();
 		</section>
     <?php endwhile; endif; ?>
 
-    <?php if (have_rows('bio')) : while (have_rows('bio')) : the_row(); ?>
-    <section class="bio wrapper">
-      <div class="bio__inner">
-        <div class="bio__content">
-          <?php echo (get_sub_field('biography')) ? get_sub_field('biography') : ''; ?>
-        </div>
-      </div>
-
-      <div class="bio__image-quote">
-        <div class="bio__image" data-animate data-animate-delay="0.5">
-          <img src="<?php echo get_sub_field('photo')['url']; ?>" alt="<?php echo get_sub_field('photo')['alt']; ?>" />
-        </div>
-
-        <blockquote class="bio__quote" data-animate>
-          <?php echo (get_sub_field('quote')) ? '<p>' . get_sub_field('quote') . '</p>' : ''; ?>
-          <cite>
-            <img src="<?php echo get_sub_field('signature')['url']; ?>" alt="<?php echo get_sub_field('signature')['alt']; ?>" />
-          </cite>
-        </blockquote>
-      </div>
-    </section>
-    <?php endwhile; endif; ?>
-
+    <!-- Testimonials -->
     <?php if (have_rows('testimonials')) : ?>
     <section class="testimonials !hidden">
       <?php $testimonials = [
@@ -236,6 +305,7 @@ get_header();
     </section>
     <?php endif; ?>
 
+    <!-- Video -->
     <section class="video !hidden">
       <div class="video__inner">
 
@@ -251,6 +321,7 @@ get_header();
       </div>
     </section>
 
+    <!-- Call to Action -->
     <?php if (have_rows('call_to_action')) : while (have_rows('call_to_action')) : the_row(); ?>
     <section class="cta wrapper">
       <div class="cta__inner">
@@ -286,13 +357,14 @@ get_header();
         <div class="teasers-list" data-animate-group>
           <?php while (have_rows('teasers')) : the_row(); ?>
             <a href="<?php echo get_sub_field('link')['url']; ?>" class="teaser" data-animate>
-              <div class="teaser__content">
+              <!-- <div class="teaser__content">
                 <h3 class="teaser__title"><?php echo get_sub_field('link')['title']; ?></h3>
-              </div>
+              </div> -->
 
-              <div class="teaser__image">
+              <!-- <div class="teaser__image">
                 <img src="<?php echo get_sub_field('background_image')['url']; ?>" alt="<?php echo get_sub_field('background_image')['alt']; ?>">
-              </div>
+              </div> -->
+              <img src="<?php echo get_sub_field('background_image')['url']; ?>" alt="<?php echo get_sub_field('background_image')['alt']; ?>" />
             </a>
           <?php endwhile; ?>
         </div>
