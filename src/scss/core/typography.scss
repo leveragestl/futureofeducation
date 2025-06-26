@@ -63,22 +63,29 @@
 
   &__text {
     grid-area: text;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 1px;
     -webkit-text-fill-color: white;
     filter: drop-shadow(0 0 10px rgba(0, 189, 242, 1));
     animation: glowPulse 4s ease-in-out infinite;
+
+    @screen lg {
+      -webkit-text-stroke-width: 2px;
+    }
   }
 
   &__outline {
     position: relative;
     grid-area: text;
-    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: var(--color-sky);
     -webkit-text-fill-color: transparent;
     z-index: 1;
     filter: drop-shadow(0 0 20px rgba(0, 189, 242, 1));
     animation: glowPulse 4s ease-in-out infinite;
+
+    @screen lg {
+      -webkit-text-stroke-width: 1px;
+    }
   }
 }
 

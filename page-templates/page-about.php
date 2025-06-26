@@ -67,91 +67,87 @@ get_header();
     <?php endwhile; endif; ?>
 
     <!-- Blocks -->
+    <?php if (have_rows('blocks')) : ?>
     <section class="blocks wrapper-wide">
-      <div class="blocks__block" data-animate-group data-animate-stagger>
+      <?php while (have_rows('blocks')) : the_row(); ?>
+      <div class="blocks__block <?php echo (!get_sub_field('include_video')) ? 'blocks__block--centered' : ''; ?>" data-animate-group data-animate-stagger>
+        <?php if (get_sub_field('include_video')) : ?>
         <div class="blocks__block-video">
           <div class="video-container" data-animate>
-            <video src="<?php echo home_url() . '/wp-content/uploads/2025/06/about-ig-post.mp4'; ?>" poster="" muted loop playsinline></video>
-            <div class="play-button" data-fancybox data-src="<?php echo home_url() . '/wp-content/uploads/2025/06/about-ig-post.mp4'; ?>"><button class="button button--ghost">Watch Video</button></div>
+            <?php if (get_sub_field('video_type') === 'file') : ?>
+              <video src="<?php echo get_sub_field('video_file')['url']; ?>" poster="<?php echo get_sub_field('video_thumbnail')['url']; ?>" muted loop playsinline></video>
+              <div class="play-button" data-fancybox data-src="<?php echo get_sub_field('video_file')['url']; ?>"><button class="button button--ghost">Watch Video</button></div>
+            <?php elseif (get_sub_field('video_type') === 'url') : ?>
+              <img src="<?php echo get_sub_field('video_thumbnail')['url']; ?>" alt="<?php echo get_sub_field('video_thumbnail')['alt']; ?>" />
+              <div class="play-button" data-fancybox data-src="<?php echo get_sub_field('video_url'); ?>"><button class="button button--ghost">Watch Video</button></div>
+            <?php endif; ?>
             <button class="mute-button">
               <i class="mute"></i>
               <span class="screen-reader-text">Mute</span>
             </button>
           </div>
         </div>
-        <div class="blocks__block-content">
-          <h3 class="blocks__headline" data-animate>The world is changing fast — but our classrooms aren’t.</h3>
-          <div class="blocks__paragraph content-block" data-animate>
-            <p>The old model of memorization and teaching to the test is just not enough. Kids need more meaningful experiences that prepare them to think creatively, solve problems, and grow with confidence in an age defined by rapid change. We believe technology — including AI — should supercharge and personalize learning, not shortcut it. When used well, it helps kids master the basics faster, freeing time for deeper, more human learning: building, exploring, collaborating and solving real problems.</p>
-          </div>
-        </div>
-      </div>
+        <?php endif; ?>
 
-      <div class="blocks__block" data-animate-group data-animate-stagger>
-        <div class="blocks__block-video">
-          <div class="video-container" data-animate>
-            <img src="<?php echo home_url() . '/wp-content/uploads/2025/06/about-yt-thumbnail.jpg'; ?>" alt="" />
-            <div class="play-button" data-fancybox data-src="https://www.youtube.com/watch?v=sUSkDVhWfvE"><button class="button button--ghost">Watch Video</button></div>
-          </div>
-        </div>
         <div class="blocks__block-content">
-          <h3 class="blocks__headline" data-animate>Kids shouldn’t just use AI — they should create with it.</h3>
+          <?php echo (get_sub_field('headline')) ? '<h3 class="blocks__headline" data-animate>' . get_sub_field('headline') . '</h3>' : ''; ?>
           <div class="blocks__paragraph content-block" data-animate>
-            <p>When used the right way, AI isn’t a crutch, it’s a superpower.</p>
-            <p>Kids can use it to brainstorm story ideas, design prototypes, test hypotheses, build interactive games, generate music, or map out business plans. These tools spark curiosity, accelerate iteration, and turn vague ideas into tangible projects. They help students move from “I have an idea” to “I made this.”</p>
+            <?php echo (get_sub_field('paragraph')) ? get_sub_field('paragraph') : ''; ?>
           </div>
         </div>
       </div>
-
-      <div class="blocks__block blocks__block--centered" data-animate-group data-animate-stagger>
-        <div class="blocks__block-content">
-          <h3 class="blocks__headline" data-animate>The future will be built by kids who ask better questions — and know how to bring their ideas to life.</h3>
-          <div class="blocks__paragraph content-block" data-animate>
-            <p>We’re creating a future of education where efficiency fuels imagination, and students learn how to harness AI with purpose, ethics, and skill. Education should evolve — and empower.</p>
-          </div>
-        </div>
-      </div>
+      <?php endwhile; ?>
     </section>
+    <?php endif; ?>
 
     <!-- Resources -->
+    <?php if (have_rows('resources')) : while (have_rows('resources')) : the_row(); ?>
     <section class="resources wrapper">
       <div class="resources__container parallax-container">
         <img src="<?php echo home_url() . '/wp-content/uploads/2025/06/about-resources.jpg'; ?>" alt="" class="resources__image parallax-image" />
       </div>
       <div class="resources__inner">
-        <?php echo (get_sub_field('headline')) ? '<h2 class="resources__headline">' . get_sub_field('headline') . '</h2>' : ''; ?>
-        <div class="resources__content">
-          <div class="resources__boxes" data-animate-group>
+        <div class="resources__boxes" data-animate-group>
 
-            <div class="resources__box" data-animate>
-              <h4 class="resources__box-headline">And we’re sharing tools and resources with you - absolutely free!</h4>
-              <h4 class="resources__box-subheadline">Ready to learn more?</h4>
-            </div>
-
-            <a href="" class="resources__box resources__button" data-animate>
-              <h4 class="resources__box-headline">Free At-home Resources</h4>
-              <span class="resources__button-text">Download <i class="caret-right !bg-white !w-4 !h-4"></i></span>
-            </a>
-
+          <div class="resources__box" data-animate>
+            <?php echo (get_sub_field('headline')) ? '<h4 class="resources__box-headline">' . get_sub_field('headline') . '</h4>' : ''; ?>
+            <?php echo (get_sub_field('subheadline')) ? '<h4 class="resources__box-subheadline">' . get_sub_field('subheadline') . '</h4>' : ''; ?>
           </div>
 
-          <div class="resources__list">
-            <p style="margin-bottom: 0;"><strong>We are...</strong></p>
-            <ul class="checklist">
-              <li>Focused on practical solutions</li>
-              <li>Centered on student needs</li>
-              <li>Building future-ready skills</li>
-              <li>Supercharging student growth</li>
-            </ul>
+          <?php if (get_sub_field('button')) : ?>
+            <a href="<?php echo get_sub_field('button')['url']; ?>" target="<?php echo get_sub_field('button')['target']; ?>" class="resources__box resources__button" data-animate>
+              <h4 class="resources__box-headline"><?php echo get_sub_field('button_headline'); ?></h4>
+              <span class="resources__button-text"><?php echo get_sub_field('button')['title']; ?> <i class="caret-right !bg-white !w-4 !h-4"></i></span>
+            </a>
+          <?php endif; ?>
         </div>
+
+        <div class="resources__list">
+          <?php echo (get_sub_field('list_headline')) ? '<p style="margin-bottom: 0;"><strong>' . get_sub_field('list_headline') . '</strong></p>' : ''; ?>
+          <?php if (get_sub_field('list')) : ?>
+            <ul class="checklist">
+              <?php 
+              $list_items = explode("\n", get_sub_field('list'));
+              foreach ($list_items as $item) {
+                $item = trim($item);
+                if (!empty($item)) {
+                  echo '<li>' . $item . '</li>';
+                }
+              }
+              ?>
+            </ul>
+          <?php endif; ?>
+        </div>
+        
       </div>
     </section>
+    <?php endwhile; endif; ?>
 
     <!-- Bio -->
     <?php if (have_rows('bio')) : while (have_rows('bio')) : the_row(); ?>
     <section class="bio wrapper">
       <div class="bio__inner">
-        <div class="bio__content">
+        <div class="bio__content content-block">
           <?php echo (get_sub_field('biography')) ? get_sub_field('biography') : ''; ?>
         </div>
       </div>

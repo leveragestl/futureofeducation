@@ -38,7 +38,7 @@ get_header();
 
             <div class="video-container video-autoplays" data-magnetic>
               <video src="<?php echo get_sub_field('video')['url']; ?>" <?php echo (get_sub_field('video')['poster']) ? 'poster="' . get_sub_field('video')['poster'] . '"' : ''; ?> autoplay muted loop playsinline></video>
-              <div data-fancybox data-src="<?php echo get_sub_field('video')['url']; ?>" class="play-button"><button class="button button--ghost"><span class="label">Hear from MacKenzie <i class="play"></span></i></button></div>
+              <div data-fancybox data-src="<?php echo get_sub_field('video')['url']; ?>" class="play-button"><button class="button button--ghost"><span class="label"><span class="label-text">Hear from MacKenzie</span> <i class="play"></span></i></button></div>
               <button class="mute-button">
                 <i class="mute"></i>
                 <span class="screen-reader-text">Mute</span>
@@ -127,7 +127,7 @@ get_header();
     <?php endwhile; endif; ?>
 
     <!-- Events -->
-    <section class="events wrapper-layout">
+    <section class="events wrapper-layout !hidden">
 
       <?php
         $upcoming_events = eo_get_events(array(

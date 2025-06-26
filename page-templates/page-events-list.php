@@ -18,7 +18,7 @@ get_header();
       <div class="hero__inner wrapper-layout">
         <h1 class="hero__title" data-animate><?php the_title(); ?></h1>
 
-        <div class="hero__filters" data-animate-group data-animate-stagger data-animate-delay="0.5">
+        <div class="hero__filters !hidden" data-animate-group data-animate-stagger data-animate-delay="0.5">
           <h2 class="hero__filters-headline" data-animate>Filter</h2>
           <div class="hero__filters-filter" data-animate>
             <select name="filter" id="date">
@@ -31,13 +31,17 @@ get_header();
             </select>
           </div>
         </div>
-        <a href="<?php echo home_url('/events'); ?>" class="hero__view" data-animate data-animate-delay="0.25">View All</a>
+        <a href="<?php echo home_url('/events'); ?>" class="hero__view !hidden" data-animate data-animate-delay="0.25">View All</a>
 
       </div>
       
     </header>
 
-    <section class="feed wrapper-layout">
+    <section class="flex justify-center items-center min-h-[50vh]">
+      <h3 class="text-4xl font-bold text-center">Coming Soon!</h3>
+    </section>
+
+    <section class="feed wrapper-layout !hidden">
 
       <?php
       $upcoming_events = eo_get_events(array(
