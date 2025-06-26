@@ -68,9 +68,9 @@ get_header();
 
     <!-- Blocks -->
     <section class="blocks wrapper-wide">
-      <div class="blocks__block">
+      <div class="blocks__block" data-animate-group data-animate-stagger>
         <div class="blocks__block-video">
-          <div class="video-container">
+          <div class="video-container" data-animate>
             <video src="<?php echo home_url() . '/wp-content/uploads/2025/06/about-ig-post.mp4'; ?>" poster="" muted loop playsinline></video>
             <div class="play-button" data-fancybox data-src="<?php echo home_url() . '/wp-content/uploads/2025/06/about-ig-post.mp4'; ?>"><button class="button button--ghost">Watch Video</button></div>
             <button class="mute-button">
@@ -80,33 +80,33 @@ get_header();
           </div>
         </div>
         <div class="blocks__block-content">
-          <h3 class="blocks__headline">The world is changing fast — but our classrooms aren’t.</h3>
-          <div class="blocks__paragraph content-block">
+          <h3 class="blocks__headline" data-animate>The world is changing fast — but our classrooms aren’t.</h3>
+          <div class="blocks__paragraph content-block" data-animate>
             <p>The old model of memorization and teaching to the test is just not enough. Kids need more meaningful experiences that prepare them to think creatively, solve problems, and grow with confidence in an age defined by rapid change. We believe technology — including AI — should supercharge and personalize learning, not shortcut it. When used well, it helps kids master the basics faster, freeing time for deeper, more human learning: building, exploring, collaborating and solving real problems.</p>
           </div>
         </div>
       </div>
 
-      <div class="blocks__block">
+      <div class="blocks__block" data-animate-group data-animate-stagger>
         <div class="blocks__block-video">
-          <div class="video-container">
+          <div class="video-container" data-animate>
             <img src="<?php echo home_url() . '/wp-content/uploads/2025/06/about-yt-thumbnail.jpg'; ?>" alt="" />
             <div class="play-button" data-fancybox data-src="https://www.youtube.com/watch?v=sUSkDVhWfvE"><button class="button button--ghost">Watch Video</button></div>
           </div>
         </div>
         <div class="blocks__block-content">
-          <h3 class="blocks__headline">Kids shouldn’t just use AI — they should create with it.</h3>
-          <div class="blocks__paragraph content-block">
+          <h3 class="blocks__headline" data-animate>Kids shouldn’t just use AI — they should create with it.</h3>
+          <div class="blocks__paragraph content-block" data-animate>
             <p>When used the right way, AI isn’t a crutch, it’s a superpower.</p>
             <p>Kids can use it to brainstorm story ideas, design prototypes, test hypotheses, build interactive games, generate music, or map out business plans. These tools spark curiosity, accelerate iteration, and turn vague ideas into tangible projects. They help students move from “I have an idea” to “I made this.”</p>
           </div>
         </div>
       </div>
 
-      <div class="blocks__block blocks__block--centered">
+      <div class="blocks__block blocks__block--centered" data-animate-group data-animate-stagger>
         <div class="blocks__block-content">
-          <h3 class="blocks__headline">The future will be built by kids who ask better questions — and know how to bring their ideas to life.</h3>
-          <div class="blocks__paragraph content-block">
+          <h3 class="blocks__headline" data-animate>The future will be built by kids who ask better questions — and know how to bring their ideas to life.</h3>
+          <div class="blocks__paragraph content-block" data-animate>
             <p>We’re creating a future of education where efficiency fuels imagination, and students learn how to harness AI with purpose, ethics, and skill. Education should evolve — and empower.</p>
           </div>
         </div>
@@ -176,7 +176,7 @@ get_header();
 		<section class="feature">
 			<div class="feature__inner">
 
-        <div class="feature__video-container video-container" data-magnetic>
+        <div class="feature__video-container video-container" data-magnetic data-animate>
           <?php if (get_sub_field('video_type') === 'url') : ?>
             <img src="<?php echo get_sub_field('video_thumbnail')['url']; ?>" alt="<?php echo get_sub_field('video_thumbnail')['alt']; ?>" />
             <div data-fancybox data-src="<?php echo get_sub_field('video_url'); ?>" class="feature__video-button play-button"><button class="button button--ghost">Watch Video</button></div>
@@ -190,10 +190,10 @@ get_header();
           <?php echo (get_sub_field('headline')) ? '<h2 class="feature__headline">' . get_sub_field('headline') . '</h2>' : ''; ?>
 
           <?php if (have_rows('logos')) : ?>
-          <div class="feature__logo-grid">
+          <div class="feature__logo-grid" data-animate-group data-animate-stagger>
             <?php while (have_rows('logos')) : the_row(); ?>
               <div class="feature__logo-grid-item">
-                <img src="<?php echo get_sub_field('logo')['url']; ?>" alt="<?php echo get_sub_field('logo')['alt']; ?>" />
+                <img data-animate src="<?php echo get_sub_field('logo')['url']; ?>" alt="<?php echo get_sub_field('logo')['alt']; ?>" />
               </div>
             <?php endwhile; ?>
 
