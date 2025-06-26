@@ -57,7 +57,7 @@ get_header();
             <div class="letter__content-letter content-block">
               <?php echo (get_sub_field('content')) ? get_sub_field('content') : ''; ?>
               <?php if (get_sub_field('signature')) : ?>
-                <img data-animate src="<?php echo get_sub_field('signature')['url']; ?>" alt="<?php echo get_sub_field('signature')['alt']; ?>" class="letter__content-signature" />
+                <img width="350" data-animate src="<?php echo get_sub_field('signature')['url']; ?>" alt="<?php echo get_sub_field('signature')['alt']; ?>" class="letter__content-signature" />
               <?php endif; ?>
             </div>
           </div>
@@ -103,28 +103,11 @@ get_header();
         </div>
       </div>
 
-      <div class="blocks__block">
-        <div class="blocks__block-video">
-          <div class="video-container">
-            <video src="<?php echo home_url() . '/wp-content/uploads/2025/06/empowering-parents-720.mp4'; ?>" poster="" muted loop playsinline></video>
-            <div class="play-button" data-fancybox data-src="<?php echo home_url() . '/wp-content/uploads/2025/06/empowering-parents-720.mp4'; ?>"><button class="button button--ghost">Watch Video</button></div>
-            <button class="mute-button">
-              <i class="mute"></i>
-              <span class="screen-reader-text">Mute</span>
-            </button>
-          </div>
-        </div>
+      <div class="blocks__block blocks__block--centered">
         <div class="blocks__block-content">
           <h3 class="blocks__headline">The future will be built by kids who ask better questions — and know how to bring their ideas to life.</h3>
           <div class="blocks__paragraph content-block">
             <p>We’re creating a future of education where efficiency fuels imagination, and students learn how to harness AI with purpose, ethics, and skill. Education should evolve — and empower.</p>
-            <p style="margin-bottom: 0;"><strong>We are...</strong></p>
-            <ul>
-              <li>Focused on practical solutions</li>
-              <li>Centered on student needs</li>
-              <li>Building future-ready skills</li>
-              <li>Supercharging student growth</li>
-            </ul>
           </div>
         </div>
       </div>
@@ -151,6 +134,15 @@ get_header();
             </a>
 
           </div>
+
+          <div class="resources__list">
+            <p style="margin-bottom: 0;"><strong>We are...</strong></p>
+            <ul class="checklist">
+              <li>Focused on practical solutions</li>
+              <li>Centered on student needs</li>
+              <li>Building future-ready skills</li>
+              <li>Supercharging student growth</li>
+            </ul>
         </div>
       </div>
     </section>

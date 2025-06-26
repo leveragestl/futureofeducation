@@ -195,7 +195,7 @@
       }
 
       @screen lg {
-        aspect-ratio: 460/670;
+        aspect-ratio: 381/463;
       }
 
       @screen xl {
@@ -347,6 +347,24 @@
           }
         }
       }
+
+      &--centered {
+
+        .blocks__headline {
+          max-width: 1280px;
+          margin-inline: auto;
+        }
+
+        .blocks__paragraph {
+          max-width: 960px;
+          margin-inline: auto;
+        }
+
+        @screen xl {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+      }
     }
 
     &__headline {
@@ -410,17 +428,16 @@
   .resources {
     position: relative;
     color: white;
-    padding-block: 2rem;
+    padding-block: 0 2rem;
     overflow: hidden;
 
     @screen md {
-      padding-block: 4rem;
+      padding-block: 0 4rem;
       margin-top: -2rem;
     }
 
     @screen xl {
-      padding-block: 30rem 6rem;
-      margin-top: -15rem;
+      padding-block: 0 8rem;
     }
 
     &__container {
@@ -593,6 +610,71 @@
       &:hover {
         margin-top: -6px;
         background-color: var(--color-sky, #00BDF2);
+      }
+    }
+
+    // List
+    &__list {
+      width: fit-content;
+      margin-inline: auto;
+
+      p {
+        font-size: 1.5rem;
+        color: var(--color-sky);
+
+        @screen md {
+          font-size: 2rem;
+        }
+
+        @screen xl {
+          font-size: 3rem;
+        }
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        line-height: 0;
+      }
+
+      li {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: white;
+        padding-left: 3rem;
+        position: relative;
+        margin-bottom: 0;
+
+        @screen md {
+          font-size: 2rem;
+          padding-left: 4rem;
+        }
+
+        @screen xl {
+          font-size: 3rem;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 0.125em;
+          // top: 50%;
+          // transform: translateY(-50%);
+          width: 28px;
+          height: 27px;
+          scale: 0.75;
+          background-color: var(--color-sky);
+          mask-image: url("data:image/svg+xml,%3Csvg width='36' height='36' viewBox='0 0 36 36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.58203 22.4411L12.9132 31.8206L32.219 4.3291' stroke='%2300BDF2' stroke-width='6.87287' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+          mask-size: contain;
+          mask-repeat: no-repeat;
+          mask-position: center;
+
+          @screen md {
+            width: 55px;
+            height: 53px;
+          }
+        }
       }
     }
   }
