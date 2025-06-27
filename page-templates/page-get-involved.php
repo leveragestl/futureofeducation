@@ -87,7 +87,7 @@ get_header();
                   <li>Measures to ensure all students have access to these educational innovations</li>
                   <li>Funding for evidence-based programs that show measurable results</li>
                 </ul>
-                <p>What is your stance on modernizing education? How will you vote on any upcoming legislation related to these issues? |I look forward to your response and to working together to create an education system that delivers both academic excellence and real-world preparedness.
+                <p>What is your stance on modernizing education? How will you vote on any upcoming legislation related to these issues? I look forward to your response and to working together to create an education system that delivers both academic excellence and real-world preparedness.
                 <p>It's now or never for our children and the future of education.</p>
                 <p>Sincerely,</p>
                 <p>[Name]</p>

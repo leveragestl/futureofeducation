@@ -107,21 +107,6 @@ get_header();
         <img src="<?php echo home_url() . '/wp-content/uploads/2025/06/about-resources.jpg'; ?>" alt="" class="resources__image parallax-image" />
       </div>
       <div class="resources__inner">
-        <div class="resources__boxes" data-animate-group>
-
-          <div class="resources__box" data-animate>
-            <?php echo (get_sub_field('headline')) ? '<h4 class="resources__box-headline">' . get_sub_field('headline') . '</h4>' : ''; ?>
-            <?php echo (get_sub_field('subheadline')) ? '<h4 class="resources__box-subheadline">' . get_sub_field('subheadline') . '</h4>' : ''; ?>
-          </div>
-
-          <?php if (get_sub_field('button')) : ?>
-            <a href="<?php echo get_sub_field('button')['url']; ?>" target="<?php echo get_sub_field('button')['target']; ?>" class="resources__box resources__button" data-animate>
-              <h4 class="resources__box-headline"><?php echo get_sub_field('button_headline'); ?></h4>
-              <span class="resources__button-text"><?php echo get_sub_field('button')['title']; ?> <i class="caret-right !bg-white !w-4 !h-4"></i></span>
-            </a>
-          <?php endif; ?>
-        </div>
-
         <div class="resources__list-container">
           <div class="resources__list">
             <?php echo (get_sub_field('list_headline')) ? '<p style="margin-bottom: 0;"><strong>' . get_sub_field('list_headline') . '</strong></p>' : ''; ?>
@@ -408,6 +393,21 @@ get_header();
             </div>
           </div>
 
+        </div>
+
+        <div class="resources__boxes" data-animate-group>
+
+          <div class="resources__box" data-animate>
+            <?php echo (get_sub_field('headline')) ? '<h4 class="resources__box-headline">' . get_sub_field('headline') . '</h4>' : ''; ?>
+            <?php echo (get_sub_field('subheadline')) ? '<h4 class="resources__box-subheadline">' . get_sub_field('subheadline') . '</h4>' : ''; ?>
+          </div>
+
+          <?php if (get_sub_field('button')) : ?>
+            <a href="<?php echo get_sub_field('button')['url']; ?>" target="<?php echo get_sub_field('button')['target']; ?>" class="resources__box resources__button" data-animate>
+              <h4 class="resources__box-headline"><?php echo get_sub_field('button_headline'); ?></h4>
+              <span class="resources__button-text"><?php echo get_sub_field('button')['title']; ?> <i class="caret-right !bg-white !w-4 !h-4"></i></span>
+            </a>
+          <?php endif; ?>
         </div>
         
       </div>
