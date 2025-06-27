@@ -71,6 +71,18 @@
       }
     }
 
+    @media (max-height: 960px) {
+      &__headline {
+        font-size: 7rem;
+      }
+    }
+
+    @media (max-height: 768px) {
+      &__headline {
+        font-size: 6rem;
+      }
+    }
+
     &__content {
       grid-row: 3 / 4;
     }
