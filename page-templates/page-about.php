@@ -41,11 +41,11 @@ get_header();
     <?php if (have_rows('letter')) : while (have_rows('letter')) : the_row(); ?>
     <section class="letter">
 
-			<div class="letter__container wrapper-wide">
+			<div class="letter__container">
         <div class="letter__content">
           <?php echo (get_sub_field('headline')) ? '<h3 class="letter__headline">' . get_sub_field('headline') . '</h3>' : ''; ?>
           <div class="letter__content-inner">
-            <figure class="letter__content-image" data-animate>
+            <figure class="letter__content-image">
               <img src="<?php echo get_sub_field('photo')['url']; ?>" alt="<?php echo get_sub_field('photo')['alt']; ?>" />
               <?php if (have_rows('quote')) : while (have_rows('quote')) : the_row(); ?>
               <blockquote class="letter__content-quote">
@@ -122,21 +122,292 @@ get_header();
           <?php endif; ?>
         </div>
 
-        <div class="resources__list">
-          <?php echo (get_sub_field('list_headline')) ? '<p style="margin-bottom: 0;"><strong>' . get_sub_field('list_headline') . '</strong></p>' : ''; ?>
-          <?php if (get_sub_field('list')) : ?>
-            <ul class="checklist">
-              <?php 
-              $list_items = explode("\n", get_sub_field('list'));
-              foreach ($list_items as $item) {
-                $item = trim($item);
-                if (!empty($item)) {
-                  echo '<li>' . $item . '</li>';
+        <div class="resources__list-container">
+          <div class="resources__list">
+            <?php echo (get_sub_field('list_headline')) ? '<p style="margin-bottom: 0;"><strong>' . get_sub_field('list_headline') . '</strong></p>' : ''; ?>
+            <?php if (get_sub_field('list')) : ?>
+              <ul class="checklist">
+                <?php
+                $list_items = explode("\n", get_sub_field('list'));
+                foreach ($list_items as $item) {
+                  $item = trim($item);
+                  if (!empty($item)) {
+                    echo '<li>' . $item . '</li>';
+                  }
                 }
-              }
-              ?>
-            </ul>
-          <?php endif; ?>
+                ?>
+              </ul>
+            <?php endif; ?>
+          </div>
+
+          <!-- Comments Feature -->
+          <div class="comments-feature">
+            <button class="comments-feature-close">
+              <span class="screen-reader-text">Hide</span>
+              <span class="close-icon"></span>
+            </button>
+            <div class="swiper-container comments-swiper">
+              <div class="swiper-wrapper">
+                <?php
+                $comments = [
+                  [
+                    "text" => "🫳🎤 thank you for being part of the change for better 🙌",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-1.jpg'),
+                    "handle" => "redbrickschoolhouse",
+                    "name" => "Kaycee De araujo"
+                  ],
+                  [
+                    "text" => "As a student, this is 100% accurate! Our education system needs to be fixed! This has been an ongoing issue for years and nothing will be done to improve it! We need to fix it! 🙌 ",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-2.jpg'),
+                    "handle" => "benmoonjy",
+                    "name" => "Ben"
+                  ],
+                  [
+                    "text" => "I love this! Kids are not all learning skills abc at the same pace. 👏",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-3.jpg'),
+                    "handle" => "littlefenders",
+                    "name" => "Jolène Fender"
+                  ],
+                  [
+                    "text" => "Kids are getting labeled so young and it prevents them from reaching their potential! 💔",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-4.jpg'),
+                    "handle" => "thatcalteacherlife",
+                    "name" => "Stephanie Cavin | Homeschooler"
+                  ],
+                  [
+                    "text" => "Excellent point….every child learns at a different pace and even that can change throughout their life!",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-5.jpg'),
+                    "handle" => "rcb.bauer",
+                    "name" => "Jonnie Bauer"
+                  ],
+                  [
+                    "text" => "Love it❤️",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-6.jpg'),
+                    "handle" => "blessingyape_thedyslexiacoach",
+                    "name" => "Ingyape Blessing"
+                  ],
+                  [
+                    "text" => "This is amazing👏👏👏we need more of this in the world ❤️",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-7.jpg'),
+                    "handle" => "mfatimad91",
+                    "name" => "Fatima Murillo"
+                  ],
+                  [
+                    "text" => "Kids are amazing and can do so much when given the opportunities! Well done👏👏",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-8.jpg'),
+                    "handle" => "tjgrambooks",
+                    "name" => "TJ Gram"
+                  ],
+                  [
+                    "text" => "Moms are the leaders of the future let's go congratulations 🎉🎉🎉",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-9.jpg'),
+                    "handle" => "lolomllr",
+                    "name" => "Lorena Miller"
+                  ],
+                  [
+                    "text" => "I'm a (former) traditionally trained public school teacher and I agree with EVERYTHING you're saying.",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-10.jpg'),
+                    "handle" => "amberjean519",
+                    "name" => "Amber Jean"
+                  ],
+                  [
+                    "text" => "This is so cool! Hands on learning is the best learning 👏",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-11.jpg'),
+                    "handle" => "puresproutmicrogreens",
+                    "name" => "Cardiac Nurse/ Urban Farmer"
+                  ],
+                  [
+                    "text" => "Teachers are SCREAMING this, but no one is listening to us!!!",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-12.jpg'),
+                    "handle" => "Monica_k_71",
+                    "name" => ""
+                  ],
+                  [
+                    "text" => "Keep going 👏 You're changing the national conversation and I'm so here for it 🔥",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-13.jpg'),
+                    "handle" => "elizshores",
+                    "name" => "Elizabeth Shores (Schirmer)"
+                  ],
+                  [
+                    "text" => "Brilliant! So many parents I work with need education alternatives. They're all at breaking point.",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-14.jpg'),
+                    "handle" => "amanda_ashy",
+                    "name" => "Amanda Ashy | Nervous System Support | Family Coach"
+                  ],
+                  [
+                    "text" => "I love this concept. I teach in public school and it is not serving soooo many of the students.",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-15.jpg'),
+                    "handle" => "stephdimercurio",
+                    "name" => "Stephanie DiMercurio"
+                  ],
+                  [
+                    "text" => "I'm constantly inspired by the way you set up your education system",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-16.jpg'),
+                    "handle" => "donalleniii",
+                    "name" => "Don Allen Stevenson III"
+                  ],
+                  [
+                    "text" => "Agreed! The question is- how do we start changing this? It begins with awareness and action- both at home and institutions! Kids deserve better....from all of us!❤️",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-17.jpg'),
+                    "handle" => "thebestbloomproject",
+                    "name" => "The Best Bloom Project"
+                  ],
+                  [
+                    "text" => "I am such a big fan of your work! 🙌❤️ It's absolutely amazing how child-centered it is and how childrens potentials are uncovered in the proccess of learning! I wish and hope that this new way becomes normal and all the children in the world 🌟❤️",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-18.jpg'),
+                    "handle" => "salixuchua",
+                    "name" => "Sali Khuchua"
+                  ],
+                  [
+                    "text" => "You are my confirmation that i am doing a great job thinking outside the box as an educator. Thank you 🙏🏼",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-19.jpg'),
+                    "handle" => "shefadesandbraids",
+                    "name" => "Yari 🪭✨"
+                  ],
+                  [
+                    "text" => "100%!! inspired by your journey time to make change 🔥",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-20.jpg'),
+                    "handle" => "joshyuaco",
+                    "name" => "Josh"
+                  ],
+                  [
+                    "text" => "I love what you're doing for future generations 🙌❤️",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-21.jpg'),
+                    "handle" => "drivenbylyrics",
+                    "name" => "DonnaPhillips"
+                  ],
+                  [
+                    "text" => "You are setting a new USA standard!! Congratulations!!!",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-22.jpg'),
+                    "handle" => "Susan.b.sands",
+                    "name" => ""
+                  ],
+                  [
+                    "text" => "This is where education should be going! Amazing",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-23.jpg'),
+                    "handle" => "thenextelton",
+                    "name" => "Elton Garryelz"
+                  ],
+                  [
+                    "text" => "A real life superhero✨🦸‍♀️luv this!",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-24.jpg'),
+                    "handle" => "momshineco",
+                    "name" => "MomShine"
+                  ],
+                  [
+                    "text" => "Yesss! This is how you do it!! 🔥🔥",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-25.jpg'),
+                    "handle" => "shuteaches",
+                    "name" => "ShuTeaches"
+                  ],
+                  [
+                    "text" => "So true! Love it, yes.. kids need new alternatives and skills to be able to thrive in this new world",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-26.jpg'),
+                    "handle" => "globaltutorsofficial",
+                    "name" => "Global Tutors | Online Tutoring"
+                  ],
+                  [
+                    "text" => "I love your message!! Since I started teaching I have been searching for a better way. I'm VERY interested in your education model. ❤️",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-27.jpg'),
+                    "handle" => "ladyv23",
+                    "name" => "Virginia Murello"
+                  ],
+                  [
+                    "text" => "Public school teacher here—people don't realize this, but more and more teachers are pulling their kids from public school and homeschooling everyday. When the ones that are closest to the education system are pulling their kids out of it, it's time to pay attention. ✌️",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-28.jpg'),
+                    "handle" => "thatcalteacherlife",
+                    "name" => "Stephanie Cavin | Homeschooler"
+                  ],
+                  [
+                    "text" => "We support this and agree!!! Let's go!",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-29.jpg'),
+                    "handle" => "workwiththrive",
+                    "name" => "Thrive International Academy"
+                  ],
+                  [
+                    "text" => "I love your story and your vision, the world needs this. Please branch out to Europe!",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-30.jpg'),
+                    "handle" => "thor.schuitemaker.wichstrom",
+                    "name" => "Thor Schuitemaker-Wichstrøm"
+                  ],
+                  [
+                    "text" => "Have been following along for the last couple months! So excited about what you're doing!!",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-31.jpg'),
+                    "handle" => "_farmer_nicole",
+                    "name" => "Nicole Toebes | RedAg Farm"
+                  ],
+                  [
+                    "text" => "So inspiring!! 👏 excited to watch your journey.",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-32.jpg'),
+                    "handle" => "littleyogisca",
+                    "name" => "Little Yogis Academy® HQ"
+                  ],
+                  [
+                    "text" => "The most important job we have as parents is to unlock these children's potential. ❤️🔥🔥🔥",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-33.jpg'),
+                    "handle" => "msjuliechambers",
+                    "name" => "Julie Chambers"
+                  ],
+                  [
+                    "text" => "Love! All of this!!!!",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-34.jpg'),
+                    "handle" => "thepreoccupiedprincipal",
+                    "name" => "Middle school principal"
+                  ],
+                  [
+                    "text" => "I believe in you and this ⚡️",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-35.jpg'),
+                    "handle" => "kirstencobabe",
+                    "name" => "Kirsten Cobabe"
+                  ],
+                  [
+                    "text" => "We can't expect different results without being innovative. I applaud the dedication",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-36.jpg'),
+                    "handle" => "channelingamilyn",
+                    "name" => "Amilyn Castro"
+                  ],
+                  [
+                    "text" => "This is how education should be!!!!",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-37.jpg'),
+                    "handle" => "hannahmichell75",
+                    "name" => "Hannah Michell"
+                  ],
+                  [
+                    "text" => "Don't depend on the system. Make your OWN systems and create the future you truly want!",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-38.jpg'),
+                    "handle" => "aaronwjacobs",
+                    "name" => "Aaron Jacobs-Teacher Fitness Coach"
+                  ],
+                  [
+                    "text" => "This is such an inspiring approach to education! Love seeing innovative ideas like this in action! ❤️📚",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-39.jpg'),
+                    "handle" => "akomaunitycenter_",
+                    "name" => "Akoma Unity Center"
+                  ],
+                  [
+                    "text" => "I LOVE the light that you are shining on education. As a homeschool mom of 5 kids who pulled her kids from the public school system, I have seen such a positive and drastic change in my kids! I'm determined to show how we homeschool and create a love for learning, so others can see there is more then one way to learn.❤️❤️",
+                    "thumbnail" => home_url('/wp-content/uploads/2025/06/ig-40.jpg'),
+                    "handle" => "raisingaspensandarrows",
+                    "name" => "Cheri | Homeschooling & Raising Kids"
+                  ],
+                ];
+                ?>
+
+                <?php foreach ($comments as $comment) : ?>
+                  <div class="swiper-slide">
+                    <img src="<?php echo $comment['thumbnail']; ?>" alt="<?php echo $comment['name']; ?>" />
+                    <div class="future__comment-content">
+                      <?php echo $comment['text']; ?>
+                      <!-- <div class="future__comment-footer">
+                        <span class="future__comment-name"><?php echo $comment['name']; ?></span> • <a href="https://instagram.com/<?php echo '@' . $comment['handle']; ?>" target="_blank" class="future__comment-handle"><?php echo '@' . $comment['handle']; ?></a>
+                      </div> -->
+                    </div>
+                  </div>
+                <?php endforeach; ?>
+              </div>
+            </div>
+          </div>
+
         </div>
         
       </div>

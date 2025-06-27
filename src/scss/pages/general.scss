@@ -4,8 +4,7 @@
   grid-template-rows: var(--site-header-height) 1fr;
   // height: 75vh;
   width: 100%;
-  height: auto;
-  max-height: 100vh;
+  height: max(100vh, 768px);
 
   &__container {
     position: relative;
