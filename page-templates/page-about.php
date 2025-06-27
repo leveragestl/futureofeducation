@@ -397,7 +397,7 @@ get_header();
                   <div class="swiper-slide">
                     <img src="<?php echo $comment['thumbnail']; ?>" alt="<?php echo $comment['name']; ?>" />
                     <div class="future__comment-content">
-                      <?php echo $comment['text']; ?>
+                      <p><?php echo $comment['text']; ?></p>
                       <!-- <div class="future__comment-footer">
                         <span class="future__comment-name"><?php echo $comment['name']; ?></span> • <a href="https://instagram.com/<?php echo '@' . $comment['handle']; ?>" target="_blank" class="future__comment-handle"><?php echo '@' . $comment['handle']; ?></a>
                       </div> -->
