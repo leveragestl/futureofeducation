@@ -55,7 +55,8 @@ get_header();
         </div>
 
         <div class="intro__form">
-          <form class="form" action="" data-animate>
+          <div class="form join-the-movement-form"><?php echo do_shortcode('[gravityform id="4" title="false"]'); ?></div>
+          <!-- <form class="form" action="" data-animate>
             <fieldset class="form__fieldset">
               <div class="form__field form__field--full">
                 <label for="name">Name</label>
@@ -82,7 +83,7 @@ get_header();
             </fieldset>
 
             <button type="submit" class="button button--gradient">Join</button>
-          </form>
+          </form> -->
         </div>
       </div>
     </section>

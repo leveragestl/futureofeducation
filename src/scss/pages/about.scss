@@ -1496,11 +1496,7 @@
       margin-inline: auto;
 
       @screen md {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      @screen xl {
-        grid-template-columns: 1fr 1.5fr 1fr;
+        grid-template-columns: 1fr auto;
       }
 
       input {

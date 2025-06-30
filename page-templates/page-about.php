@@ -582,11 +582,12 @@ get_header();
       <div class="cta__inner">
         <?php echo (get_sub_field('headline')) ? '<h2 class="cta__headline">' . get_sub_field('headline') . '</h2>' : ''; ?>
         <?php echo (get_sub_field('content')) ? '<div class="cta__content content-block">' . get_sub_field('content') . '</div>' : ''; ?>
-        <form action="" data-animate>
+        <div class="form email-capture-form"><?php echo do_shortcode('[gravityform id="2" title="false"]'); ?></div>
+        <!-- <form action="" data-animate>
           <input type="text" placeholder="First Name" />
           <input type="email" placeholder="Email Address" />
           <div class="button-container"><button type="submit" class="button button--gradient">Sign Me Up</button></div>
-        </form>
+        </form> -->
 
         <div class="cta__subheadline">
           <h3><?php echo (get_sub_field('subheadline')) ? get_sub_field('subheadline') : ''; ?></h3>

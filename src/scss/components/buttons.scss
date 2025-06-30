@@ -9,12 +9,12 @@ button {
   text-decoration: none;
 }
 
-.button {
+button.button, .button {
   position: relative;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-indigo-bright, #313185);
+  background-color: var(--color-indigo-bright);
   color: white;
   overflow: hidden;
   font-size: 1.25rem;
@@ -25,7 +25,7 @@ button {
   transition: background-color 0.3s ease;
   
   &:hover, &:focus {
-    background-color: var(--color-sky, #00BDF2);
+    background-color: var(--color-sky);
   }
 
   span {

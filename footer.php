@@ -99,10 +99,13 @@
           <div class="siteFooter__mailing-list-inner">
             <h3 class="siteFooter__mailing-list-title">Join Our Mailing List</h3>
             <p class="siteFooter__mailing-list-description">Be the first to know about exclusive events, news and updates!</p>
-            <form action="#" class="siteFooter__mailing-list-form">
+            <div class="form newsletter-form">
+              <?php echo do_shortcode('[gravityform id="1" title="false"]'); ?>
+            </div>
+            <!-- <form action="#" class="siteFooter__mailing-list-form">
               <input type="email" placeholder="Email Address" />
               <button class="siteFooter__mailing-list-button button button--gradient" type="submit">Submit</button>
-            </form>
+            </form> -->
           </div>
         </div>
       </div>

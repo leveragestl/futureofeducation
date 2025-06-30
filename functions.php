@@ -30,3 +30,13 @@ register_nav_menus(
 		'nav-footer' 	=> esc_html__( 'Footer Nav', 'future2025' ),
 	)
 );
+
+// =============================================================================
+// Gravity Forms - filters the next, previous and submit buttons.
+// Replaces the form's <input> buttons with <button> while maintaining attributes from original <input>.
+// =============================================================================
+add_filter( 'gform_submit_button', 'replace_submit_input', 10, 2 );
+function replace_submit_input( $button, $form ) {
+  $button_text = $form['button']['text'] ? $form['button']['text'] : 'Submit';
+  return "<button class='button button--gradient' id='gform_submit_button_{$form['id']}' type='submit'><span class='label'>{$button_text}</span></button>";
+}

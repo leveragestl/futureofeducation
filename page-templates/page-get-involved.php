@@ -92,7 +92,8 @@ get_header();
                 <p>Sincerely,</p>
                 <p>[Name]</p>
               </div>
-              <form class="form" data-form-type="email-template">
+              <div class="form get-involved-form"><?php echo do_shortcode('[gravityform id="3" title="false"]'); ?></div>
+              <!-- <form class="form" data-form-type="email-template">
 
                 <fieldset class="form__fieldset">
                   <div class="form__field form__field--short">
@@ -140,7 +141,7 @@ get_header();
                   </div>
                 </fieldset>
                 <button type="submit" class="button button--gradient">Send</button>
-              </form>
+              </form> -->
             </div>
           </div>
           <?php break; ?>

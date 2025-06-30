@@ -1,4 +1,5 @@
 @use '../partials/variables.scss' as *;
+@use '../components/buttons.scss' as *;
 
 .form {
   --field-border: 2px solid var(--color-sky);
@@ -95,5 +96,285 @@
     max-width: 300px;
     margin: 3rem auto 0;
     padding: 1rem 2rem;
+  }
+
+  .gform_wrapper.gform-theme.gform_wrapper.gform-theme {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="number"],
+    input[type="date"],
+    input[type="time"],
+    input[type="datetime-local"],
+    input[type="month"],
+    input[type="week"],
+    input[type="file"],
+    input[type="color"],
+    input[type="range"],
+    input[type="checkbox"],
+    input[type="radio"],
+    input[type="submit"],
+    input[type="reset"],
+    input[type="button"],
+    input[type="image"],
+    input[type="hidden"],
+    textarea,
+    select {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      padding: 0 1.25rem;
+      border-radius: 9999px;
+      border-color: var(--color-sky);
+      background-color: transparent;
+      // color: white;
+      font-size: 1.125rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+
+      &::placeholder {
+        // color: white;
+        opacity: 0.5;
+      }
+
+      &:focus {
+        outline: none;
+        // border-color: var(--color-sky);
+        box-shadow: 0 0 0 4px rgba(0, 189, 242, 0.1);
+      }
+    }
+
+    select {
+      padding: 0 1.5rem;
+    }
+
+    // Special handling for specific input types
+    // input[type="file"] {
+    //   padding: 0.5rem;
+    //   cursor: pointer;
+      
+    //   &::-webkit-file-upload-button {
+    //     background-color: var(--color-sky);
+    //     color: white;
+    //     border: none;
+    //     padding: 0.5rem 1rem;
+    //     border-radius: 5px;
+    //     cursor: pointer;
+    //     margin-right: 0.5rem;
+    //   }
+    // }
+
+    // input[type="checkbox"],
+    // input[type="radio"] {
+    //   width: auto;
+    //   margin-right: 0.5rem;
+    //   cursor: pointer;
+    // }
+
+    // input[type="range"] {
+    //   padding: 0;
+    //   background: transparent;
+    //   cursor: pointer;
+      
+    //   &::-webkit-slider-thumb {
+    //     background: var(--color-sky);
+    //     border-radius: 50%;
+    //     width: 20px;
+    //     height: 20px;
+    //     cursor: pointer;
+    //   }
+      
+    //   &::-moz-range-thumb {
+    //     background: var(--color-sky);
+    //     border-radius: 50%;
+    //     width: 20px;
+    //     height: 20px;
+    //     cursor: pointer;
+    //     border: none;
+    //   }
+    // }
+
+    // input[type="color"] {
+    //   padding: 0.25rem;
+    //   width: 60px;
+    //   height: 40px;
+    //   cursor: pointer;
+    // }
+
+    input[type="submit"],
+    input[type="reset"],
+    input[type="button"] {
+      @extend .button;
+      cursor: pointer;
+    }
+
+    // =========================================================================
+    // Gravity Forms
+    // =========================================================================
+    button.button {
+      @extend .button;
+      padding: 0.875rem 1.25rem !important;
+      -webkit-font-smoothing: auto;
+      -moz-osx-font-smoothing: auto;
+
+      &.button--gradient {
+        @extend .button--gradient;
+      }
+    }
+  }
+
+  // ===========================================================================
+  // Newsletter Form (Footer)
+  // ===========================================================================
+  &.newsletter-form {
+    .gform_wrapper.gform-theme.gform_wrapper.gform-theme {
+      input[type="text"],
+      input[type="email"] {
+        color: white;
+
+        &::placeholder {
+          color: white;
+        }
+      }
+
+      button.button {
+        max-width: 130px !important;
+        margin: 0 auto !important;
+      }
+    }
+  }
+
+  // ===========================================================================
+  // Email Capture Form
+  // ===========================================================================
+  &.email-capture-form {
+    .gform_wrapper.gform-theme.gform_wrapper.gform-theme {
+      .gform_footer {
+        margin-block: 0 !important;
+
+        button.button {
+          margin: 0 !important;
+        }
+      }
+    }
+  }
+
+  // ===========================================================================
+  // Get Involved Form
+  // ===========================================================================
+
+  &.get-involved-form {
+    .gform_wrapper.gform-theme.gform_wrapper.gform-theme {
+      input[type="text"],
+      input[type="email"],
+      input[type="password"],
+      input[type="search"],
+      input[type="tel"],
+      input[type="url"],
+      input[type="number"],
+      input[type="date"],
+      input[type="time"],
+      input[type="datetime-local"],
+      input[type="month"],
+      input[type="week"],
+      input[type="file"],
+      input[type="color"],
+      input[type="range"],
+      input[type="checkbox"],
+      input[type="radio"],
+      input[type="submit"],
+      input[type="reset"],
+      input[type="button"],
+      input[type="image"],
+      input[type="hidden"],
+      textarea,
+      select {
+        background-color: white;
+        border-radius: 10px;
+        border-width: 2px;
+      }
+
+      // Select Field
+      #field_3_5 {
+        grid-column: span 2;
+      }
+
+      // Recipient's Email Address Field
+      #field_3_2 {
+        grid-column: span 4;
+      }
+
+      // Email Address Field
+      #field_3_7 {
+        grid-column: span 7;
+      }
+
+      // Phone Number Field
+      #field_3_8 {
+        grid-column: span 5;
+      }
+
+      // Address Field
+      #field_3_10 {
+        grid-column: span 9;
+      }
+
+      // Zip Code Field
+      #field_3_12 {
+        grid-column: span 3;
+      }
+    }
+  }
+
+  // ===========================================================================
+  // Join the Movement Form
+  // ===========================================================================
+
+  &.join-the-movement-form {
+    .gform_fields {
+      row-gap: 3.5rem;
+      column-gap: 2.5rem;
+    }
+
+    .gform_wrapper.gform-theme.gform_wrapper.gform-theme {
+      input[type="text"],
+      input[type="email"],
+      input[type="password"],
+      input[type="search"],
+      input[type="tel"],
+      input[type="url"],
+      input[type="number"],
+      input[type="date"],
+      input[type="time"],
+      input[type="datetime-local"],
+      input[type="month"],
+      input[type="week"],
+      input[type="file"],
+      input[type="color"],
+      input[type="range"],
+      input[type="checkbox"],
+      input[type="radio"],
+      input[type="submit"],
+      input[type="reset"],
+      input[type="button"],
+      input[type="image"],
+      input[type="hidden"],
+      textarea,
+      select {
+        border: 2px solid white;
+        color: white;
+        height: 60px;
+        font-size: 1rem;
+        padding: 0 2rem;
+
+        &::placeholder {
+          color: white;
+          opacity: 1;
+        }
+      }
+    }
   }
 }
