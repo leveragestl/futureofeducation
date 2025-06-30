@@ -92,7 +92,7 @@ get_header();
                 <p>Sincerely,</p>
                 <p>[Name]</p>
               </div>
-              <div class="form get-involved-form"><?php echo do_shortcode('[gravityform id="3" title="false"]'); ?></div>
+              <div class="form get-involved-form"><?php echo do_shortcode('[gravityform id="3" title="false" ajax="true"]'); ?></div>
               <!-- <form class="form" data-form-type="email-template">
 
                 <fieldset class="form__fieldset">

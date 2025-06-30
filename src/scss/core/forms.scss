@@ -98,7 +98,14 @@
     padding: 1rem 2rem;
   }
 
+  // ===========================================================================
+  // Gravity Forms
+  // ===========================================================================
   .gform_wrapper.gform-theme.gform_wrapper.gform-theme {
+    .gform_fields {
+      row-gap: 1rem;
+    }
+
     input[type="text"],
     input[type="email"],
     input[type="password"],
@@ -211,9 +218,6 @@
       cursor: pointer;
     }
 
-    // =========================================================================
-    // Gravity Forms
-    // =========================================================================
     button.button {
       @extend .button;
       padding: 0.875rem 1.25rem !important;
@@ -223,6 +227,20 @@
       &.button--gradient {
         @extend .button--gradient;
       }
+    }
+
+    .gform_footer {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    // Confirmation Message
+    .gform_confirmation_message {
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-indigo-dark);
     }
   }
 
@@ -243,6 +261,13 @@
       button.button {
         max-width: 130px !important;
         margin: 0 auto !important;
+      }
+
+      // Confirmation Message
+      .gform_confirmation_message {
+        margin-top: 3rem;
+        font-size: 1.125rem;
+        color: white;
       }
     }
   }
@@ -297,34 +322,94 @@
         border-width: 2px;
       }
 
-      // Select Field
-      #field_3_5 {
-        grid-column: span 2;
+      @screen sm {
+        .gfield.gfield--width-quarter {
+          grid-column: span 6;
+        }
+
+        .gfield.gfield--width-half {
+          grid-column: span 12;
+        }
+
+        // Select Field
+        #field_3_5 {
+          grid-column: span 3;
+        }
+
+        // First Name Field
+        #field_3_13 {
+          grid-column: span 4;
+        }
+
+        // Last Name Field
+        #field_3_14 {
+          grid-column: span 5;
+        }
+  
+        // Recipient's Email Address Field
+        #field_3_2 {
+          grid-column: span 12;
+        }
+
+        // Email Address Field
+        #field_3_7 {
+          grid-column: span 6;
+        }
+
+        // Phone Number Field
+        #field_3_8 {
+          grid-column: span 6;
+        }
       }
 
-      // Recipient's Email Address Field
-      #field_3_2 {
-        grid-column: span 4;
-      }
+      @screen xl {
+        .gfield.gfield--width-quarter {
+          grid-column: span 3;
+        }
 
-      // Email Address Field
-      #field_3_7 {
-        grid-column: span 7;
-      }
+        .gfield.gfield--width-half {
+          grid-column: span 6;
+        }
 
-      // Phone Number Field
-      #field_3_8 {
-        grid-column: span 5;
-      }
+        // Select Field
+        #field_3_5 {
+          grid-column: span 2;
+        }
 
-      // Address Field
-      #field_3_10 {
-        grid-column: span 9;
-      }
+        // First Name Field
+        #field_3_13 {
+          grid-column: span 3;
+        }
 
-      // Zip Code Field
-      #field_3_12 {
-        grid-column: span 3;
+        // Last Name Field
+        #field_3_14 {
+          grid-column: span 3;
+        }
+  
+        // Recipient's Email Address Field
+        #field_3_2 {
+          grid-column: span 4;
+        }
+  
+        // Email Address Field
+        #field_3_7 {
+          grid-column: span 7;
+        }
+  
+        // Phone Number Field
+        #field_3_8 {
+          grid-column: span 5;
+        }
+  
+        // Address Field
+        #field_3_10 {
+          grid-column: span 9;
+        }
+  
+        // Zip Code Field
+        #field_3_12 {
+          grid-column: span 3;
+        }
       }
     }
   }
@@ -334,9 +419,17 @@
   // ===========================================================================
 
   &.join-the-movement-form {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+
     .gform_fields {
-      row-gap: 3.5rem;
-      column-gap: 2.5rem;
+      text-align: left;
+
+      @screen xl {
+        row-gap: 3.5rem;
+        column-gap: 2.5rem;
+      }
     }
 
     .gform_wrapper.gform-theme.gform_wrapper.gform-theme {
@@ -375,6 +468,28 @@
           opacity: 1;
         }
       }
+    }
+
+    .gform_validation_errors {
+      ol,
+      ol a,
+      .gform_submission_error,
+      .gform-icon {
+        color: white;
+      }
+    }
+
+    .gform_validation_errors {
+      border: 1px solid white;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .gform-icon.gform-icon--circle-error {
+      border-color: white;
+    }
+
+    .gfield_validation_message {
+      color: white;
     }
   }
 }

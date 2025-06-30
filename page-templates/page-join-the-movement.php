@@ -55,7 +55,7 @@ get_header();
         </div>
 
         <div class="intro__form">
-          <div class="form join-the-movement-form"><?php echo do_shortcode('[gravityform id="4" title="false"]'); ?></div>
+          <div class="form join-the-movement-form"><?php echo do_shortcode('[gravityform id="4" title="false" ajax="true"]'); ?></div>
           <!-- <form class="form" action="" data-animate>
             <fieldset class="form__fieldset">
               <div class="form__field form__field--full">

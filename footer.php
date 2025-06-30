@@ -100,7 +100,7 @@
             <h3 class="siteFooter__mailing-list-title">Join Our Mailing List</h3>
             <p class="siteFooter__mailing-list-description">Be the first to know about exclusive events, news and updates!</p>
             <div class="form newsletter-form">
-              <?php echo do_shortcode('[gravityform id="1" title="false"]'); ?>
+              <?php echo do_shortcode('[gravityform id="1" title="false" ajax="true"]'); ?>
             </div>
             <!-- <form action="#" class="siteFooter__mailing-list-form">
               <input type="email" placeholder="Email Address" />
