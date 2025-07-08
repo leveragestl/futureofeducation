@@ -21,6 +21,7 @@ import { initJoinMovementAnimations } from './components/joinMovementAnimations'
 import { initMagnetic } from './components/magneticEffect';
 import { loadNeoneonFont } from './utils/fontLoader';
 import { linksHandler } from './components/linksHandler';
+import { initTinymce } from './vendors/tinymce';
 
 // Initialize page fade
 // initPageFade();
@@ -112,3 +113,7 @@ if (document.querySelector('.font-neoneon')) {
 
 // Initialize links handler
 linksHandler();
+
+if (document.querySelector('.wysiwyg-field')) {
+  initTinymce();
+}

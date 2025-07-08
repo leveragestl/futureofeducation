@@ -92,7 +92,23 @@ get_header();
                 <p>Sincerely,</p>
                 <p>[Name]</p>
               </div> -->
-              <div class="form get-involved-form"><?php echo do_shortcode('[gravityform id="3" title="false" ajax="true" field_values="event_name=Hello"]'); ?></div>
+              <?php
+                $letter_raw = get_sub_field('letter');
+                // Allow only certain tags
+                $allowed_tags = '<p><b><strong><i><em><ul><ol><li>';
+                $letter_clean = strip_tags($letter_raw, $allowed_tags);
+
+                // Convert newlines to spaces (but preserve HTML structure)
+                $letter_clean = preg_replace('/\r\n|\r|\n/', ' ', $letter_clean);
+
+                // Remove excessive whitespace between tags
+                $letter_clean = preg_replace('/>\s+</', '><', $letter_clean);
+                $letter_clean = trim($letter_clean);
+
+                // Encode for use in shortcode parameter (URL encode)
+                $letter = rawurlencode($letter_clean);
+              ?>
+              <div class="form get-involved-form"><?php echo do_shortcode('[gravityform id="3" title="false" ajax="true" field_values="letter='.$letter.'"]'); ?></div>
               <!-- <form class="form" data-form-type="email-template">
 
                 <fieldset class="form__fieldset">
