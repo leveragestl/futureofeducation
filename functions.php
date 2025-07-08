@@ -27,61 +27,6 @@ function lev_enqueue_stylesheets() {
 }
 add_action( 'wp_enqueue_scripts', 'lev_enqueue_stylesheets' );
 
-// Add inline Quill CSS as fallback
-function future2025_add_quill_css() {
-    ?>
-    <style>
-    /* Quill.js Snow Theme CSS */
-    .ql-container.ql-snow {
-        border: 1px solid #ccc;
-        font-size: 14px;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    }
-    .ql-toolbar.ql-snow {
-        border: 1px solid #ccc;
-        box-sizing: border-box;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        padding: 8px;
-    }
-    .ql-toolbar.ql-snow .ql-formats {
-        margin-right: 15px;
-    }
-    .ql-toolbar.ql-snow button {
-        background: none;
-        border: none;
-        cursor: pointer;
-        display: inline-block;
-        float: left;
-        height: 24px;
-        padding: 3px 5px;
-        width: 28px;
-    }
-    .ql-toolbar.ql-snow button:hover {
-        background-color: #f3f3f3;
-    }
-    .ql-toolbar.ql-snow button.ql-active {
-        background-color: #e6e6e6;
-    }
-    .ql-editor {
-        min-height: 150px;
-        line-height: 1.6;
-        padding: 12px 15px;
-    }
-    .ql-editor p {
-        margin: 0 0 1rem 0;
-    }
-    .ql-editor p, .ql-editor li {
-        font-size: 1.125rem;
-    }
-    .ql-editor ul, .ql-editor ol {
-        padding-left: 0.5rem;
-        margin-bottom: 1rem;
-    }
-    </style>
-    <?php
-}
-add_action('wp_head', 'future2025_add_quill_css');
-
 // Add TinyMCE settings for front-end use
 function future2025_tinymce_settings($init) {
     $init['selector'] = '.wysiwyg-field textarea';

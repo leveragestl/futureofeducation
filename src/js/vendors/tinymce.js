@@ -1,11 +1,54 @@
-export function initTinymce() {
-  console.log('initTinymce function called');
-  console.log('Quill available:', typeof Quill !== 'undefined');
+export function initTinymce() {  
+  // Function to sanitize HTML before processing
+  function sanitizeHTML(html) {
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = html;
+    
+    // Remove all script tags and their content
+    const scripts = tempDiv.querySelectorAll('script');
+    scripts.forEach(script => script.remove());
+    
+    // Remove all style tags and their content
+    const styles = tempDiv.querySelectorAll('style');
+    styles.forEach(style => style.remove());
+    
+    // Remove all event handler attributes
+    const allElements = tempDiv.querySelectorAll('*');
+    allElements.forEach(element => {
+      const attributes = element.attributes;
+      for (let i = attributes.length - 1; i >= 0; i--) {
+        const attrName = attributes[i].name.toLowerCase();
+        // Remove event handlers and potentially dangerous attributes
+        if (attrName.startsWith('on') || 
+            attrName === 'javascript:' ||
+            attrName === 'vbscript:' ||
+            attrName === 'data:' ||
+            attrName === 'expression' ||
+            attrName === 'background' ||
+            attrName === 'dynsrc' ||
+            attrName === 'lowsrc') {
+          element.removeAttribute(attributes[i].name);
+        }
+      }
+    });
+    
+    // Remove potentially dangerous tags
+    const dangerousTags = ['iframe', 'object', 'embed', 'applet', 'form', 'input', 'textarea', 'select', 'button'];
+    dangerousTags.forEach(tagName => {
+      const elements = tempDiv.querySelectorAll(tagName);
+      elements.forEach(element => element.remove());
+    });
+    
+    return tempDiv.innerHTML;
+  }
   
   // Function to convert HTML to formatted text with line breaks and bullets
   function htmlToFormattedText(html) {
+    // First sanitize the HTML
+    const sanitizedHTML = sanitizeHTML(html);
+    
     const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = html;
+    tempDiv.innerHTML = sanitizedHTML;
     
     // Convert <p> tags to line breaks
     const paragraphs = tempDiv.querySelectorAll('p');
@@ -40,10 +83,8 @@ export function initTinymce() {
   function initializeQuill() {
     if (typeof Quill !== 'undefined') {
       const textareas = document.querySelectorAll('.wysiwyg-field textarea');
-      console.log('Found textareas:', textareas.length);
       
       textareas.forEach((textarea, index) => {
-        console.log('Processing textarea:', index, textarea);
         
         // Create a container for the Quill editor
         const container = document.createElement('div');
@@ -57,7 +98,7 @@ export function initTinymce() {
         // Hide the original textarea
         textarea.style.display = 'none';
         
-        // Initialize Quill with better styling
+        // Initialize Quill with better styling and security
         const quill = new Quill(container, {
           theme: 'snow',
           modules: {
@@ -65,7 +106,10 @@ export function initTinymce() {
               ['bold', 'italic', 'underline'],
               [{ 'list': 'ordered'}, { 'list': 'bullet' }],
               ['link']
-            ]
+            ],
+            clipboard: {
+              matchVisual: false // Prevents Quill from trying to match visual formatting
+            }
           },
           placeholder: textarea.placeholder || 'Start writing...',
           bounds: container
@@ -80,7 +124,6 @@ export function initTinymce() {
         quill.on('text-change', function() {
           const formattedText = htmlToFormattedText(quill.root.innerHTML);
           textarea.value = formattedText;
-          console.log('Content synced to textarea (formatted text):', textarea.value);
         });
         
         // Also sync on form submission for Gravity Forms
@@ -90,14 +133,12 @@ export function initTinymce() {
           form.addEventListener('submit', function() {
             const formattedText = htmlToFormattedText(quill.root.innerHTML);
             textarea.value = formattedText;
-            console.log('Form submit - content synced (formatted text):', textarea.value);
           });
           
           // Listen for Gravity Forms specific events
           form.addEventListener('gform_post_render', function() {
             const formattedText = htmlToFormattedText(quill.root.innerHTML);
             textarea.value = formattedText;
-            console.log('GF post render - content synced (formatted text):', textarea.value);
           });
           
           // Also sync before any AJAX submission
@@ -106,17 +147,13 @@ export function initTinymce() {
             submitButton.addEventListener('click', function() {
               const formattedText = htmlToFormattedText(quill.root.innerHTML);
               textarea.value = formattedText;
-              console.log('Submit button clicked - content synced (formatted text):', textarea.value);
             });
           }
         }
         
-        console.log('Quill editor initialized for:', textarea.id || textarea.name);
       });
       
-      console.log('Quill version loaded, initialized', textareas.length, 'editors');
     } else {
-      console.log('Quill not loaded, retrying in 500ms...');
       setTimeout(initializeQuill, 500);
     }
   }
