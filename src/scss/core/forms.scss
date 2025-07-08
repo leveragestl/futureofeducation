@@ -322,6 +322,17 @@
         border-width: 2px;
       }
 
+      .gfield.gfield--type-html.gfield--input-type-html {
+        margin-block: 1rem;
+
+        p, ul {
+          font-size: 1.125rem;
+          font-weight: 600;
+          line-height: 1.5;
+          color: var(--color-indigo-dark);
+        }
+      }
+
       // @screen sm {
       //   .gfield.gfield--width-quarter {
       //     grid-column: span 6;

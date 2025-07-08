@@ -68,7 +68,7 @@ get_header();
             </div>
 
             <div class="forms__inner">
-              <div class="forms__letter content-block">
+              <!-- <div class="forms__letter content-block">
                 <p>Dear [Representative's Name],</p>
                 <p>Today I am reaching out to you as a constituent and concerned community member regarding the future of education in our state. It is shocking that only one in three students nationally reads at grade level. If we don't embrace innovative solutions now that can dramatically improve academic outcomes while preparing students for real-world success, we risk losing an entire generation of students to mediocrity.</p>
                 <p>Our current education system is based largely on a century-old model that is outdated and simply isn't delivering the results our children need. Modern technology and innovative teaching approaches give us unprecedented opportunities to transform academic achievement while developing crucial life skills.</p>
@@ -91,8 +91,8 @@ get_header();
                 <p>It's now or never for our children and the future of education.</p>
                 <p>Sincerely,</p>
                 <p>[Name]</p>
-              </div>
-              <div class="form get-involved-form"><?php echo do_shortcode('[gravityform id="3" title="false" ajax="true"]'); ?></div>
+              </div> -->
+              <div class="form get-involved-form"><?php echo do_shortcode('[gravityform id="3" title="false" ajax="true" field_values="event_name=Hello"]'); ?></div>
               <!-- <form class="form" data-form-type="email-template">
 
                 <fieldset class="form__fieldset">
