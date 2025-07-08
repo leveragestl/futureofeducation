@@ -322,93 +322,109 @@
         border-width: 2px;
       }
 
-      @screen sm {
-        .gfield.gfield--width-quarter {
-          grid-column: span 6;
-        }
+      // @screen sm {
+      //   .gfield.gfield--width-quarter {
+      //     grid-column: span 6;
+      //   }
 
-        .gfield.gfield--width-half {
-          grid-column: span 12;
-        }
+      //   .gfield.gfield--width-half {
+      //     grid-column: span 12;
+      //   }
 
-        // Select Field
-        #field_3_5 {
-          grid-column: span 3;
-        }
+      //   // Select Field
+      //   #field_3_5 {
+      //     grid-column: span 3;
+      //   }
 
-        // First Name Field
-        #field_3_13 {
-          grid-column: span 4;
-        }
+      //   // First Name Field
+      //   #field_3_13 {
+      //     grid-column: span 4;
+      //   }
 
-        // Last Name Field
-        #field_3_14 {
-          grid-column: span 5;
-        }
+      //   // Last Name Field
+      //   #field_3_14 {
+      //     grid-column: span 5;
+      //   }
   
-        // Recipient's Email Address Field
-        #field_3_2 {
-          grid-column: span 12;
-        }
+      //   // Recipient's Email Address Field
+      //   #field_3_2 {
+      //     grid-column: span 12;
+      //   }
 
-        // Email Address Field
-        #field_3_7 {
-          grid-column: span 6;
-        }
+      //   // Email Address Field
+      //   #field_3_7 {
+      //     grid-column: span 6;
+      //   }
 
-        // Phone Number Field
-        #field_3_8 {
-          grid-column: span 6;
-        }
-      }
+      //   // Phone Number Field
+      //   #field_3_8 {
+      //     grid-column: span 6;
+      //   }
+      // }
 
-      @screen xl {
-        .gfield.gfield--width-quarter {
-          grid-column: span 3;
-        }
+      // @screen xl {
+      //   .gfield.gfield--width-quarter {
+      //     grid-column: span 3;
+      //   }
 
-        .gfield.gfield--width-half {
-          grid-column: span 6;
-        }
+      //   .gfield.gfield--width-half {
+      //     grid-column: span 6;
+      //   }
 
-        // Select Field
-        #field_3_5 {
-          grid-column: span 2;
-        }
+      //   // Select Field
+      //   #field_3_5 {
+      //     grid-column: span 2;
+      //   }
 
-        // First Name Field
-        #field_3_13 {
-          grid-column: span 3;
-        }
+      //   // First Name Field
+      //   #field_3_13 {
+      //     grid-column: span 3;
+      //   }
 
-        // Last Name Field
-        #field_3_14 {
-          grid-column: span 3;
-        }
+      //   // Last Name Field
+      //   #field_3_14 {
+      //     grid-column: span 3;
+      //   }
   
-        // Recipient's Email Address Field
-        #field_3_2 {
-          grid-column: span 4;
-        }
+      //   // Recipient's Email Address Field
+      //   #field_3_2 {
+      //     grid-column: span 4;
+      //   }
   
-        // Email Address Field
-        #field_3_7 {
-          grid-column: span 7;
-        }
+      //   // Email Address Field
+      //   #field_3_7 {
+      //     grid-column: span 7;
+      //   }
   
-        // Phone Number Field
-        #field_3_8 {
-          grid-column: span 5;
-        }
+      //   // Phone Number Field
+      //   #field_3_8 {
+      //     grid-column: span 5;
+      //   }
   
-        // Address Field
-        #field_3_10 {
-          grid-column: span 9;
-        }
+      //   // Address Field
+      //   #field_3_10 {
+      //     grid-column: span 9;
+      //   }
   
-        // Zip Code Field
-        #field_3_12 {
-          grid-column: span 3;
+      //   // Zip Code Field
+      //   #field_3_12 {
+      //     grid-column: span 3;
+      //   }
+      // }
+
+      @screen md {
+        .ginput_complex.ginput_container.has_street.has_city.has_state.has_zip.ginput_container_address.gform-grid-row {
+          .ginput_left.address_city.ginput_address_city.gform-grid-col {
+            inline-size: 33.33333333333333%;
+          }
+
+          .ginput_right.address_state.ginput_address_state.gform-grid-col {
+            inline-size: 33.33333333333333%;
+          }
+
+          .ginput_left.address_zip.ginput_address_zip.gform-grid-col {
+            inline-size: 33.33333333333333%;
+          }
         }
       }
     }
