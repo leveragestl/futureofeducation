@@ -70,7 +70,7 @@ get_header();
           }
           ?>
       
-          <?php $format = ( eo_is_all_day($event->ID) ? get_option('date_format') : get_option('date_format').' '.get_option('time_format') ); ?>
+          <?php $format = ( eo_is_all_day($event->ID) ? get_option('date_format') : get_option('date_format').' '.get_option('time_format') ) ; ?>
 
           <article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?> data-animate data-animate-delay="0.5">
             <div class="post-header">
@@ -88,7 +88,7 @@ get_header();
                 <div class="post-date">
                   <!-- <div class="post-date__label">Date</div> -->
                   <div class="post-date__value">
-                    <?php echo eo_get_the_start($format, $event->ID,null,$event->occurrence_id); ?>
+                    <?php echo eo_get_the_start($format, $event->ID,null,$event->occurrence_id); ?> <?php echo wp_date('T'); ?>
                   </div>
                 </div>
                 <div class="post-location">
