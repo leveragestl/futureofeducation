@@ -25,21 +25,16 @@ get_header();
     <div class="entry-content wrapper-layout">
       <div class="entry-content__inner">
         <div class="entry-content__body">
-          <?php if(get_field('icon')): ?>
-            <img class="w-16 mb-8 md:w-24 xl:w-32" src="<?php echo get_field('icon')['url']; ?>" alt="" />
-          <?php else: ?>
-            <img class="w-16 mb-8 md:w-24 xl:w-44" src="<?php echo get_theme_file_uri('public/icon-apple.png'); ?>" alt="" />
-          <?php endif; ?>
           <h1 class="entry-title"><?php the_title(); ?></h1>
-          <div class="entry-meta">
-            <?php if(get_field('author')): ?>
-              <span class="entry-meta__author">By: <?php echo get_field('author'); ?></span> &nbsp;&nbsp;|&nbsp;&nbsp; 
-            <?php endif; ?>
-            <span class="entry-meta__date">Date: <?php the_date(); ?></span>
-          </div>
 
           <div class="entry-content__body-inner">
             <?php echo get_field('content'); ?>
+          </div>
+
+          <div class="entry-meta">
+            <span class="entry-meta__date">
+              <?php eo_get_template_part( 'event-meta', 'event-single' ); ?>
+            </span>
           </div>
 
           <div class="social-share">
@@ -50,19 +45,37 @@ get_header();
           </div>
         </div>
 
-        <aside class="entry-content__sidebar">
+        <aside class="entry-content__sidebar !hidden">
           <?php
-          $args = array(
-              'posts_per_page' => 3,
-              'orderby' => 'date',
-              'order' => 'DESC',
-          );
-          $query = new WP_Query( $args );
-          if ( $query->have_posts() ) : 
-            while ( $query->have_posts() ) : $query->the_post(); ?>
-              <?php include(get_template_directory() . '/alm_templates/posts.php'); ?>
-            <?php endwhile; 
-            wp_reset_postdata(); 
+          $upcoming_events = eo_get_events(array(
+            'numberposts' => -1,
+            'event_end_after' => 'today',
+            'showpastevents' => true,
+            'posts__not_in' => array(get_the_ID()),
+          ));
+          if ( $upcoming_events ) : 
+            foreach ( $upcoming_events as $event ) : ?>
+              <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+              <?php if(get_field('type') == 'video' && !get_field('icon')): ?>
+                <div class="post-header__icon"><i class="play !bg-white scale-125"></i></div>
+                <?php elseif(get_field('icon')): ?>
+                  <div class="post-header__icon"><img src="<?php echo get_field('icon')['url']; ?>" alt="" /></div>
+                <?php else: ?>
+                  <div class="post-header__icon"><img src="<?php echo get_theme_file_uri('public/icon-apple.png'); ?>" alt="" /></div>
+                <?php endif; ?>
+                <a href="<?php the_permalink(); ?>" class="post-header">
+                  <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" />
+                  <button class="button button--ghost">Watch Video</button>
+                </a>
+                <div class="post-inner">
+                  <div class="post-content">
+                    <h2 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                    <!-- <div class="post-excerpt content-block"><?php the_excerpt(); ?></div> -->
+                    <a href="<?php the_permalink(); ?>" class="post-link">Learn More</a>
+                  </div>
+                </div>
+              </article>
+            <?php endforeach; 
           endif; 
           ?>
         </aside>

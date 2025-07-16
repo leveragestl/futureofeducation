@@ -37,11 +37,11 @@ get_header();
       
     </header>
 
-    <section class="flex justify-center items-center min-h-[50vh]">
+    <section class="flex justify-center items-center min-h-[50vh] !hidden">
       <h3 class="text-4xl font-bold text-center">Coming Soon!</h3>
     </section>
 
-    <section class="feed wrapper-layout !hidden">
+    <section class="feed wrapper-layout">
 
       <?php
       $upcoming_events = eo_get_events(array(
@@ -57,25 +57,41 @@ get_header();
             <tr>
               <th>Event</th>
               <th>Date</th>
-              <th>Location</th>
+              <!-- <th>Location</th> -->
               <th></th>
             </tr>
           </thead>
           <tbody>
         <?php foreach ($upcoming_events as $event): ?>
+          <?php 
+          if (get_field('type', $event->ID) == 'video') {
+            if (get_field('video_type', $event->ID) == 'url') {
+              $href = get_field('video_url', $event->ID);
+              preg_match('/src="(.+?)"/', $href, $matches);
+              $href = $matches[1];
+            } else {
+              $href = get_field('video_file', $event->ID)['url'];
+            }
+          } elseif (get_field('type', $event->ID) == 'link') {
+            $href = get_field('link', $event->ID);
+          } else {
+            $href = get_the_permalink($event->ID);
+          }
+          ?>
+
           <?php
             $format = ( eo_is_all_day($event->ID) ? get_option('date_format') : get_option('date_format').' '.get_option('time_format') );
             $event_title = get_the_title($event->ID);
-            $event_permalink = get_the_permalink($event->ID);
+            $event_permalink = $href;
             $event_date = eo_get_the_start($format, $event->ID, null, $event->occurrence_id);  // Uncommented for actual date
             $event_location = eo_get_venue($event->ID);  // Uncommented for actual location
           ?>
           <tr>
             <td class="event-name">
-              <h2 class="post-title"><a href="<?php echo $event_permalink; ?>">Event Name Here</a></h2>
+              <h2 class="post-title"><a href="<?php echo $event_permalink; ?>"><?php echo $event_title; ?></a></h2>
             </td>
-            <td class="event-date">Apr 23-28, 2025</td>
-            <td class="event-location">Location Here</td>
+            <td class="event-date"><?php echo $event_date; ?></td>
+            <!-- <td class="event-location"><?php echo $event_location; ?></td> -->
             <td class="event-button"><a href="<?php echo $event_permalink; ?>" class="button button--gradient">Learn More</a></td>
           </tr>
         <?php endforeach; ?>

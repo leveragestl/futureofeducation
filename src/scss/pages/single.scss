@@ -1,6 +1,6 @@
 @use '../partials/variables' as *;
 
-.single-post {
+.single-post, .single-event {
 
   .hero {
     align-items: center;
@@ -134,6 +134,7 @@
       &__title {
         font-weight: 600;
         text-transform: uppercase;
+        margin-bottom: 0;
       }
 
       &__item {
@@ -150,7 +151,7 @@
     }
   }
 
-  .post {
+  .post, .event {
     --post-gap: 1.5rem;
 
     position: relative;
@@ -164,7 +165,7 @@
     background-clip: padding-box, border-box;
     overflow: hidden;
 
-    .post-image {
+    .post-header {
       position: relative;
       width: 100%;
       aspect-ratio: 380 / 216;
@@ -185,23 +186,41 @@
         object-fit: cover;
       }
 
-      &::before {
-        content: '';
+      &__icon {
         position: absolute;
         top: 0;
         left: 0;
-        background-color: var(--color-sky);
         width: 77px;
-        height: 66px;
+        aspect-ratio: 77 / 66;
         display: flex;
         align-items: center;
         justify-content: center;
+        background-color: var(--color-sky);
         box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.55);
-        background-image: url(../../public/icon-wp.svg);
-        background-size: 44px 34px;
-        background-repeat: no-repeat;
-        background-position: center;
+        z-index: 10;
+
+        img {
+          width: 75%;
+        }
       }
+
+      // &::before {
+      //   content: '';
+      //   position: absolute;
+      //   top: 0;
+      //   left: 0;
+      //   background-color: var(--color-sky);
+      //   width: 77px;
+      //   height: 66px;
+      //   display: flex;
+      //   align-items: center;
+      //   justify-content: center;
+      //   box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.55);
+      //   background-image: url(../../public/icon-wp.svg);
+      //   background-size: 44px 34px;
+      //   background-repeat: no-repeat;
+      //   background-position: center;
+      // }
     }
 
     &:nth-child(3n+2) {
@@ -251,6 +270,10 @@
       color: white;
       margin-bottom: 2rem;
       text-transform: uppercase;
+
+      @screen md {
+        font-size: 2rem;
+      }
 
       a {
         transition: color 0.3s ease-in-out;

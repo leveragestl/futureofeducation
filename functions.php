@@ -28,21 +28,21 @@ function lev_enqueue_stylesheets() {
 add_action( 'wp_enqueue_scripts', 'lev_enqueue_stylesheets' );
 
 // Add TinyMCE settings for front-end use
-function future2025_tinymce_settings($init) {
-    $init['selector'] = '.wysiwyg-field textarea';
-    $init['menubar'] = false;
-    $init['toolbar'] = 'bold italic underline | bullist numlist | link';
-    $init['branding'] = false;
-    $init['height'] = 500;
-    $init['skin'] = 'oxide';
-    $init['content_css'] = 'default';
-    $init['plugins'] = 'lists link';
-    $init['relative_urls'] = false;
-    $init['remove_script_host'] = false;
-    $init['convert_urls'] = false;
-    return $init;
-}
-add_filter('tiny_mce_before_init', 'future2025_tinymce_settings');
+// function future2025_tinymce_settings($init) {
+//     $init['selector'] = '.wysiwyg-field textarea';
+//     $init['menubar'] = false;
+//     $init['toolbar'] = 'bold italic underline | bullist numlist | link';
+//     $init['branding'] = false;
+//     $init['height'] = 500;
+//     $init['skin'] = 'oxide';
+//     $init['content_css'] = 'default';
+//     $init['plugins'] = 'lists link';
+//     $init['relative_urls'] = false;
+//     $init['remove_script_host'] = false;
+//     $init['convert_urls'] = false;
+//     return $init;
+// }
+// add_filter('tiny_mce_before_init', 'future2025_tinymce_settings');
 
 // =============================================================================
 // Register Menus

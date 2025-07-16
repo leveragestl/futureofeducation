@@ -37,11 +37,11 @@ get_header();
       
     </header>
 
-    <section class="flex justify-center items-center min-h-[50vh]">
+    <section class="flex justify-center items-center min-h-[50vh] !hidden">
       <h3 class="text-4xl font-bold text-center">Coming Soon!</h3>
     </section>
 
-    <section class="feed wrapper-layout !hidden">
+    <section class="feed wrapper-layout">
 
       <?php
       $upcoming_events = eo_get_events(array(
@@ -53,27 +53,42 @@ get_header();
 
       <?php if($upcoming_events): ?>
         <?php foreach ($upcoming_events as $event): ?>
+
+          <?php 
+          if (get_field('type', $event->ID) == 'video') {
+            if (get_field('video_type', $event->ID) == 'url') {
+              $href = get_field('video_url', $event->ID);
+              preg_match('/src="(.+?)"/', $href, $matches);
+              $href = $matches[1];
+            } else {
+              $href = get_field('video_file', $event->ID)['url'];
+            }
+          } elseif (get_field('type', $event->ID) == 'link') {
+            $href = get_field('link', $event->ID);
+          } else {
+            $href = get_the_permalink($event->ID);
+          }
+          ?>
       
           <?php $format = ( eo_is_all_day($event->ID) ? get_option('date_format') : get_option('date_format').' '.get_option('time_format') ); ?>
 
           <article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?> data-animate data-animate-delay="0.5">
-            <div class="post-image"><img src="<?php echo get_the_post_thumbnail_url($event->ID); ?>" alt="<?php the_title(); ?>" /></div>
+            <div class="post-header">
+              <img src="<?php echo get_the_post_thumbnail_url($event->ID); ?>" alt="<?php the_title(); ?>" />
+            </div>
 
             <div class="post-inner">
               <div class="post-content">
-                <h2 class="post-title"><a href="<?php echo get_the_permalink($event->ID); ?>">
-                <?php echo get_the_title($event->ID); ?>
-                </a></h2>
-                <div class="post-excerpt"><?php echo apply_filters('the_content', get_post_field('post_content', $event->ID)); ?></div>
+                <h2 class="post-title"><a href="<?php echo $href; ?>" <?php echo (get_field('type', $event->ID) == 'link') ? 'target="_blank"' : ''; ?> <?php echo (get_field('type', $event->ID) == 'video') ? 'data-fancybox' : ''; ?>><?php echo get_the_title($event->ID); ?></a></h2>
+                <div class="post-excerpt content-block"><?php echo apply_filters('the_content', get_post_field('post_content', $event->ID)); ?></div>
               </div>
 
               <div class="post-meta">
                 <div class="post-button"><a href="<?php echo get_the_permalink($event->ID); ?>" class="button button--gradient">Learn More</a></div>
                 <div class="post-date">
-                  <div class="post-date__label">Date</div>
+                  <!-- <div class="post-date__label">Date</div> -->
                   <div class="post-date__value">
-                    April 15
-                    <?php // echo eo_get_the_start($format, $event->ID,null,$event->occurrence_id); ?>
+                    <?php echo eo_get_the_start($format, $event->ID,null,$event->occurrence_id); ?>
                   </div>
                 </div>
                 <div class="post-location">
