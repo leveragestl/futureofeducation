@@ -51,11 +51,7 @@
           <i class="instagram"></i>
         </a> -->
         <div class="siteFooter__social-images">
-          <?php foreach ($social_links as $link) : ?>
-            <a href="<?php echo $link['url']; ?>" class="siteFooter__social-link">
-              <img src="<?php echo $link['img']; ?>" alt="" />
-            </a>
-          <?php endforeach; ?>
+          <?php echo do_shortcode('[instagram-feed feed=1]'); ?>
         </div>
       </div>
 

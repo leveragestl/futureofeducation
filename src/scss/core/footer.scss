@@ -57,18 +57,19 @@
   }
 
   &__social-images {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    width: 100%;
+    // display: grid;
+    // grid-template-columns: repeat(3, 1fr);
+    // gap: 1rem;
     padding-inline: 2rem;
 
-    @screen xl {
-      grid-template-columns: repeat(6, 1fr);
+    // @screen xl {
+    //   grid-template-columns: repeat(6, 1fr);
       padding-inline: 8rem;
-    }
+    // }
   }
 
-  &__social-link {
+  #sb_instagram .sbi_photo {
     img {
       width: 100%;
       height: 100%;
