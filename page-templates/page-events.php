@@ -73,9 +73,9 @@ get_header();
           <?php $format = ( eo_is_all_day($event->ID) ? get_option('date_format') : get_option('date_format').' '.get_option('time_format') ) ; ?>
 
           <article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?> data-animate data-animate-delay="0.5">
-            <div class="post-header">
+            <a href="<?php echo $href; ?>" <?php echo (get_field('type', $event->ID) == 'link') ? 'target="_blank"' : ''; ?> <?php echo (get_field('type', $event->ID) == 'video') ? 'data-fancybox' : ''; ?> class="post-header">
               <img src="<?php echo get_the_post_thumbnail_url($event->ID); ?>" alt="<?php the_title(); ?>" />
-            </div>
+            </a>
 
             <div class="post-inner">
               <div class="post-content">
@@ -84,7 +84,6 @@ get_header();
               </div>
 
               <div class="post-meta">
-                <div class="post-button"><a href="<?php echo get_the_permalink($event->ID); ?>" class="button button--gradient">Learn More</a></div>
                 <div class="post-date">
                   <!-- <div class="post-date__label">Date</div> -->
                   <div class="post-date__value">
@@ -98,6 +97,10 @@ get_header();
                     <?php // echo eo_get_venue($event->ID); ?>
                   </div>
                 </div>
+              </div>
+
+              <div class="post-button">
+                <a href="<?php echo $href; ?>" <?php echo (get_field('type', $event->ID) == 'link') ? 'target="_blank"' : ''; ?> <?php echo (get_field('type', $event->ID) == 'video') ? 'data-fancybox' : ''; ?> class="button button--gradient"><?php echo (get_field('button_text', $event->ID)) ? get_field('button_text', $event->ID) : 'Learn More'; ?></a>
               </div>
             </div>
           </article>
