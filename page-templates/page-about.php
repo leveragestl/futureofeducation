@@ -73,7 +73,7 @@ get_header();
       <div class="blocks__block <?php echo (!get_sub_field('include_video')) ? 'blocks__block--centered' : ''; ?>" data-animate-group data-animate-stagger>
         <?php if (get_sub_field('include_video')) : ?>
         <div class="blocks__block-video">
-          <div class="video-container" data-animate>
+          <div class="video-container" data-magnetic data-animate>
             <?php if (get_sub_field('video_type') === 'file') : ?>
               <video src="<?php echo get_sub_field('video_file')['url']; ?>" poster="<?php echo get_sub_field('video_thumbnail')['url']; ?>" muted loop playsinline></video>
               <div class="play-button" data-fancybox data-src="<?php echo get_sub_field('video_file')['url']; ?>"><button class="button button--ghost">Watch Video</button></div>

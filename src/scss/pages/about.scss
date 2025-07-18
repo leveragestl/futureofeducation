@@ -299,7 +299,11 @@
 
     &__content-letter {
       max-width: 80ch;
-      padding: 4rem var(--wrapper-wide-margin);
+      padding: 4rem 5vw;
+
+      @screen 4xl {
+        padding: 4rem 0;
+      }
       
       p {
         font-size: 1.125rem;
