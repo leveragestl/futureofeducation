@@ -402,12 +402,17 @@ get_header();
             <?php echo (get_sub_field('subheadline')) ? '<h4 class="resources__box-subheadline">' . get_sub_field('subheadline') . '</h4>' : ''; ?>
           </div>
 
-          <?php if (get_sub_field('button')) : ?>
-            <a href="<?php echo get_sub_field('button')['url']; ?>" target="<?php echo get_sub_field('button')['target']; ?>" class="resources__box resources__button" data-animate>
-              <h4 class="resources__box-headline"><?php echo get_sub_field('button_headline'); ?></h4>
-              <span class="resources__button-text"><?php echo get_sub_field('button')['title']; ?> <i class="caret-right !bg-white !w-4 !h-4"></i></span>
-            </a>
-          <?php endif; ?>
+          <a href="#resources__popup" data-fancybox class="resources__box resources__button" data-animate>
+            <h4 class="resources__box-headline"><?php echo get_sub_field('button_headline'); ?></h4>
+            <span class="resources__button-text">Request now <i class="caret-right !bg-white !w-4 !h-4"></i></span>
+          </a>
+
+          <div id="resources__popup" class="resources__popup" style="display: none;">
+            <div class="resources__popup-inner">
+              <h4 class="resources__popup-headline">Sign up today to receive our free resources!</h4>
+              <div class="form"><?php echo do_shortcode('[gravityform id="2" title="false" ajax="true"]'); ?></div>
+            </div>
+          </div>
         </div>
         
       </div>

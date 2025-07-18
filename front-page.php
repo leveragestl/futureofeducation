@@ -112,9 +112,14 @@ get_header();
         <div class="cta__content-left">
           <?php echo (get_sub_field('headline')) ? '<h2 class="cta__headline">' . get_sub_field('headline') . '</h2>' : ''; ?>
           <div class="cta__button" data-animate>
-            <?php if (get_sub_field('button')) : ?>
-              <a data-magnetic href="<?php echo get_sub_field('button')['url']; ?>" class="button button--large"><?php echo get_sub_field('button')['title']; ?></a>
-            <?php endif; ?>
+            <a data-magnetic href="#cta__popup" data-fancybox class="button button--large">Access Free Resources</a>
+
+            <div id="cta__popup" class="cta__popup" style="display: none;">
+            <div class="cta__popup-inner">
+              <h4 class="cta__popup-headline">Sign up today to receive our free resources!</h4>
+              <div class="form"><?php echo do_shortcode('[gravityform id="2" title="false" ajax="true"]'); ?></div>
+            </div>
+          </div>
           </div>
         </div>
         <div class="cta__content-right">

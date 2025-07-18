@@ -655,6 +655,23 @@
       }
     }
 
+    &__popup {
+      border-radius: 10px;
+      overflow: clip;
+
+      &-inner {
+        padding: 2rem;
+      }
+
+      &-headline {
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 1;
+        color: var(--color-sky);
+        margin-bottom: 2rem;
+      }
+    }
+
     // List
     &__list-container {
       display: flex;
