@@ -38,7 +38,7 @@ get_header();
             <span class="entry-meta__date">Date: <?php the_date(); ?></span>
           </div>
 
-          <div class="entry-content__body-inner">
+          <div class="entry-content__body-inner content-block">
             <?php echo get_field('content'); ?>
           </div>
 

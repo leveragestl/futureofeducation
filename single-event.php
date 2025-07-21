@@ -27,7 +27,7 @@ get_header();
         <div class="entry-content__body">
           <h1 class="entry-title"><?php the_title(); ?></h1>
 
-          <div class="entry-content__body-inner">
+          <div class="entry-content__body-inner content-block">
             <?php echo get_field('content'); ?>
           </div>
 

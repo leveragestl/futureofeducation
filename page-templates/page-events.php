@@ -100,6 +100,9 @@ get_header();
               </div>
 
               <div class="post-button">
+                <?php if (get_field('button_type', $event->ID) == 'external' && get_field('button_url', $event->ID)) {
+                  $href = get_field('button_url', $event->ID);
+                } ?>
                 <a href="<?php echo $href; ?>" <?php echo (get_field('type', $event->ID) == 'link') ? 'target="_blank"' : ''; ?> <?php echo (get_field('type', $event->ID) == 'video') ? 'data-fancybox' : ''; ?> class="button button--gradient"><?php echo (get_field('button_text', $event->ID)) ? get_field('button_text', $event->ID) : 'Learn More'; ?></a>
               </div>
             </div>
